@@ -23,6 +23,7 @@ body{
 
 #posts DIV.postl{
   display: table-cell;
+  vertical-align: top;
 }
 
 #posts DIV.posta{
