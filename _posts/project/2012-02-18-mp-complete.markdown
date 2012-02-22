@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: .mp-Complete
 image: mp-complete.png
 category: project
