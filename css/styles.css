@@ -26,9 +26,12 @@ body{
 #posts DIV.postl{
   display: table-cell;
   vertical-align: top;
+  text-align: right;
+  width: 80%;
 }
 
 #posts DIV.posta{
+  width: 20%;
   display: table-cell;
 }
 
