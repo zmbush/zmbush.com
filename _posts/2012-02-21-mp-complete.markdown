@@ -1,6 +1,7 @@
 ---
 layout: default
-title: Welcome
+title: .mp-Complete
+image: mp-complete.png
 ---
 Are your songs missing their metadata? 
 
