@@ -4,5 +4,5 @@ title: Welcome
 ---
 Are your songs missing their metadata? 
 
-Try out [.mp-complete](http://mp-complete.zmbush.com/ .mp-Complete!) to fix this problem!
+Try out [.mp-complete](http://mp-complete.zmbush.com/) to fix this problem!
 
