@@ -42,3 +42,31 @@ NAV UL LI A:hover{
 #mainContent{
   clear: both;
 }
+
+UL#posts LI{
+  display: table;
+  padding-top: 11px;
+  width: 100%;
+}
+
+UL#posts LI DIV.posta{
+  display: table-cell;
+  width: 20%;
+}
+
+UL#posts LI DIV.postl{
+  display: table-cell;
+  width: 80%;
+  text-align: right;
+  vertical-align: top;
+}
+
+UL#posts LI A{
+  color: #9999FF;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+UL#posts LI A:hover{
+  text-decoration: underline;
+}
