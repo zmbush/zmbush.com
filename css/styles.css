@@ -20,3 +20,16 @@ body{
   width: 900px;
   margin: 0 auto;
 }
+
+#posts DIV.postl{
+  display: table-cell;
+}
+
+#posts DIV.posta{
+  display: table-cell;
+}
+
+UL#posts LI{
+  display: table:
+  padding-top: 11px;
+}
