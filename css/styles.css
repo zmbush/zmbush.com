@@ -38,6 +38,7 @@ body{
 UL#posts LI{
   display: table;
   padding-top: 11px;
+  width: 100%;
 }
 
 H1{
