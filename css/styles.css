@@ -73,3 +73,12 @@ NAV UL LI A{
   background-size: 100%;
   border-radius: 22px;
 }
+
+#posts LI H2{
+  font-size: 24.8pt;
+}
+
+#posts LI A{
+  text-color: black:
+  text-decoration: none;
+}
