@@ -79,6 +79,6 @@ NAV UL LI A{
 }
 
 #posts LI A{
-  text-color: black:
+  color: black;
   text-decoration: none;
 }
