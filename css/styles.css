@@ -79,6 +79,13 @@ NAV UL LI A{
   border-radius: 22px;
 }
 
+#mainContents{
+  padding: 20px;
+  margin-top: 40px;
+  background: #454;
+  border-radius: 22px;
+}
+
 #posts LI H2{
   font-size: 24.8pt;
 }
