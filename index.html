@@ -3,11 +3,15 @@ layout: home
 title: Zachary Michael Bush
 ---
 <h1>Projects</h1>
-<ul>
+<ul id="posts">
 {% for post in site.categories.project %}
   <li>
-    <img src="images/{{ post.image }}" /><br />
-    <a href="{{ post.url }}">{{ post.title }}</a>
+    <div id="postl">
+      <img src="images/{{ post.image }}" /><br />
+    </div>
+    <div id="postr">
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </div>
   </li>
 {% endfor %}
 </ul>
