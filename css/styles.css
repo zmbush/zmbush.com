@@ -9,3 +9,36 @@ body{
 H1{
   font-size: 50px;
 }
+H2{
+  font-size: 40px;
+}
+H3{
+  font-size: 30px;
+}
+
+NAV UL LI{
+  float: left;
+}
+
+NAV UL LI A{
+  display: block;
+  margin-right: 10px;
+  color: #9999FF;
+  text-decoration: none;
+  font-weight: bold;
+  line-height: 44px;
+  width: 100px;
+  text-align: center;
+}
+
+NAV UL LI A:hover{
+  text-decoration: underline;
+}
+
+#intro{
+  clear: both;
+}
+
+#mainContent{
+  clear: both;
+}
