@@ -37,6 +37,8 @@ NAV UL LI A:hover{
 
 #intro{
   clear: both;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 #mainContent{
@@ -69,4 +71,9 @@ UL#posts LI A{
 
 UL#posts LI A:hover{
   text-decoration: underline;
+}
+
+#classes{
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
