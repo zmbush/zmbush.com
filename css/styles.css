@@ -30,6 +30,45 @@ body{
 }
 
 UL#posts LI{
-  display: table:
+  display: table;
   padding-top: 11px;
+}
+
+H1{
+  font-size: 26.4pt;
+}
+
+NAV{
+  position: absolute;
+  left: 0;
+  width: 100%;
+}
+
+NAV UL{
+  margin: 0 auto;
+  width: 900px;
+  list-style: none;
+}
+
+NAV UL LI{
+  float: left;
+}
+
+NAV UL LI A{
+  display: block;
+  margin-right: 20px;
+  width: 140px;
+  font-size: 14px;
+  line-height: 44px;
+  text-align: center;
+  text-decoration: none;
+  color: #777;
+}
+
+#intro{
+  margin-top: 66px;
+  padding: 44px;
+  background: #454;
+  background-size: 100%;
+  border-radius: 22px;
 }
