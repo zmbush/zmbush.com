@@ -16,4 +16,7 @@ body{
 
   /* Proposed W3C Markup */ 
   background-image: linear-gradient(top, #696969 0%, #000061 100%);
+
+  width: 900px;
+  margin: 0 auto;
 }
