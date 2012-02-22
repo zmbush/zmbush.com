@@ -2,5 +2,7 @@
 layout: default
 title: Welcome
 ---
-__holle__
-_boo_
+Are your songs missing their metadata? 
+
+Try out [.mp-complete](http://mp-complete.zmbush.com/ .mp-Complete!) to fix this problem!
+
