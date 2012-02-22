@@ -17,7 +17,7 @@ Using public APIs such as echonest, musixmatch, and eyeD3. We were able to
 create a system to simply drop music onto the website, upload it, and
 re-download the repaired song. 
 
-This was a project with: {{ site.andre }}.
+This was a project with: {{ site.partners.andre }}.
 
 Check it out at: [mp-complete.zmbush.com](http://mp-complete.zmbush.com/) 
 

@@ -13,4 +13,4 @@ snippet: |
 This project was aiming to create a simulation involving multiple agents all
 working towards collecting enough food. 
 
-It was started for the 2011 Facebook hackathon with my partner {{ site.mary }}.
+It was started for the 2011 Facebook hackathon with my partner {{ site.partners.mary }}.
