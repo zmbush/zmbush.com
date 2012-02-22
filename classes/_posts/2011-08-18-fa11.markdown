@@ -1,0 +1,10 @@
+---
+layout: post
+---
+### Fall 2011
+
+#### CS70: Discrete Mathematics
+
+#### CS61AS: Self Paced CS61A
+
+#### CS47B: Completion of CS61B
