@@ -6,12 +6,17 @@ title: Zachary Michael Bush
 <ul id="posts">
 {% for post in site.categories.project %}
   <li>
-    <div class="posta">
-      <img src="images/{{ post.image }}" /><br />
-    </div>
-    <div class="postl">
-      <a href="{{ post.url }}">{{ post.title }}</a>
-    </div>
+    <a href="{{ post.url }}">
+      <div class="posta">
+        <img src="images/{{ post.image }}" /><br />
+      </div>
+      <div class="postl">
+        <h2>{{ post.title }}</h2>
+        <p>
+          {{ post.snippet }}
+        </p>
+      </div>
+    </a>
   </li>
 {% endfor %}
 </ul>

@@ -2,6 +2,8 @@
 layout: default
 title: .mp-Complete
 image: mp-complete.png
+category: project
+snippet: A project to fix the metadata of music.
 ---
 # .mp-Complete 
 
