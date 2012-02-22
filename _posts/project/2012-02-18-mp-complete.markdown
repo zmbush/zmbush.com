@@ -2,7 +2,6 @@
 layout: default
 title: .mp-Complete
 image: mp-complete.png
-category: project
 ---
 # .mp-Complete 
 
