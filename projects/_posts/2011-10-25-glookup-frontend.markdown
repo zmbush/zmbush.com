@@ -2,7 +2,6 @@
 layout: post
 title: Glookup Frontend
 image: glookup.jpeg
-category: project
 snippet: |
   A tool to query and display the output for glookup, a program to view grades 
   used at UC Berkeley.
