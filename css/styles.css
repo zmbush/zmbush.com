@@ -51,7 +51,6 @@ NAV UL{
   margin: 0 auto;
   width: 900px;
   list-style: none;
-  background-color: #000000;
 }
 
 NAV UL LI{
@@ -67,6 +66,9 @@ NAV UL LI A{
   text-align: center;
   text-decoration: none;
   color: #777;
+  background-color: #000000;
+  margin-top: 6px;
+  border-radius: 10px;
 }
 
 #intro{
