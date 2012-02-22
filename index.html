@@ -2,4 +2,10 @@
 layout: home
 title: Zachary Michael Bush
 ---
-{{ site.posts }}
+<ul>
+{% for post in site.posts %}
+  <li>
+    <a href="{{ post.url }}">{{ page.title }}</a>
+  </li>
+{% endfor %}
+</ul>
