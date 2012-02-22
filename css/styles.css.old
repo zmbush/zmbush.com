@@ -83,6 +83,14 @@ NAV UL LI A{
   border-radius: 22px;
 }
 
+#intro{
+  margin-top: 66px;
+  padding: 44px;
+  background: #454;
+  background-size: 100%;
+  border-radius: 22px;
+}
+
 #mainContent{
   padding: 20px;
   margin-top: 40px;
