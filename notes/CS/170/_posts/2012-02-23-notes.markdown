@@ -49,6 +49,16 @@ Sometimes, all processors may be done early!
 
 Must create for the leader an adj. list of all edges leaving the component.
 
+In order for a node to have its children's adjacency lists
 
+    edge pardo:
+      if v2.p = v1:
+        child = true
+      tnext = next
+      while not tnext.child: 
+        tnext = tnext.tnext
+
+
+      
 
 [boru]: http://en.wikipedia.org/wiki/Bor%C5%AFvka's_algorithm
