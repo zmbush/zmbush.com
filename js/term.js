@@ -63,7 +63,7 @@ function processCommand(cin){
         arg = args.shift().join(';')
       }
       $.ajax({
-        url: 'http://shell-backend.zmbush.com/' + command + '/' + arg
+        url: 'http://shell-backend.zmbush.com/' + command + '/' + arg,
         dataType: "html",
         error: function(){
           displayOutput(cin + ": command not found");
