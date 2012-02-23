@@ -13,23 +13,27 @@ Vertex u:
 
     p (pointer to the other endpoint of the shortest edge out of u) 
     Initially P(u) = u
+    al (Adjacency list)
 
 Edge (u, v):  
 
     Next, l, v1, v2
 
-        #
 
-     (v, u)
+    edge pardo:
+      tnext = next;
+      min = l;
 
-#### Edge pardo:
+      repeat:
+        min = min[tnext.min, min];
+        tnext = tnext.tnext;
+      until:
+        tnext = nil; done = true;
 
-    tnext = next;
-    min = l;
+Sometimes, all processors may be done early!
 
-    repeat:
-      min = min[tnext.min, min];
-      tnext = tnext.tnext;
-    until:
-      tnext = nil;
+    vertex pardo:
+      min = al.min;
+    edge pardo:
+      if v1.min = l and v1.p = v2, tree = true
 
