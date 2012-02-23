@@ -10,8 +10,8 @@ title: CS 170 Lecture 10
 ### Boruvka's Algorithm
 
 Vertex u:     
-   p (pointer to the other endpoint of the shortest edge out of u) 
-   Initially P(u) = u
+    p (pointer to the other endpoint of the shortest edge out of u) 
+    Initially P(u) = u
 
 Edge (u, v):  Next, l
 
