@@ -8,6 +8,7 @@ title: CS 170 Lecture 10
 - - -
 
 ### Boruvka's Algorithm
+[Boruvka's] [boru]
 
 Vertex u:     
 
@@ -43,6 +44,10 @@ Sometimes, all processors may be done early!
 _PARDO_
 
     vertex pardo:
-      repeat
+      repeat:
+        p <- p.p until p.p = p
 
 
+
+
+[boru]: http://en.wikipedia.org/wiki/Bor%C5%AFvka's_algorithm
