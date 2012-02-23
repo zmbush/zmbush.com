@@ -1,7 +1,7 @@
 ---
 ---
 var p = "guest@zmbush.com $ "
-var text = '<br /><br /><br />' + p
+var text = '<br /><br /><br />Type `help` for a list of commands.<br />' + p
 var command = ""
 var cursor = "_"
 var accepting_input = true;
@@ -14,13 +14,14 @@ $(function(){
           text += '<br />';
           accepting_input = false;
           processCommand(command);
+          $('#term').html(text + '...');
           break;
         default:
           command += String.fromCharCode(e.which);
+          $('#term').html(text + command + cursor);
           break;
       }
 
-      $('#term').html(text + command + cursor);
     }
   });
   $(document).keydown(function(e){
