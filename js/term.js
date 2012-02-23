@@ -57,8 +57,13 @@ function processCommand(cin){
       window.location = 'http://www.google.com/';
       break;
     default:
+      args = cin.split(' ');
+      command = args[0];
+      if(args.length > 0){
+        arg = args.shift().join(';')
+      }
       $.ajax({
-        url: 'output/' + cin,
+        url: 'http://shell-backend.zmbush.com/' + command + '/' + arg
         dataType: "html",
         error: function(){
           displayOutput(cin + ": command not found");
