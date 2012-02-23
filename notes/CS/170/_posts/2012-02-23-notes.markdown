@@ -40,7 +40,7 @@ Sometimes, all processors may be done early!
 - - -
 # Midterm information on piazza
 - - -
-__PARDO__
+_PARDO_
 
     vertex pardo:
       repeat
