@@ -58,6 +58,8 @@ In order for a node to have its children's adjacency lists
       while not tnext.child: 
         tnext = tnext.tnext
 
+with this we will construct a linked list of all the children of a given node.
+
 
       
 
