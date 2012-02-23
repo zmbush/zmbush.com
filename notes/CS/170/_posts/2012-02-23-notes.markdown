@@ -60,7 +60,8 @@ In order for a node to have its children's adjacency lists
 
 with this we will construct a linked list of all the children of a given node.
 
+All of this code will implement boruvka's algorithm in parallel. 
 
-      
+    0_0
 
 [boru]: http://en.wikipedia.org/wiki/Bor%C5%AFvka's_algorithm
