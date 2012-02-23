@@ -60,7 +60,8 @@ function processCommand(cin){
       args = cin.split(' ');
       command = args[0];
       if(args.length > 0){
-        arg = args.shift().join(';')
+        args.shift()
+        arg = args.join(';')
       }
       $.ajax({
         url: 'http://shell-backend.zmbush.com/' + command + '/' + arg,
