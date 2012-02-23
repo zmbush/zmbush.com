@@ -16,7 +16,7 @@ Vertex u:
 
 Edge (u, v):  
 
-    Next, l
+    Next, l, v1, v2
 
         #
 
@@ -25,4 +25,11 @@ Edge (u, v):
 #### Edge pardo:
 
     tnext = next;
+    min = l;
+
+    repeat:
+      min = min[tnext.min, min];
+      tnext = tnext.tnext;
+    until:
+      tnext = nil;
 
