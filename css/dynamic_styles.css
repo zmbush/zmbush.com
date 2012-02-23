@@ -24,3 +24,8 @@ A{
   padding-bottom: 10px;
   margin-bottom: 10px;
 }
+
+.fleft{
+  float: left;
+  margin-right: 10px;
+}

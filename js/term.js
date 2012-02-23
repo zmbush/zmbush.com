@@ -1,6 +1,6 @@
 ---
 ---
-var p = "guest@zmbush.com $ "
+var p = "<div style=\"clear:both\"></div>guest@zmbush.com $ "
 var text = '<br /><br /><br />Type `help` for a list of commands.<br />' + p
 var command = ""
 var cursor = "_"
@@ -9,34 +9,43 @@ $(function(){
   $(document).keypress(function(e){
     if(accepting_input){
       switch(e.which){
+        case 8:
+          return false;
         case 13:
           text += command;
           text += '<br />';
           accepting_input = false;
           processCommand(command);
           $('#term').html(text + '...');
-          break;
+          return false;
         default:
           command += String.fromCharCode(e.which);
           $('#term').html(text + command + cursor);
-          break;
+          return false;
       }
-
     }
+    return true;
   });
   $(document).keydown(function(e){
     if(accepting_input){
       if(e.which == 8){
-        command = command.substring(0, command.length - 1)
-        $('#term').html(text + command + cursor);
+        if(command.length > 0){
+          command = command.substring(0, command.length - 1)
+          $('#term').html(text + command + cursor);
+        }
+        return false;
       }
     }
+    return true;
   });
   $('#term').html(text);
 });
 
 function processCommand(cin){
   switch(cin){
+    case '':
+      newPrompt();
+      break;
     case 'linkedin':
       window.location = "http://www.linkedin.com/pub/zachary-bush/1a/a78/671";
       break;
@@ -65,10 +74,14 @@ function processCommand(cin){
 
 function displayOutput(output){
   text += output;
+  newPrompt()
+}
+
+function newPrompt(){
   text += "<br />"
   text += p;
-  command = '';
   accepting_input = true;
+  command = '';
   $('#term').html(text);
   $("html, body").animate({ scrollTop: $(document).height() }, "slow");
 }
