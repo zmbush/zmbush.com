@@ -1,6 +1,0 @@
----
-layout: notes
-title: notes CS170 Lecture 10
----
-
-Notes.

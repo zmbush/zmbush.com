@@ -10,21 +10,21 @@ $(function(){
     if(accepting_input){
       switch(e.which){
         case 8:
-          return false;
+          return true;
         case 13:
           text += command;
           text += '<br />';
           accepting_input = false;
           $('#term').html(text + '...');
           processCommand(command);
-          return false;
+          return true;
         default:
           command += String.fromCharCode(e.which);
           $('#term').html(text + command + cursor);
-          return false;
+          return true;
       }
     }
-    return true;
+    return false;
   });
   $(document).keydown(function(e){
     if(accepting_input){
@@ -33,10 +33,10 @@ $(function(){
           command = command.substring(0, command.length - 1)
           $('#term').html(text + command + cursor);
         }
-        return false;
+        return true;
       }
     }
-    return true;
+    return false;
   });
   $('#term').html(text);
 });
