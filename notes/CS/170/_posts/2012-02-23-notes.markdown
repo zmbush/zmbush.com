@@ -3,4 +3,8 @@ layout: notes
 title: CS 170 Lecture 10
 ---
 
-Notes.
+### Parallel Algorithms
+
+- - -
+
+### Boruvka's Algorithm
