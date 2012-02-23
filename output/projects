@@ -1,0 +1,8 @@
+---
+---
+
+{% for project in site.categories.projects %}
+  <b>{{ project.title }}</b>
+  <p>{{ project.snippet }}</p>
+  <br />
+{% endfor %}
