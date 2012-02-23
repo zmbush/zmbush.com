@@ -15,8 +15,8 @@ $(function(){
           text += command;
           text += '<br />';
           accepting_input = false;
-          processCommand(command);
           $('#term').html(text + '...');
+          processCommand(command);
           return false;
         default:
           command += String.fromCharCode(e.which);
@@ -78,7 +78,6 @@ function displayOutput(output){
 }
 
 function newPrompt(){
-  text += "<br />"
   text += p;
   accepting_input = true;
   command = '';
