@@ -41,12 +41,13 @@ Sometimes, all processors may be done early!
 - - -
 # Midterm information on piazza
 - - -
-_PARDO_
 
     vertex pardo:
       repeat:
         p <- p.p until p.p = p
+      if p != u  retired = true
 
+Must create for the leader an adj. list of all edges leaving the component.
 
 
 
