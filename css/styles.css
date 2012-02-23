@@ -3,7 +3,7 @@ body{
   color: #00FF00;
   width: 900px;
   margin: 0 auto;
-  font-family: mono;
+  font-family: monospace, sans-serif;
 }
 
 H1{
@@ -46,19 +46,19 @@ NAV UL LI A:hover{
 }
 
 UL#posts LI{
-  display: table;
+  clear: both;
   padding-top: 11px;
   width: 100%;
 }
 
 UL#posts LI DIV.posta{
-  display: table-cell;
-  width: 20%;
+  float: left;
+  width: 30%;
 }
 
 UL#posts LI DIV.postl{
-  display: table-cell;
-  width: 80%;
+  float: right;
+  width: 70%;
   text-align: right;
   vertical-align: top;
 }
