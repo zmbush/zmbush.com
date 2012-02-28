@@ -1,1 +1,34 @@
-<meta http-equiv="refresh" content="0;URL=http://cli.zmbush.com/" /> 
+---
+layout: home
+title: Home
+---
+
+<div id="classes">
+  <h2>Classes</h2>
+  <ul id="classes">
+  {% for post in site.categories.classes %}
+  <li>{{ post.content }}</li>
+  {% endfor %}
+  </ul>
+</div>
+<div id="projects">
+  <a name="projects"></a>
+  <h2>Projects</h2>
+  <ul id="posts">
+  {% for post in site.categories.projects %}
+    <li>
+      <a href="{{ post.url }}">
+        <div class="posta">
+          <img src="/images/{{ post.image }}" /><br />
+        </div>
+        <div class="postl">
+          <h3>{{ post.title }}</h3>
+          <p>
+            {{ post.snippet }}
+          </p>
+        </div>
+      </a>
+    </li>
+  {% endfor %}
+  </ul>
+</div>
