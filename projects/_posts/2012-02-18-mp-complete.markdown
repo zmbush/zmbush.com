@@ -20,4 +20,3 @@ re-download the repaired song.
 This was a project with: {{ site.partners.andre }}.
 
 Check it out at: [mp-complete.zmbush.com](http://mp-complete.zmbush.com/) 
-
