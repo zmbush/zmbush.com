@@ -77,3 +77,8 @@ UL#posts LI A:hover{
   padding-top: 10px;
   padding-bottom: 10px;
 }
+
+DIV.contents P{
+  padding-bottom: 5px;
+  text-indent: 1.5em;
+}
