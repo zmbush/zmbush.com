@@ -4,5 +4,7 @@ title: CS 170 Lecture 11
 ---
 
 * Huffman Codes
+Compression
 * Horn Clauses
 * Set Cover
+
