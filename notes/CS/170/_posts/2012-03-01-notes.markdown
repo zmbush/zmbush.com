@@ -14,6 +14,8 @@ title: CS 170 Lecture 11
       C: .1
       T: .2
       G: .3
+    * Expected representation for N characters: 2N
+    * Prefix free codes work better than fixed length codes! 1.9N < 2N
 1. Horn Clauses
 1. Set Cover
 
