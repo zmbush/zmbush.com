@@ -4,8 +4,8 @@ title: CS 170 Lecture 11
 ---
 
 * Huffman Codes
-  * Compression
-    * Given a long file, make it shorter
+** Compression
+*** Given a long file, make it shorter
 * Horn Clauses
 * Set Cover
 
