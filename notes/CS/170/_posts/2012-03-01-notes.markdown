@@ -3,7 +3,7 @@ layout: notes
 title: CS 170 Lecture 11
 ---
 
-* Huffman Codes
+1. Huffman Codes
     * Compression
         * Given a long file, make it shorter
         * 16 Characters alphabet, four bits/character
