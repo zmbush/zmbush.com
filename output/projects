@@ -1,7 +1,7 @@
 ---
 ---
 {% for project in site.categories.projects %}
-  <b><a href="{{ project.url }}">{{ project.title }}</a></b>
+  <b><a href="http://static.zmbush.com/{{ project.url }}">{{ project.title }}</a></b>
    ({{ project.date | date:"%Y-%m-%d" }})
   <p>{{ project.snippet }}</p>
   <br />
