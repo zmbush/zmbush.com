@@ -68,7 +68,7 @@ Suppose we want to find the longest path.
 
 Suppose we want to find the smallest product!
 
-* + -> *
+* plus -> times
 
 Simple changes can make this algorithm do what you want!
 
