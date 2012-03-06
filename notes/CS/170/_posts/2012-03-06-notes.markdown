@@ -106,6 +106,6 @@ Sequence alignment:
 
 Human genome has a very small edit distance from the mouse genome.
 
-[Blast!](http://en.wikipedia.org/wiki/BLAST)
+# [Blast!](http://en.wikipedia.org/wiki/BLAST)
 
 
