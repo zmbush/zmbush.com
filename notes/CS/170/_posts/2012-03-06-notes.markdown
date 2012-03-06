@@ -37,10 +37,10 @@ The greedy alway picks at least 1/k remaining elements.
     After Step klogn:
       Elements remaining = 0
 
-> There is a solition that has k, therefore we will allways have an element of
+> There is a solution that has k, therefore we will always have an element of
 size (1/k) which is a set from the optimal solution. The greedy will always try
 to do better.
 
-# Dynamic Programming!
+# Dynamic Programming!!!!!!!!!!!!!!!!!!!!!!!
 
-
+Divide and conquer
