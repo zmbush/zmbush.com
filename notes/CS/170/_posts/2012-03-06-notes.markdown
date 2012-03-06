@@ -16,7 +16,7 @@ Except for the other lists.
 
 The greedy algorithm is not optimal, but will find a very good solution. 
 
-> This problem is **NP-Complete**. 
+> This problem is ***NP-Complete***. 
 
 The greedy algorithm picks the set with the most remaining elements. 
 
@@ -34,7 +34,13 @@ The greedy alway picks at least 1/k remaining elements.
       Elements remaining <= n(1 - 1/k)^2
     After Step k:
       Elements remaining <= n(1 - 1/k)^k = 1/e = 37% < 1/2
+    After Step klogn:
+      Elements remaining = 0
 
 > There is a solition that has k, therefore we will allways have an element of
 size (1/k) which is a set from the optimal solution. The greedy will always try
 to do better.
+
+# Dynamic Programming!
+
+
