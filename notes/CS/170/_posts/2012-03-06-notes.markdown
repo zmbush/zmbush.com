@@ -19,12 +19,22 @@ The greedy algorithm is not optimal, but will find a very good solution.
 > This problem is **NP-Complete**. 
 
 The greedy algorithm picks the set with the most remaining elements. 
+
 * not optimal, but will perform fine.
 
 ## How fine?
 
+The optimal has k sets.
+
 The greedy alway picks at least 1/k remaining elements.
 
     After Step 1:
-      Elements remaining <= (1 - 1/k)*n
+      Elements remaining <= n(1 - 1/k)
+    After Step 2:
+      Elements remaining <= n(1 - 1/k)^2
+    After Step k:
+      Elements remaining <= n(1 - 1/k)^k = 1/e = 37%
 
+> There is a solition that has k, therefore we will allways have an element of
+size (1/k) which is a set from the optimal solution. The greedy will always try
+to do better.
