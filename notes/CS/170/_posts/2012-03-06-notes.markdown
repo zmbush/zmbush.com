@@ -71,3 +71,13 @@ Suppose we want to find the smallest product!
 * + -> *
 
 Simple changes can make this algorithm do what you want!
+
+    dist[v] = f(u1, ..., uk, data), where the uns are predecessors of v.
+
+We can put anything in this function!
+
+We can solve a host of problems. 
+
+An algorithm that can solve many problems is called dynamic programming. 
+
+> "Can we map it to a dag and solve it?"
