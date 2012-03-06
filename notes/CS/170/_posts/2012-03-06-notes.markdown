@@ -112,3 +112,12 @@ Human genome has a very small edit distance from the mouse genome.
     C A C G T G
 
 Find the optimal alignment.
+
+      _ A C C T G
+    _ 0 1 2 3 4 5
+    C 1
+    A 2
+    C 3
+    G 4
+    T 5
+    G 6
