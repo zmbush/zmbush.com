@@ -33,7 +33,7 @@ The greedy alway picks at least 1/k remaining elements.
     After Step 2:
       Elements remaining <= n(1 - 1/k)^2
     After Step k:
-      Elements remaining <= n(1 - 1/k)^k = 1/e = 37%
+      Elements remaining <= n(1 - 1/k)^k = 1/e = 37% < 1/2
 
 > There is a solition that has k, therefore we will allways have an element of
 size (1/k) which is a set from the optimal solution. The greedy will always try
