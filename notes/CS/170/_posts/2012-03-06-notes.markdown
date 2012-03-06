@@ -108,4 +108,7 @@ Human genome has a very small edit distance from the mouse genome.
 
 # [Blast!](http://en.wikipedia.org/wiki/BLAST)
 
+    _ A C C T G
+    C A C G T G
 
+Find the optimal alignment.
