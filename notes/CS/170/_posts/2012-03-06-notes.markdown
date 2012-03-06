@@ -92,3 +92,18 @@ Let's modify our algorithm!!
 
     for each vertex v in linearized order
       L[v] = max u in pred(e) L[u] + 1
+
+Edit distance, The number of edits required to turn one string into another. 
+
+CATFISH -> SATISH = 2
+
+Papadimitrou - patronizing = ?
+
+Sequence alignment:
+
+    S A T _ I S H
+    C A T F I S H
+
+Human genome has a very small edit distance from the mouse genome.
+
+# LOOK UP BLAST
