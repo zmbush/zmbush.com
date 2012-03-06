@@ -43,4 +43,14 @@ to do better.
 
 # Dynamic Programming!!!!!!!!!!!!!!!!!!!!!!!
 
-Divide and conquer
+Divide and conquer is not applicable most of the time. 
+
+      3     6
+    s -> c -> d
+    v 5  v 2  v 2
+    a -> b -> e
+      1    4
+
+    dist[s] = 0
+    for each vertex v in linearized order
+      dist[v] = min u in pred(v) [ dist[v] + l[u,v] ]
