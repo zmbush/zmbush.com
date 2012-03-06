@@ -1,5 +1,25 @@
 --
+layout: home
+title: Notes
 --
-{% for post in site.categories.notes %}
-  {{ post.url }}< br />
-{% endfor %}
+<div id="projects">
+  <a name="projects"></a>
+  <h2>Projects</h2>
+  <ul id="posts">
+  {% for post in site.categories.notes %}
+    <li>
+      <a href="{{ post.url }}">
+        <div class="posta">
+          <img src="/images/{{ post.image }}" /><br />
+        </div>
+        <div class="postl">
+          <h3>{{ post.title }}</h3>
+          <p>
+            {{ post.snippet }}
+          </p>
+        </div>
+      </a>
+    </li>
+  {% endfor %}
+  </ul>
+</div>
