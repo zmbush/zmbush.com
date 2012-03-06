@@ -6,6 +6,7 @@ title: CS 170 Lecture 12
 # Set Cover
 
 K lists that cover.
+
     [.....]
     [.....]
     [.....]
