@@ -81,3 +81,14 @@ We can solve a host of problems.
 An algorithm that can solve many problems is called dynamic programming. 
 
 > "Can we map it to a dag and solve it?"
+
+### Let's solve a problem!
+
+    5 2 8 6 3 6 9
+
+Find the longest increasing subsequence
+
+Let's modify our algorithm!!
+
+    for each vertex v in linearized order
+      L[v] = max u in pred(e) L[u] + 1
