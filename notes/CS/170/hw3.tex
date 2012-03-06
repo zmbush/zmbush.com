@@ -1,0 +1,417 @@
+% Search for all the places that say "PUT SOMETHING HERE".
+
+\documentclass[11pt]{article}
+\usepackage{amsmath,textcomp,amssymb,geometry,graphicx}
+
+\def\Name{Zachary Bush}  % Your name
+\def\Sec{Th 4-5; Starfield}  % Your discussion section
+\def\Login{cs170-nx} % Your login
+
+\title{CS170--Spring 2012 --- Solutions to Homework 3}
+\author{\Name, section \Sec, \texttt{\Login}}
+\markboth{CS170--Spring 2012 Homework 3 \Name, section \Sec}{CS170--Spring 2012 Homework 3 \Name, section \Sec, \texttt{\Login}}
+\pagestyle{myheadings}
+
+\begin{document}
+\maketitle
+
+\section{Signals}
+Collaborators: Nate Rockenbach, Jacob Newman
+
+\begin{enumerate}
+\item 
+This system smooths out an input by averaging the most recent inputs within
+$t_0$. Thereby smoothing local fluctuations in order to focus on the larger
+trends.
+\item
+\begin{equation*}
+\frac{1}{t_0}\left( 1 + x + x^2 + \dots + x^{t_0} \right)
+\end{equation*}
+\end{enumerate}
+\newpage
+\section{FFT}
+Collaborators: Hayg Astorian, Andr\'e Crabb
+\subsection{$(x+1) \times (x^2 + 1)$ }
+We start with two polynomials:
+\begin{eqnarray*}
+f(x) &=&  x + 1\\
+g(x) &=& x^2 + 1
+\end{eqnarray*}
+These can be represented as:
+\begin{eqnarray*}
+(1, 1, 0, 0)\\
+(1, 0, 1, 0)
+\end{eqnarray*}
+respectively.
+
+We then perform FFT on each of these polynomials:
+\begin{eqnarray*}
+\omega = e^{\frac{i\pi}{2}} = i
+\end{eqnarray*}
+\begin{verbatim}
+FFT((1, 1, 0, 0), i)
+  FFT((1, 0), -1)
+    FFT((1), 1)
+      return (1)
+    FFT((0), 1)
+      return (0)
+    return (1, 1)
+  FFT((1, 0), -1)
+    FFT((1), 1)
+      return (1)
+    FFT((0), 1)
+      return (0)
+    return (1, 1)
+  return (2, 1+i, 0, 1-i)
+\end{verbatim}
+\begin{verbatim}
+FFT((1, 0, 1, 0), i)
+  FFT((1, 1), -1)
+    FFT((1), 1)
+      return (1)
+    FFT((1), 1)
+      return (1)
+    return (2, 0)
+  FFT((0, 0), -1)
+    FFT((0), 1)
+      return (0)
+    FFT((0), 1)
+      return (0)
+    return (0, 0)
+  return (2, 0, 2, 0)
+\end{verbatim}
+Now we multiply the two together:
+\begin{eqnarray*}
+(2, 1+i, 0, 1-i) \times (2, 0, 2, 0) &=& (4, 0, 0, 0)
+\end{eqnarray*}
+And to get our final answer, we perform the FFT in reverse:
+\begin{verbatim}
+FFT((4, 0, 0, 0), -i)
+  FFT((4, 0) -1)
+    return (4, 4)
+  FFT((0, 0), -1)
+    return (0, 0)
+  return (4, 4, 4, 4)
+\end{verbatim}
+And to get the correct representation, we divide by the $n$ we chose originally,
+which in this case is 4, thus:
+\begin{equation*}
+f(x) \times g(x) = 1 + x + x^2 + x^3 
+\end{equation*}
+
+\subsection{$(1 + x + 2x^2) \times (2 + 3x)$}
+The two polynomials can be represented as $(1, 1, 2, 0)$ and $(2, 3, 0, 0)$.
+\begin{verbatim}
+FFT((1, 1, 2, 0), i)
+  FFT((1, 2), -1)
+    return (3, -1)
+  FFT((1, 0), -1)
+    return (1, 1)
+  return (4, -1+i, 2, -1-i) 
+\end{verbatim}
+\begin{verbatim}
+FFT((2, 3, 0, 0), i)
+  FFT((2, 0), -1)
+    return (2, 2)
+  FFT((3, 0), -1)
+    return (3, 3)
+  return (5, 2+3i, -1, 2-3i)
+\end{verbatim}
+Now we multiply them together:
+\begin{equation*}
+(4, -1+i, 2, -1-i) \times (5, 2+3i, -1, 2-3i) = (20, -5-i, -2, -5+i)
+\end{equation*}
+
+Now we do the inverse FFT:
+\begin{verbatim}
+FFT((20, -5-i, -2, -5+i), -i)
+  FFT((20, -2), -1)
+    return (18, 22)
+  FFT((-5-i, -5+i), -1)
+    return (-10, -2i)
+  return (8, 16, 28, 20)
+\end{verbatim}
+Finally, we divide by our $n$, and we get:
+\begin{equation*}
+2 + 4x + 7x^2 5x^3
+\end{equation*}
+\newpage
+\section{Algorithms}
+Collaborators: Andr\'e Crabb
+
+\begin{enumerate}
+\item 
+\begin{verbatim}
+pwr2bin(n):
+  if n = 1: return 1010
+  else:
+    z = pwr2bin(n/2)
+    return fastmultiply(z, z)
+\end{verbatim}
+
+The recurrence is:
+\begin{equation*}
+T(n) = T(n/2) + O(n^{\log_2 3})
+\end{equation*}
+Which is equal to:
+\begin{equation*}
+T(n) = O(n^{\log_2 3})
+\end{equation*}
+\item
+\begin{verbatim}
+function dec2bin(x)
+  if n = 1: return binary[x]
+  else:
+    split x into two decimal numbers xL , xR with n/2 digits each
+    return fastmultiply(dec2bin(xL), pwr2bin(n/2)) + dec2bin(xR)
+\end{verbatim}
+The recurrence is:
+\begin{equation*}
+T(n) = 2T(n/2) + O(n^{\log_2 3})
+\end{equation*}
+Which is equal to:
+\begin{equation*}
+T(n) = O(n^{\log_2 3})
+\end{equation*}
+\end{enumerate}
+
+\newpage
+\section{Professor F. Lake}
+Collaborators: Andr\'e Crabb, Jacob Newman
+
+
+Assume that we have the most efficient possible squaring algorithm, and let it
+be:
+\begin{equation*}
+S(n) = O(n^c)
+\end{equation*}
+
+You can then express the multiplication of two numbers as the following:
+\begin{equation*}
+XY = ((X + Y)^2 - X^2 - Y^2) << 1
+\end{equation*}
+
+The time complexity of this algorithm is:
+\begin{equation*}
+3S(n) + 3O(n)
+\end{equation*}
+since there are 3 squaring operations, 3 linear time arithmetic operations and
+one linear time bit shift.
+
+This time complexity is of course:
+\begin{equation*}
+S(n) = O(n^c)
+\end{equation*}
+
+Which is identical to our best case squaring algorithm. 
+
+Therefore squaring and multiplying are asymptotically equivalent, and thus
+Professor Lake is wrong.
+
+\newpage
+\section{FT Modulo 7}
+Collaborators: Andr\'e Crabb, Nate Rockenbach, Jacob Newman
+
+\begin{enumerate}
+\item The number is $\omega = 3$
+
+\begin{eqnarray*}
+3 + 3^2 + 3^3 + 3^4 + 3^5 + 3^6 &=& 3 + 2 + 6 + 4 + 5 + 1 \pmod{7}\\
+&=& 0 \pmod{7}
+\end{eqnarray*}
+
+\item The matrix is as follows:
+\begin{eqnarray*}
+\begin{bmatrix}
+1&1&1&1&1&1\\
+1&3&2&6&4&5\\
+1&2&4&1&2&4\\
+1&6&1&6&1&6\\
+1&4&2&1&4&2\\
+1&5&4&6&2&3\\
+\end{bmatrix}
+\begin{bmatrix}
+0\\
+1\\
+1\\
+1\\
+5\\
+2
+\end{bmatrix} &=& 
+\begin{bmatrix}
+3\\
+6\\
+4\\
+2\\
+3\\
+3
+\end{bmatrix}
+\pmod{7}
+\end{eqnarray*}
+\item The inverse matrix is:
+\begin{eqnarray*}
+\begin{bmatrix}
+6&6&6&6&6&6\\
+6&2&3&1&5&4\\
+6&3&5&6&3&5\\
+6&1&6&1&6&1\\
+6&5&3&6&5&3\\
+6&4&5&1&3&2\\
+\end{bmatrix}
+\begin{bmatrix}
+3\\
+6\\
+4\\
+2\\
+3\\
+3
+\end{bmatrix}
+&=& 
+\begin{bmatrix}
+0\\
+1\\
+1\\
+1\\
+5\\
+2
+\end{bmatrix}
+\pmod{7}
+\end{eqnarray*}
+\item
+The two equations can be represented as: $(1, 1, 1, 0, 0, 0)$ and $(-1, 2, 0,
+1, 0, 0)$
+
+\begin{eqnarray*}
+\begin{bmatrix}
+1&1&1&1&1&1\\
+1&3&2&6&4&5\\
+1&2&4&1&2&4\\
+1&6&1&6&1&6\\
+1&4&2&1&4&2\\
+1&5&4&6&2&3\\
+\end{bmatrix}
+\begin{bmatrix}
+1\\
+1\\
+1\\
+0\\
+0\\
+0
+\end{bmatrix} &=& 
+\begin{bmatrix}
+3\\
+6\\
+0\\
+1\\
+0\\
+3
+\end{bmatrix}
+\pmod{7}\\
+\begin{bmatrix}
+1&1&1&1&1&1\\
+1&3&2&6&4&5\\
+1&2&4&1&2&4\\
+1&6&1&6&1&6\\
+1&4&2&1&4&2\\
+1&5&4&6&2&3\\
+\end{bmatrix}
+\begin{bmatrix}
+-1\\
+2\\
+0\\
+1\\
+0\\
+0
+\end{bmatrix} &=& 
+\begin{bmatrix}
+2\\
+4\\
+4\\
+3\\
+1\\
+1
+\end{bmatrix}
+\pmod{7}
+\end{eqnarray*}
+If we then dot product them together:
+\begin{equation*}
+[3,6,0,1,0,3] \cdot [2,4,4,3,1,1] = [6,3,0,3,0,3]
+\end{equation*}
+Finally, we perform the inverse transform:
+\begin{eqnarray*}
+\begin{bmatrix}
+6&6&6&6&6&6\\
+6&2&3&1&5&4\\
+6&3&5&6&3&5\\
+6&1&6&1&6&1\\
+6&5&3&6&5&3\\
+6&4&5&1&3&2\\
+\end{bmatrix}
+\begin{bmatrix}
+6\\
+3\\
+0\\
+3\\
+0\\
+3
+\end{bmatrix}
+&=& 
+\begin{bmatrix}
+6\\
+1\\
+1\\
+3\\
+1\\
+1
+\end{bmatrix}
+\pmod{7}
+\end{eqnarray*}
+
+\end{enumerate}
+\newpage
+\section{Karatsuba}
+
+\begin{enumerate}
+\item
+\begin{verbatim}
+>>> run_k_reduce(10000, 1)
+Using 1 processes
+Karatsuba Multiply Parallel time: 1.021328
+>>> run_k_reduce(20000, 1)
+Using 1 processes
+Karatsuba Multiply Parallel time: 3.058874
+>>> run_k_reduce(40000, 1)
+Using 1 processes
+Karatsuba Multiply Parallel time: 8.972324
+\end{verbatim}
+\begin{equation*}
+\log_2 \frac{40000}{20000} = 1
+\end{equation*}
+
+\begin{eqnarray*}
+\log_2 \frac{3.058874}{1.021328} &=&  1.582554\\
+\log_2 \frac{8.972324}{3.058874} &=&  1.552481
+\end{eqnarray*}
+\item
+\begin{verbatim}
+>>> run_k_reduce(10000, 1)
+Using 1 processes
+Karatsuba Multiply Parallel time: 1.029579
+>>> run_k_reduce(10000, 3)
+Using 3 processes
+Karatsuba Multiply Parallel time: 0.421439
+>>> run_k_reduce(10000, 9)
+Using 9 processes
+Karatsuba Multiply Parallel time: 0.225207
+>>> run_k_reduce(10000, 27)
+Using 27 processes
+Karatsuba Multiply Parallel time: 0.236119
+\end{verbatim}
+The fastest speedup was going from 1 processor to 3 processors, with a decrease
+of 0.60814 seconds.
+
+The number of cores reported is 16.
+\item
+The total work done is: $O(n^{\log_2 3})$
+\end{enumerate}
+\end{document}

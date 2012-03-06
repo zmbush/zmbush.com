@@ -1,0 +1,260 @@
+% Search for all the places that say "PUT SOMETHING HERE".
+
+
+\documentclass[11pt]{article}
+\usepackage{amsmath,textcomp,amssymb,geometry,graphicx,amsthm}
+
+\def\Name{Zachary Bush}  % Your name
+\def\Sec{102}  % Your discussion section
+\def\Login{cs170-nx} % Your login
+
+\title{CS170--Spring 2012 --- Solutions to Homework 1}
+\author{\Name, section \Sec, \texttt{\Login}}
+\markboth{CS170--Spring 2012 Homework 1 \Name, section \Sec}{CS170--Spring 2012 Homework 1 \Name, section \Sec, \texttt{\Login}}
+\pagestyle{myheadings}
+
+\newtheorem{theorem}{Theorem}
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+\item 
+
+\begin{enumerate}
+
+\item
+Because he read the instructions on the shampoo bottle, ``Lather, rinse,
+repeat.''
+
+\item 
+I understand the course policies.
+\end{enumerate}
+
+\newpage
+
+\item 
+
+Sort the following, noting ties, and other issues.
+
+Partners: Mary Stufflebeam, Kelsey Theriault, Andre Crabb
+\begin{enumerate}
+\item $n^n$
+\item $n!$
+\item $3^n = 3^n$
+\item $4^{n/2} = 2^n$
+\item $3^{n/2}$
+\item $n^{\log n}$
+\item $n^{78}$
+\item $n^2  = f(n) = n^2$ if $n$ is prime and $\sqrt{n}$ otherwise.
+\item $n^{3\over 2}$
+\item $n\log^2n$
+\item $n\log n$
+\item $n\sqrt{\log n}$
+\item $n\log(\log n)$
+\item $n$
+\item $\sqrt{n}$
+\item $2^{\sqrt{\log n}}$
+\item $\log n$
+\end{enumerate}
+
+Tricky Comparisons:
+\begin{enumerate}
+\item $f(n) = n^2$ if $n$ is prime and $\sqrt{n}$ otherwise. 
+
+This function is most frequently $\sqrt{n}$, but it is sometimes much greater
+than that. The commonality of the composite numbers makes the $\sqrt{n}$ hold
+much more weight
+
+However, since big O is talking about the worst case, we must always assume the
+worst possible case that $n^2$ 
+
+\item $2^{\sqrt{\log n}}$
+
+Because it has an exponent with n, but the exponent grows so slowly that it
+never surpasses $\sqrt{n}$.
+
+\item $n^n$ vs $n!$
+
+These two functions are extremely close to each other, especially since
+$O(n\log n) = O(\log n!)$. However,
+\begin{equation*}
+\lim_{n \to \infty} \frac{n^n}{n!} = \infty
+\end{equation*}
+\end{enumerate}
+\newpage
+\item 
+Partners: Mary Stufflebeam, Kelsey Theriault, Andre Crabb
+\begin{enumerate}
+\item
+Two matricies multiplied together:
+\begin{equation*}
+\left[
+\begin{tabular}{c c}
+a&b\\
+c&d
+\end{tabular}
+\right]
+*
+\left[
+\begin{tabular}{c c}
+e&f\\
+g&h
+\end{tabular}
+\right]
+\end{equation*}
+Is equal to $ae+bg$, $af+bh$, $ce+dg$, $cf+dr$. Which is 8 multiplications and 4
+additions.
+\item
+Using the same concept as repeated squaring, we can calculate. 
+\begin{equation*}
+X^2, X^4, X^8, \dots
+\end{equation*}
+which takes only $\log n$ multiplications to combine them and make the desired
+exponent, takes at most $\log n$ additional multiplications. Therefore, the
+whole process takes $O(\log n)$
+\item
+Proof by induction:
+\begin{proof}
+Base Case: 
+
+When we multiply the two matrices together: $X^2$, each element will be either
+0, or 1 added to 0 or 1. For this case, the number of bits for each intermediate
+result ($ax + by$) is at most 2.
+
+
+Inductive Hypothesis:
+
+Assume that for all $X^k, \quad \forall k \in \{3 \dots n\}$ the number of bits
+is $k$
+
+Inductive Step:
+\begin{eqnarray*}
+X^{n+1} &=& X^nX
+\end{eqnarray*}
+$X^n$ will have at most n bits, and since X contains only 1 and 0, the
+multiplication part of the intermediate step will add no bits. The addition of
+the two numbers that are each still at most n bits long will be at most n+1 bits
+long.
+\end{proof}
+\item
+Since there are 8 multiplications per matrix mult, and each of those
+multiplications take M(n) time, the time per matrix mult is:
+\begin{equation*}
+8M(n)
+\end{equation*}
+And since we have to do $O(log(n))$ matrix mults to do fib, we now have:
+\begin{equation*}
+O(8M(n)log(n)) = O(M(n)log(n))
+\end{equation*}
+\item
+\begin{eqnarray*}
+O(M(n) + M(n/2) + M(n/4) + \dots) &=& O\left(n^2 + \frac{n^2}{4} +
+\frac{n^2}{16}\right)\\
+&=& O(2n^2) \\
+&=& O(2M(n))\\
+&=& O(M(n))
+\end{eqnarray*}
+\end{enumerate}
+\newpage
+\item 
+Partners: Nathan Rockenbach, Andre Crabb
+
+The harmonic series $1 + 1/2 + 1/3 + 1/4 + \dots$ we know will always be greater
+than the integral $\int_1^n \frac{1}{x} dx = ln|x|$, we also know by a similar
+logic that $\int_1^n \frac{2}{x}dx = 2ln|x|$.
+
+Therefore:
+\begin{equation*}
+ln|n| \le \sum_{i=1}^{n} \frac{1}{i} \le 2ln|n|
+\end{equation*}
+Which means that:
+\begin{equation*}
+\sum_{i=1}^n\frac1i = \Theta(log(n))
+\end{equation*}
+\newpage
+\item
+Partners: Natan Rockenbach, Mary Stufflebeam
+\begin{enumerate}
+\item If we add the numbers together in groups of two, and the results together
+in groups of two and so on, it will take $log(n)$ additions to add the numbers
+together. Since each addition takes $log(m)$ time, then the entire operation
+will take $O(log(m)log(n))$.
+\item 
+\begin{tabular}{|c|c|c||c|c|}
+\hline
+x&y&z&s&c\\
+\hline
+0&0&0&0&0\\
+1&0&0&1&0\\
+0&1&0&1&0\\
+1&1&0&0&1\\
+0&0&1&1&0\\
+1&0&1&0&1\\
+0&1&1&0&1\\
+1&1&1&1&1\\
+\hline
+\end{tabular}
+
+Using this adding table, you can compute the sum and carry outputs in parallel. 
+The sum (s) will come from the s column, and the carry bits (r) will come from
+the c column left shifted 1.
+\item
+Using the same technique as in part a, you can add three numbers at a time
+repeatedly.  Each adding operation of 3 numbers can be parallelized to constant
+time, so that the whole operation of adding the n numbers together will take
+$O(\log n)$ time. 
+\end{enumerate}
+\newpage
+\item
+\begin{theorem}
+The probability that the two hashes are equivalent is $1/n$ only if $m$ is a
+prime number. 
+\begin{proof}
+In order for the two hashes to be equal, the following would have to be true. 
+\begin{equation*}
+a_1x_1 + a_2x_2 = a_1y_1 + a_2y_2 \pmod{m}
+\end{equation*}
+Without loss of generality, we can assume that: $x_2 \neq y_2$.
+Therefore, we have:
+\begin{eqnarray*}
+a_1(x_1 - y_1) &=&  a_2(y_2 - x_2) \pmod{m}\\
+\text{let  } a_1(x_1 - y_1) &=& V\\
+V &=& a_2(y_2 - x_2) \pmod{m}\\
+\end{eqnarray*}
+In order to have $V = a_2(y_2 - x_2)$, then there must be some value for $a_2$,
+that satisfies this equation, namely $(y_2 - x_2)^{-1}V$. If the value of $m$
+is prime then there must exist an inverse of $(y_2 - x_2)$ and there is a $1/n$
+probability that this is the value of $a_2$. If the value of $m$ is not prime,
+then we have no such guarantee about the existance of an inverse. 
+\end{proof}
+\end{theorem}
+\begin{enumerate}
+\item
+Using the theorem above, we can show that this family of hashes is indeed
+universal, since the probability that any two hashes being equal is $1/n$.
+
+The number of random bits required to select an element from this set is: 
+\begin{equation*}
+\log_2 m^2 = 2\log_2 m
+\end{equation*}
+\item
+Using the theorem above, we can see that this family of hashes is not universal,
+because the chosen $m$ is not prime. 
+
+Number of random bits:
+\begin{equation*}
+\log_2 2^{k^2} = 2k \log_2 2 = 2k
+\end{equation*}
+\item
+Since we do not know if $m-1$ is prime, then by a similar argument to parts a,
+and b, we can show that this is not a universal family, because the number being
+modded by ($m-1$) is not guaranteed to be prime. 
+
+Number of random bits:
+\begin{equation*}
+\log_2 m^{m-1} = (m-1) \log_2 m
+\end{equation*}
+
+\end{enumerate}
+\end{enumerate}
+\end{document}

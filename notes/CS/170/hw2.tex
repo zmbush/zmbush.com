@@ -1,0 +1,308 @@
+% Search for all the places that say "PUT SOMETHING HERE".
+
+
+\documentclass[11pt]{article}
+\usepackage{amsmath,textcomp,amssymb,geometry,graphicx,amsthm}
+
+\def\Name{Zachary Bush}  % Your name
+\def\Sec{Th 4-5; Starfield}  % Your discussion section
+\def\Login{cs170-nx} % Your login
+
+\title{CS170--Spring 2012 --- Solutions to Homework 1}
+\author{\Name, section \Sec, \texttt{\Login}}
+\markboth{CS170--Spring 2012 Homework 2 \Name, section \Sec}{CS170--Spring 2012
+Homework 2 \Name, section \Sec, \texttt{\Login}}
+\pagestyle{myheadings}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+\item 
+
+Collaborators: Mary Stufflebeam, Kelsey Theriault, Jacob Newman
+\begin{enumerate}
+
+\item
+\begin{equation*}
+T(n) = 3T(n/2) + O(n)
+\end{equation*}
+\begin{eqnarray*}
+T(n) &=& 3[3T(n/4) + cn/2)] + cn = 9T(n/4) + \frac{5}{2}cn \\
+&=& 9[3T(n/8) + cn/4] + \frac52cn = 27T(n/8) + \frac{19}4cn\\
+&=& 27[3T(n/16) + cn/8] + \frac{19}4cn = 81T(n/16) + \frac{65}8cn\\
+&=& 3^kT(n/2^k) + (\frac{3^k}{2^k} + \frac{3^{k-1}2}{2^k} + \dots)
+\end{eqnarray*}
+In this case, $k$ should be $\log_2 n$, which gives us:
+\begin{equation*}
+T(n) = 3^{\log_2 n}T(1) + \sum_{i=0}^{k}\frac{3^{i}2^{k-i}}{2^k}
+\end{equation*}
+
+The first term dominates here, so the answer is:
+\begin{equation*}
+O(n^{\log_2 3})
+\end{equation*}
+
+\item 
+\begin{eqnarray*}
+T(n) &=& T(n − 1) + O(1)\\
+T(n) &\le& T(n-1) + c\\
+&=& T(n-2) + 2c \\
+&=& T(n-3) + 3c \\
+&=& T(n-k) + kc \\
+\end{eqnarray*}
+In this case, our k is equal to n, so our value is:
+\begin{equation*}
+O(n)
+\end{equation*}
+\end{enumerate}
+
+\newpage
+
+\item 
+Collaborators: Mary Stufflebeam, Kelsey Theriault
+\begin{enumerate}
+\item 
+\begin{equation*}
+T(n) = 5T\left(\frac{n}{2}\right) + O(n) = O(n^{\log_2 5})
+\end{equation*}
+\item
+\begin{equation*}
+T(n) = 2T\left(n - 1\right) + O(1) = O(2^n)
+\end{equation*}
+\item
+\begin{equation*}
+T(n) = 9T\left(\frac{n}{3}\right) + O(n^2) = O(n^2\log n)
+\end{equation*}
+\end{enumerate}
+
+The best algorithm of these options is algorithm C.
+\newpage
+
+\item 
+Collaborators: Mary Stufflebeam, Jacob Newman
+\begin{enumerate}
+\item $T (n) = 2T (n/3) + 1$
+\begin{equation*}
+\Theta(1)
+\end{equation*}
+\item $T (n) = 5T (n/4) + n$
+\begin{equation*}
+\Theta\left(n^{\log_4 5}\right)
+\end{equation*}
+\item $T (n) = 7T (n/7) + n$
+\begin{equation*}
+\Theta(n \log n)
+\end{equation*}
+\item $T (n) = 9T (n/3) + n^2$
+\begin{equation*}
+\Theta(n^2 \log n)
+\end{equation*}
+\item $T (n) = 8T (n/2) + n^3$
+\begin{equation*}
+\Theta(n^3 \log n)
+\end{equation*}
+\item $T (n) = 49T (n/25) + n^{3/2} \log n$
+
+Since the additive side of the equation is much larger than $\log_{25}49$, then
+it is dominated by that side, therefore, the growth is on the order of:
+\begin{equation*}
+\Theta(n^{3/2} \log n)
+\end{equation*}
+\item $T (n) = T (n - 1) + 2$
+\begin{equation*}
+\Theta(n)
+\end{equation*}
+\item $T (n) = T (n - 1) + n^c$, where $c \ge 1$ is a constant
+\begin{equation*}
+\Theta(n^{c+1})
+\end{equation*}
+\item $T (n) = T (n - 1) + c^n$, where $c > 1$ is some constant
+\begin{equation*}
+\Theta(c^n)
+\end{equation*}
+\item $T (n) = 2T (n - 1) + 1$
+\begin{equation*}
+\Theta(2^n)
+\end{equation*}
+\item $T (n) = T (\sqrt{n}) + 1$
+
+For the $k$th recursion the value should be some constant c:
+\begin{equation*}
+n^{\frac{1}{2^k}} = c
+\end{equation*}
+When we solve for k we get:
+\begin{eqnarray*}
+\frac{1}{2^k} \log n &=& \log c\\
+\frac{\log n}{\log c} &=& 2^k\\
+\log \left( \frac{\log n}{\log c} \right) &=& k\\
+\log (\log n) - \log(\log c) &=&  k
+\end{eqnarray*}
+Therefore the growth is:
+\begin{equation*}
+\Theta(\log (\log n))
+\end{equation*}
+\end{enumerate}
+
+\newpage
+
+\item 
+Collaborators: Jacob Newman, Mary Stufflebeam
+
+Sum:
+\begin{eqnarray*}
+\omega &=& e^{\frac{i2\pi}{n}}\\
+\sum_{k=0}^{n-1} \omega^k &=& \frac{1 - \omega^n}{1 - \omega}\\
+&=& 0
+\end{eqnarray*}
+
+Product (even):
+You have the product of the following numbers:
+\begin{equation*}
+e^{0}, e^{\frac{i2\pi}{n}}, e^{\frac{i4\pi}{n}},
+e^{\frac{i6\pi}{n}}, \dots, e^{\frac{i(n-1)\pi}{n}}
+\end{equation*}
+If you pair them up in the following way:
+\begin{equation*}
+\left(e^{\frac{i2\pi}{n}}\right)\left(e^{\frac{i(n-1)\pi}{n}}\right)
+\end{equation*}
+
+Once you pair them all up, each pair is $1$, with the left over $n/2$.
+Therefore, the product is: $-1$
+
+Product (odd):
+The argument is the same as in the previous problem, except there is no $n/2$
+case. So the final product is: $1$
+\newpage
+
+\item
+
+Collaborators: Hayg Astorian, Mary Stufflebeam, Andre Crabb
+\begin{enumerate}
+
+\item
+
+Pseudocode for the algorithm. 
+\begin{verbatim}
+def majority(list):
+  if len(list) == 1:
+    return list[0]
+  candidate-l = majority(list[:len(list)/2])
+  candidate-r = majority(list[len(list)/2:])
+  c1 = 0  c2 = 0
+  for item in list:
+    if item == candidate-l:
+      c1 += 1
+    if item == candidate-r:
+      c2 += 1
+  if c1 > len(list)/2:
+    return candidate-l
+  if c2 > len(list)/2:
+    return candidate-r
+  return None
+\end{verbatim}
+
+The recurrence for this algorithm is:
+\begin{equation*}
+T(n) = 2T\left( \frac{n}{2} \right) + O(n) = O(n\log n)
+\end{equation*}
+
+\item
+
+With a simple algorithm, we can perform this task in linear time using a
+two-pass approach. 
+
+The first pass is as follows:
+
+The first element is considered to be a ``candidate'' for the correct majority.
+For each element, if it is the same, we increment a count associated with this
+candidate, and otherwise, we decrement it. Once the counter for a candidate
+reaches zero, we replace it with the current number. 
+
+Once we reach the end of this pass, the element that we have is our best guess
+at a majority element, we perform the second pass where we add up the instances
+of the final candidate. If the number of that element is more than half the size
+of the list, then it is a majority element. Otherwise we have no majority
+element. 
+
+This algorithm is also commonly known as Moore's Voting Algorithm.
+
+\end{enumerate}
+
+
+\newpage
+
+\item
+Collaborators: Andre Crabb, Albert Eloyan, Hayg Astorian 
+
+\begin{enumerate}
+
+\item
+If we have a square of size $d \times d$, then the only way that we can have
+four points that are no more than $d$ distance away, then they must be on the
+exact corners of the square. Any more points and it would be too close to one of
+the other points and therefore $d$ would be smaller, which is a contradiction. 
+
+Therefore, we have no way to have more than 4 points on any one side within a
+$d \times d$ square. 
+
+\item
+If the minimum is in L or R, then the algorithm is clearly correct. 
+
+In the case where there is a minimum in M, then things are a bit more
+complicated. 
+
+Using the property found in the previous step, if we go from the first element
+and move in one direction, then at most the next 6 points could be exactly $d$
+distance away from the initial point, therefore, if we check 7, then we will be
+guaranteed to find a minimum if there is one. 
+
+\item
+\begin{verbatim}
+def closest-pair(points):
+  find an x value # O(n)
+  pL, qL = closest-pair(L)
+  pR, qR = closest-pair(R)
+  find the d value
+  sort the elements in the range x-d, x+d # O(nlogn)
+  check the elements # O(n)
+  return the minimum of the three sets of points
+\end{verbatim}
+Therefore, the recurrence is:
+\begin{equation*}
+T(n) = 2T(n/2) + O(n\log n)
+\end{equation*}
+Since we have the recurrence in the general form:
+\begin{equation*}
+T(n) = 2T(n/2) + f(n)
+\end{equation*}
+Where $f(n)$ is of the form:
+\begin{equation*}
+n^{\log_b a} \log^k n
+\end{equation*}
+Therefore, the value is:
+\begin{equation*}
+O(n^{\log_b a} \log^{k+1} n)
+\end{equation*}
+Therefore, the big O for this recurrence is:
+\begin{equation*}
+O(n\log^2n)
+\end{equation*}
+Sources: wikipedia
+\item
+Before running the algorithm, we sort the points by y value, and pass it in
+to the algorithm. By carefully maintaining the order of the points, we never
+have to sort the points again, thereby making all of the sub-calls run in linear
+time, giving us the recurrence:
+\begin{equation*}
+T(n) = 2T\left( \frac{n}{2} \right) + O(n)
+\end{equation*}
+Which, by masters theorem is:
+\begin{equation*}
+O(n \log n)
+\end{equation*}
+And since the sort is done once in $n \log n$ time, then the entire algorithm is
+also in $n \log n$ time. 
+\end{enumerate}
+\end{enumerate}
+\end{document}

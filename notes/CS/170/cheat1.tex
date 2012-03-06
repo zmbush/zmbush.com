@@ -1,0 +1,48 @@
+%       File: cheat1.tex
+%     Created: Sun Feb 26 05:00 PM 2012 P
+% Last Change: Sun Feb 26 05:00 PM 2012 P
+%
+\documentclass[letterpaper]{article}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{multicol,amsmath}
+\begin{document}
+\begin{multicols}{3}
+\subsubsection*{Master Theorem}
+For the recurrence $T(n) = aT(n/b) + O(n^d)$, the solution is as follows:
+\begin{equation*}
+T(n) = 
+\begin{cases}
+O(n^d),&\text{if } d > \log_b a\\
+O(n^d \log n),&\text{if } d = \log_b a\\
+O(n^{\log_b a}),&\text{if } d < \log_b a
+\end{cases}
+\end{equation*}
+\subsubsection*{Roots of unity}
+Are of the form $\omega^{0}, \omega^{1} \cdots, \omega^{n-1}$, where $\omega$ is
+equal to $e^{2 \pi \i / n}$
+
+\subsubsection*{Fast Fourier Transform}
+The algorithm for the FFT is as follows:
+\begin{verbatim}
+FFT(a, w):
+  if w == 1:
+    return a
+  (s0, s1, ..., sn/2-1) 
+   = FFT((A0, A2, ..., An-2), w^2)
+  (s'0, s'1, ..., s'n/2-1) 
+   = FFT((A1, A3, ..., An-1), w^2)
+  for j = 0 to (n/2)-1:
+    rj = sj + (w^j)(s'j)
+    rj+n/2 = sj - (w^j)(s'j)
+  return (r0, r1, ..., rn-1)
+\end{verbatim}
+To perform the inverse operation, simply run the algorithm again with:
+$\omega^{-1}$, and divide the result by $n$.
+\end{multicols}
+\subsubsection*{Edge Types}
+\subsubsection*{Searches}
+\subsubsection*{Bellman-Ford}
+\subsubsection*{Djikstra's}
+\end{document}
+
+
