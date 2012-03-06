@@ -16,4 +16,15 @@ Except for the other lists.
 
 The greedy algorithm is not optimal, but will find a very good solution. 
 
-This problem is **NP-Complete**. 
+> This problem is **NP-Complete**. 
+
+The greedy algorithm picks the set with the most remaining elements. 
+* not optimal, but will perform fine.
+
+## How fine?
+
+The greedy alway picks at least 1/k remaining elements.
+
+    After Step 1:
+      Elements remaining <= (1 - 1/k)*n
+
