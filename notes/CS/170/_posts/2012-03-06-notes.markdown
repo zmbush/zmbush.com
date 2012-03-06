@@ -51,6 +51,23 @@ Divide and conquer is not applicable most of the time.
     a -> b -> e
       1    4
 
+To Solve this DAG, we can do the following
+
     dist[s] = 0
     for each vertex v in linearized order
-      dist[v] = min u in pred(v) [ dist[v] + l[u,v] ]
+      dist[v] = min u in pred(v) [ dist[u] + l[u,v] ]
+
+This algorithm is extremely robust an versatile. This is all that Dynamic
+Programming really is. 
+
+## Versatile!
+
+Suppose we want to find the longest path. 
+
+* min -> max
+
+Suppose we want to find the smallest product!
+
+* + -> *
+
+Simple changes can make this algorithm do what you want!
