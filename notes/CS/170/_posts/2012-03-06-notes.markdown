@@ -121,3 +121,9 @@ Find the optimal alignment.
     G 4
     T 5
     G 6
+
+     #  weight  value
+item 1   6       $30
+     2   3       $14
+     3   4       $16
+     4   2       $19
