@@ -61,7 +61,7 @@ _Memory_
 
 # Pay Attention!!!
 
-\\( \int\_{hex}^boo \\)
+$\int\_{hex}^boo$
 
 \\( #\text{binary trees with n leaves?} = C(n) \\)
 
