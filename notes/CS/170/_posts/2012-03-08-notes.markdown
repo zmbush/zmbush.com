@@ -7,8 +7,8 @@ title: CS 170 Lecture 13
 
 Dag/Equation
 
-Time = #edge (n^2)
-par-time = depth (n)
+Time = #edge ($!n^2!$)
+par-time = depth ($!n!$)
 
 _Memory_
 
@@ -28,7 +28,7 @@ _Memory_
 
     K[w] = 0
     for i = wmin to w:
-      K[w] = max(items i) [ K[w - wi] + vi ] 
+      K[w] = max(items i) [ K[w - $!w_i!$] + $!v_i!$ ] 
 
 
               /-------\
@@ -61,17 +61,15 @@ _Memory_
 
 # Pay Attention!!!
 
-$\int\_{hex}^boo$
+$!\int\_{hex}^boo!$
 
-\\( #\text{binary trees with n leaves?} = C(n) \\)
-
-\\\[ C(n) = \frac12 \binom{2n-2}{n-1} = \Theta\left(\frac{4^n}{\sqrt{n}}\right) \\\]
+$$ C(n) = \frac12 \binom{2n-2}{n-1} = \Theta\left(\frac{4^n}{\sqrt{n}}\right) $$
 
 ### How do you find the best tree?
 
-\\\[A\_1, A\_2, \dots, A\_n\\\]
+$$A\_1, A\_2, \dots, A\_n$$
 
-> M(i, j) = The smallest number of multiplications to multiply matrices
-  \\\[A\_i, A\_{i+1}, \dots, A\_j (i \le j) \\\]
+    M(i, j) = The smallest number of multiplications to multiply matrices
+    $$A\_i, A\_{i+1}, \dots, A\_j (i \le j)$$
 
 
