@@ -22,7 +22,7 @@ _Memory_
     4     2   $19
        W = 9
 
-With repetitions, or without. 
+### With repetitions
 
     K[w] = the largest possible value for total weight w.
 
@@ -39,3 +39,5 @@ With repetitions, or without.
       /---\ | | | | | |
     /---\ | | | | | | |
     0 1 2 3 4 5 6 7 8 9
+
+### Without Repetitions
