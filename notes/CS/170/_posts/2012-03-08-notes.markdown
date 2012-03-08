@@ -61,8 +61,6 @@ _Memory_
 
 # Pay Attention!!!
 
-$!\int\_{hex}^boo!$
-
 $$ C(n) = \frac12 \binom{2n-2}{n-1} = \Theta\left(\frac{4^n}{\sqrt{n}}\right) $$
 
 ### How do you find the best tree?
