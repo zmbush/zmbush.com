@@ -4,3 +4,10 @@ title: CS 170 Lecture 13
 ---
 
 # Dynamic Programming
+
+Dag/Equation
+
+Time = #edge (n^2)
+par-time = depth (n)
+
+_Memory_
