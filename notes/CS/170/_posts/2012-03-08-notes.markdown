@@ -24,3 +24,6 @@ _Memory_
 
 With repetitions, or without. 
 
+K[w] = the largest possible value for total weight w.
+
+    K[w] = max(items) [ K[w - wi] + vi ]
