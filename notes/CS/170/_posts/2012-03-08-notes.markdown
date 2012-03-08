@@ -59,4 +59,4 @@ _Memory_
         if w > n K(w, i) = K(w, i-1)
         else: K(w, i) = max[K(w, i-1), K(w-wi, i-1)] + vi
 
-
+\[ x^2 \]
