@@ -1,7 +1,7 @@
 % Search for all the places that say "PUT SOMETHING HERE".
 
 \documentclass[11pt]{article}
-\usepackage{amsmath,textcomp,amssymb,geometry,graphicx}
+\usepackage{amsmath,textcomp,amssymb,geometry,graphicx,enumerate}
 
 \def\Name{Zachary Bush}  % Your name
 \def\Sec{Th 4-5; Starfield}  % Your discussion section
@@ -11,21 +11,213 @@
 \title{CS170--Spring 2012 --- Solutions to Homework \HW}
 \author{\Name, section \Sec, \texttt{\Login}}
 \markboth{CS170--Spring 2012 Homework \HW \Name, section \Sec}{CS170--Spring 2012
-Homework \HW \Name, section \Sec, \texttt{\Login}}
+Homework \HW  \Name, section \Sec, \texttt{\Login}}
 \pagestyle{myheadings}
 
 \begin{document}
 \maketitle
 
 \section*{1.}
+
+Using python (see included file huffman.py) we can calculate all of these
+values:
+\begin{enumerate}
+\item[(a).]
+\begin{tabular}{cr|cr|cr}
+Key&Huffman Code&Key&Huffman Code&Key&Huffman Code\\
+\hline
+a&1010 & b&100100 & blank&111 \\
+c&00101 & d&10111 & e&010 \\
+f&110100 & g&100111 & h&0001 \\
+i&0111 & j&1101111110 & k&11011110 \\
+l&10110 & m&110110 & n&0110 \\
+o&1000 & p&100101 & q&1101111100 \\
+r&0000 & s&0011 & t&1100 \\
+u&00100 & v&1101110 & w&110101 \\
+x&1101111111 & y&100110 & z&1101111101 \\
+\end{tabular}
+
+\item[(b).]
+The Expected Number of bits per character is: 4.201
+
+\item[(c).]
+I would expect the entropy to be less than the expeted number of bits, because
+the number of bits has to be higher for it to be prefix-free.
+
+\item[(d).]
+This is not the optimal encoding strategy. We should also be taking into account
+common sequences of letters such as `` and '', which can then be encoded much
+smaller.
+\end{enumerate}
+
 \newpage
 \section*{2.}
+\begin{enumerate}
+\item[(a).] (1, 1, 3, 3)
+\item[(b).]
+\begin{enumerate}
+\item[i.] We can choose $i$ to be an element in $\left( 2,3, \dots, d_1 + 1
+\right)$
+We also must choose our $j$ to be outside of this range. 
+
+We therefore also know that: $d_i \ge d_j \ge 1$
+
+If we then look at the set of edges remaining when we remove $v_1$, then we know
+that $d_i > d_j - 1$
+
+There therefore must exist some vertex in $i$ that is not in $j$, and we can
+select it as $u$.
+\item[ii.] 
+Remove $\left\{ v_1, v_j \right\}$, and add in $\left\{ v_1, v_i \right\}$\\
+Remove $\left\{ u, v_i \right\}$, and add in $\left\{ u, v_j \right\}$
+
+\item[iii.] 
+Repeat the above process until $v_1$ has the neighbors $\left\{ v_2, v_3, \dots,
+v_{d_1 + 1} \right\}$
+\end{enumerate}
+\item[(c).]
+The results from b let us know that a given degree sequence is valid if and only
+if, the set minus the first element is also valid. That is to say:
+\begin{equation*}
+(d_1, \dots, d_n) \text{ is valid iff } (d_2 - 1, \dots, d_{d_1+1}-1,
+d_{d_1+2}, \dots, d_n) \text{ is valid}
+\end{equation*}
+
+From here we can define an algorithm.
+
+We first sort the sequence in decreasing order, which can be done in linear
+time, with the proper sort algorithm (radix sort, etc.)
+
+Next, we remove the first element, and decrement the first $d_1$ elements of the
+new set, and remove all zero values. if $d_1 > n-1$ is ever true, then the set
+is invalid. We then recurse and perform the operation again ot the remaining
+set. 
+
+When we reach the empty set, then we can safely say that we have a valid degree
+sequence.
+
+Our running time is then $O(n^2 + m)$
+\end{enumerate}
 \newpage
 \section*{3.}
+The constraints we need to satisfy is that $\forall v_i \in V (d_i \ge 5 \land
+d_i \le |V| - 5)$.
+
+The algorithm is then simple. We remove any node whose degree is less than 5, or
+greater than $|V| - 5$, and repeat, until we remove no nodes. At this point we
+will have our final answer. 
+
+The operation at each step $O(n)$, and we perform this at most $n$ times, which
+gives us a running time of $O(n^2)$
 \newpage
 \section*{4.}
+
+The optimal order for the customers is to sort them in increasing order of time
+to serve. In this way, we get a graph that increases the wait time by as little
+as possible for all remaining customers. When given a list of customers and
+their time to serve, we can sort the list in $O(n\log n)$ time. 
+
+if, given two times $t(i)$ and $t(j)$, then if $t(i) > t(j)$, where $i < j$, we 
+can achieve a better ordering by swapping the two elements.
+
+Thus our final, and optimal solution will always be in increasing order.
 \newpage
 \section*{5.}
+We define our subproblem to be finding the minimum penalty to get to any hotel. 
+
+We initialize $P_0 = 0$, and to further calculate the minimum penalty, we do
+the following
+
+\begin{equation*}
+P_i = \min_{0\le j<i} (200 - (a_i - a_j))^2 + P_j
+\end{equation*}
+
+We calculate the values for $P_i$, in order of their occurence on the road, so
+by the time we calculate a node, then all of its predecessors will have their
+optimal values, and we can then choose whichever one has the smallest value.
+
+The running time of this algorithm is $O(n^2)$, because you are doing $O(n)$
+work for each of the $n$ nodes.
 \newpage
 \section*{6.}
+1. Given a rooted tree, where each node has access to a parent pointer
+(v.parent), which is nil for the
+root, give an O(log n) parallel algorithm for finding the depth of each node
+(distance from the root of
+the tree.)
+
+2. Given a tree specified by parent pointers, give a parallel algorithm for
+producing a list of children for
+each node. You may assume that you can sort an array of keyed pairs in parallel
+in time O(log n).
+(Hint: have vertex v in parallel write the pair (v.parent, v) in an array at
+position v. Can this be done
+so that no two pairs are written to the same place? Then what?)
+
+3. Give a parallel algorithm for computing the maximum depth of any node in the
+tree. (You may call
+the algorithm from the notes on boruvka to create a linked list of all the nodes
+in the tree.)
+
+\begin{enumerate}
+\item 
+Using pointer jumping.
+
+Initialize the nodes as such:
+\begin{verbatim}
+Vertex Pardo(v):
+  if v.parent = nil:
+    v.value := 0
+  else:
+    v.value := 1
+\end{verbatim}
+
+Update the nodes as such:
+\begin{verbatim}
+Vertex Pardo(v):
+  if v.parent != nil:
+    v.value := v.value + v.parent.value
+    v.parent := v.parent.parent
+\end{verbatim}
+
+You will have to run this algorithm at most $O(\log n)$ times to propagate the
+depths to all the children.
+\item 
+We start the algorithm by creating a $|V|\times|V|$ array $M$ that will be used 
+to place the elements, and initialize all element to nil.
+
+To add the nodes to the array:
+\begin{verbatim}
+Vertex Pardo(v):
+  M[v.parent][v] := v
+\end{verbatim}
+
+Once we are done, we can take each row in parallel and sort it in $O(\log n)$
+time. 
+
+This way, we construct an array of nil terminated adjacency lists.
+\item
+Using pointer jumping.
+
+Initialize all nodes to zero in parallel, then set the values as such:
+\begin{verbatim}
+Vertex Pardo(v):
+  if v.parent != nil:
+    v.parent.value := 1
+\end{verbatim}
+
+In this way we have all leaves equal to zero, and 1 everywhere else.
+
+We then propagate the values upwards with:
+\begin{verbatim}
+Vertex Pardo(v):
+  if v.parent != nil:
+    v.parent.value := max(v.value + v.parent.value, v.parent.value)
+    v.parent := v.parent.parent
+\end{verbatim}
+
+In this way we propagate the values upwards, and we have to run the algorithm at
+most $O(\log n)$ times.
+
+\end{enumerate}
 \end{document}
