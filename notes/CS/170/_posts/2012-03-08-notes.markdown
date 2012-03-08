@@ -57,9 +57,7 @@ _Memory_
     for i = 1 to n:
       for w = 1 to w:
         if w > n K(w, i) = K(w, i-1)
-        else: K(w, i) = max[K(w, i-1), K(w-wi, i-1)] + vi
-
-# Pay Attention!!!
+        else: $!K(w, i) = max[K(w, i-1), K(w-w_i, i-1)] + v_i!$
 
 $$ C(n) = \frac12 \binom{2n-2}{n-1} = \Theta\left(\frac{4^n}{\sqrt{n}}\right) $$
 
