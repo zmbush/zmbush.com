@@ -11,3 +11,16 @@ Time = #edge (n^2)
 par-time = depth (n)
 
 _Memory_
+
+
+## Knapsack Problem.
+
+    Item  Wt  Value
+    1     6   $30
+    2     3   $14
+    3     4   $16
+    4     2   $19
+       W = 9
+
+With repetitions, or without. 
+
