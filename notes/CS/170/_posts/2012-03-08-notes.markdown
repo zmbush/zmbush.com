@@ -61,4 +61,4 @@ _Memory_
 
 # Pay Attention!!!
 
-\\( \int\_{hex}^boo )\\
+\\( \int\_{hex}^boo \\)
