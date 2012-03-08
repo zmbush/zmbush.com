@@ -3,4 +3,4 @@ layout: notes
 title: CS 170 Lecture 13
 ---
 
-
+# Dynamic Programming
