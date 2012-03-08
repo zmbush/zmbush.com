@@ -62,3 +62,7 @@ _Memory_
 # Pay Attention!!!
 
 \\( \int\_{hex}^boo \\)
+
+\\( #\text{binary trees with n leaves?} = C(n) \\)
+
+\\\[ C(n) = \frac12 \binom{2n-2}{n-1} = \Theta(\frac{4^n}{\sqrt{n}}) \\\]
