@@ -67,6 +67,6 @@ $$ C(n) = \frac12 \binom{2n-2}{n-1} = \Theta\left(\frac{4^n}{\sqrt{n}}\right) $$
 $$A\_1, A\_2, \dots, A\_n$$
 
     M(i, j) = The smallest number of multiplications to multiply matrices
-    $!A\_i, A\_{i+1}, \dots, A\_j (i \le j)!$
+    $!A_i, A_{i+1}, \dots, A_j (i \le j)!$
 
 
