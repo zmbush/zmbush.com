@@ -124,3 +124,9 @@ ___Floyd-Warshall solves this problem!___
       for i = 1 to n:
         for j = 1 to n:
           dist[i, j, k] = or[dist[i, j, k-1], dist[i,k,k-1] and dist[k,j,k-1]]
+
+### Traveling Salesman!!!!!!
+
+NP-Complete
+
+$$n! \rightarrow 2^n$$
