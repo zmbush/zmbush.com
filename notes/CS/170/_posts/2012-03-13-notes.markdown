@@ -70,11 +70,17 @@ Penalized long paths!
 DYNAMICPROGRAMMING!!!!!!!!!
 
     For every node in the tree:
-      $!dist[v, k] = \text{The length of the shortest path from s to v, with k
-                           edges}!$
+      $$dist[v, k] = \text{The length of the shortest path from s to v, with k
+                           edges}$$
 
-      $!dist[v, 0] = \begin{parts}0\end{parts}!$
+      $$dist[v, 0] = 0, or \infty$$
 
-      $!dist[v, k] = \min_{(u,v)\in E}[dist[u, k-1] + l[u,v]]!$
+      $$dist[v, k] = \min_{(u,v)\in E}[dist[u, k-1] + l[u,v]]$$
+
+### All-pairs shortest path
+
+> We want the shortest paths between all possible pairs of nodes, at once.
+
+#### Floyd-Warshall ($!O(|V|^3)!$)
 
 
