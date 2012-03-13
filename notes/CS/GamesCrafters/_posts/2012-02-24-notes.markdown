@@ -1,6 +1,0 @@
----
-layout: notes
-title: CS GamesCrafters Lecture 1
----
-
-# GamesCrafters
