@@ -83,4 +83,14 @@ DYNAMICPROGRAMMING!!!!!!!!!
 
 #### Floyd-Warshall ($!O(|V|^3)!$)
 
+Shortest path from $!i!$ - $!j!$.
+
+Imagine that we slowly find better and better shortest paths.
+
+Which intermediate nodes can we use?
+
+At beginning, no intermediate nodes
+
+Then we add one node, then two, then ...
+
 
