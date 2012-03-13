@@ -81,7 +81,7 @@ DYNAMICPROGRAMMING!!!!!!!!!
 
 > We want the shortest paths between all possible pairs of nodes, at once.
 
-#### Floyd-Warshall ($!O(|V|^3)!$)
+### Floyd-Warshall ($!O(|V|^3)!$)
 
 Shortest path from $!i!$ - $!j!$.
 
@@ -99,4 +99,11 @@ Then we add one node, then two, then ...
 Each time we add a new intermediate node k, we either use, or don't use the node
 k. 
 
+__Floyd Warshall__
+     
+    dist[i, j, 0] = l[i,j]
 
+    for k = 1 to n:
+      for i = 1 to n:
+        for j = 1 to n:
+          dist[i, j, k] = min[dist[i, j, k-1], dist[i,k,k-1] + dist[k,j,k-1]]
