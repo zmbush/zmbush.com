@@ -11,5 +11,11 @@ title: CS 170 Lecture 14
 $!n^2!$ subproblems, where you need to look at $!n!$ other subproblems each
 time. Therefore the running time is: $$O(n^3)$$
 
+# How can we improve on DP?
 
 $$900,300,400,200,1100;2000$$
+
+is the same as:
+
+$$9,3,4,2,11;20$$
+
