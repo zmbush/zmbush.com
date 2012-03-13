@@ -72,3 +72,5 @@ DYNAMICPROGRAMMING!!!!!!!!!
     For every node in the tree:
       $!dist[v, k] = \text{The length of the shortest path from s to v, with k
                            edges}!$
+
+      $!dist[v, 0] = \begin{parts}0\end{parts}!$
