@@ -1,0 +1,9 @@
+---
+layout: notes
+title: CS 170 Lecture 14
+---
+
+# Dynamic Programming
+
+Increasing subsequence DAG
+Knapsack DAG
