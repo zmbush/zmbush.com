@@ -115,5 +115,12 @@ have a negative cycle. Making negative cycle checking very easily.
 
 ### Is there a directed path from i -> j?
 
+___Floyd-Warshall solves this problem!___
 
+    dist[i, j, 0] = 0 if no edge
+    dist[i, j, 0] = 1 if edge
 
+    for k = 1 to n:
+      for i = 1 to n:
+        for j = 1 to n:
+          dist[i, j, k] = or[dist[i, j, k-1], dist[i,k,k-1] and dist[k,j,k-1]]
