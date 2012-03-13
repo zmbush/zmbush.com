@@ -81,7 +81,7 @@ DYNAMICPROGRAMMING!!!!!!!!!
 
 > We want the shortest paths between all possible pairs of nodes, at once.
 
-### Floyd-Warshall ($!O(|V|^3)!$)
+### Floyd-Warshall $!O(|V|^3)!$
 
 Shortest path from $!i!$ - $!j!$.
 
