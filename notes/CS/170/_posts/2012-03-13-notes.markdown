@@ -34,4 +34,27 @@ Independent set problem.
 
 NP complete problem.
 
+If the given graph is a tree, the problem is easily solved with dynamic
+programming!
+     
+            o
+      /----/|\-----\
+     o      |      o
+    /|\     o     / \
+    ooo    / \    o o
+           | o
+          / \
+          o o
 
+Dynamic programming for tree. 
+
+    Sub problem = Sub tree(Vertex)
+
+Algorithm:
+
+    For every node of the tree from the leaves up:
+      if v is a leaf:
+        I(v) = 1
+      else:
+        I(v) = max($!\sum_{\text{u, child of v}} I(u)!$
+                   $!1 + \sum_{\text{u, grandchild of v}} I(u)!$)
