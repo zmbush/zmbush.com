@@ -1,6 +1,7 @@
 ---
 layout: notes
 title: CS 170 Lecture 14
+topic: Dynamic Programming
 ---
 
 # Dynamic Programming
@@ -110,5 +111,9 @@ __Floyd Warshall__
 
 If there is a negative number in the result matrix, then we are guaranteed to
 have a negative cycle. Making negative cycle checking very easily.
+
+
+### Is there a directed path from i -> j?
+
 
 
