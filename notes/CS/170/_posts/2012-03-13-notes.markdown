@@ -74,3 +74,7 @@ DYNAMICPROGRAMMING!!!!!!!!!
                            edges}!$
 
       $!dist[v, 0] = \begin{parts}0\end{parts}!$
+
+      $!dist[v, k] = \min_{(u,v)\in E}[dist[u, k-1] + l[u,v]]!$
+
+
