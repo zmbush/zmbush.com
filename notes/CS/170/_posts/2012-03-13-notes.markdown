@@ -5,9 +5,11 @@ title: CS 170 Lecture 14
 
 # Dynamic Programming
 
-Increasing subsequence DAG
-Knapsack DAG
-
+* Increasing subsequence DAG
+* Knapsack DAG
 
 $!n^2!$ subproblems, where you need to look at $!n!$ other subproblems each
 time. Therefore the running time is: $$O(n^3)$$
+
+
+$$900,300,400,200,1100;2000$$
