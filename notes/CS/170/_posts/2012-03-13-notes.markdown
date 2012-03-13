@@ -9,3 +9,5 @@ Increasing subsequence DAG
 Knapsack DAG
 
 
+$!n^2!$ subproblems, where you need to look at $!n!$ other subproblems each
+time. Therefore the running time is: $$O(n^3)$$
