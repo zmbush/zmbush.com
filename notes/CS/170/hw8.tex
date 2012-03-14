@@ -6,7 +6,7 @@
 \def\Name{Zachary Bush}  % Your name
 \def\Sec{Th 4-5; Starfield}  % Your discussion section
 \def\Login{cs170-nx} % Your login
-\def\HW{7}
+\def\HW{8}
 
 \title{CS170--Spring 2012 --- Solutions to Homework \HW}
 \author{\Name, section \Sec, \texttt{\Login}}
@@ -22,6 +22,18 @@ Homework \HW \Name, section \Sec, \texttt{\Login}}
 \section*{2.}
 \newpage
 \section*{3.}
+\begin{verbatim}
+make table T:
+  init: 
+    for i in range(n):
+      T(i,i) = vi
+  for i in range(n-1):
+    a = 0
+    for b = i -> n-1:
+      T(a,b) = va if max[va - T(a+1, b), vb - T(a, b-1)] = va - T(a+1, b)
+      T(a,b) = vb if max[va - T(a+1, b), vb - T(a, b-1)] = vb - T(a, b-1)
+      a++
+\end{verbatim}
 \newpage
 \section*{4.}
 \newpage
