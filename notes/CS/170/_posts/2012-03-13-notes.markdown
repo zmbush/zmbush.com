@@ -113,7 +113,7 @@ If there is a negative number in the result matrix, then we are guaranteed to
 have a negative cycle. Making negative cycle checking very easily.
 
 
-### Is there a directed path from i -> j?
+### Is there a directed path from $!i \rightarrow j!$?
 
 ___Floyd-Warshall solves this problem!___
 
