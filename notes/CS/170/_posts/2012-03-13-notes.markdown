@@ -134,7 +134,7 @@ $$n! \rightarrow 2^n$$
 To find the shortest path without too many hops, we have to remember how many
 hops we have done so far. 
 
-$$S \sebseteq \text{Cities}, 1 \in S$$
+$$S \subseteq \text{Cities}, 1 \in S$$
 
     L(S, j)
       j in S
