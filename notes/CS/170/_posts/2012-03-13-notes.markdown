@@ -145,8 +145,8 @@ in j
 
     For all S in increasing size $!\ge 2!$:
       for all $!j \in S, j \neq 1!$
-        L(S, j) = $!\min_{i \in SS, i \neq j} L(S-\{j\}, i) + l(i, j)
-    return $!\min_j L(\{1, 2, 3, \dots, n\}, j) + l(j, 1)
+        L(S, j) = $!\min_{i \in SS, i \neq j} L(S-\{j\}, i) + l(i, j)!$
+    return $!\min_j L(\{1, 2, 3, \dots, n\}, j) + l(j, 1)!$
 
 Running time is then $!O(2^n)!$.
 
