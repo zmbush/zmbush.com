@@ -9,11 +9,30 @@ other problems reduce to it.
 
 Maximize $!x\_1 + 6x\_2!$
 
-    $!x_1 \le 200!$
-    $!x_2 \le 300!$
-    $!x_1 + x_2 \le 400!$
-    $!x_1, x_2 \ge 0!$
+    $$
+    x_1 \le 200
+    x_2 \le 300
+    x_1 + x_2 \le 400
+    x_1, x_2 \ge 0
+    $$
 
 Construct a feasible region by graphing the constraints. 
+
+## Simplex Algorithm (Local Search)
+
+Pick a vertex. From this vertex, we can see x other vertices. Are these options
+better? Pick one. 
+
+Imagine that we add an even more lucrative product. 
+
+Maximize $!x\_1 + 6x\_2 + 13x\_3!$
+
+    $$
+    x_1 \le 200
+    x_2 \le 300
+    x_1 + x_2 + x_3 \le 400
+    x_1, x_2 \ge 0
+    x_2 + 3x_3 \le 600
+    $$
 
 
