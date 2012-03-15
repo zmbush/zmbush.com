@@ -18,24 +18,140 @@ Homework \HW \Name, section \Sec, \texttt{\Login}}
 \maketitle
 
 \section*{1.}
+You can rephrase this problem as a DAG. This DAG should be constructed such that
+each element points only to locations that are at least k miles away from the
+current location. With this DAG, we can then solve it with dynamic programming
+as follows: 
+
+We start with our $P(0) = 0$, and update as follows:
+\begin{equation*}
+P(i) = \max[P(i-1), p_i + P(i')]
+\end{equation*}
+
+Where $i'$ is the closest $i$ index such that it is at least $k$ miles behind
+$i$
+
+There are only two options for each position on the QVH. One, we could add a
+yuckdonalds at that location, or we could not. If we don't add a yuckdonalds,
+then our profit is guaranteed to be that of $P(i-1)$. If we do, however add a
+yuckdonalds, the earliest position that is at least $k$ miles away from $i$
+($P(i')$), plus the profit gained from the yuckdonalds at position $i$, must be
+the maximum possible profit for that position. Therefore the maximum possible is
+the maximum between adding or not adding a yuckdonalds at $i$.
 \newpage
 \section*{2.}
+Our subproblem for this problem is the largest substring ending at $i$, and $j$
+respectively ($S(i, j)$)
+
+We start with:
+\begin{eqnarray*}
+S(0, 0) &=& 0\\
+S(i, 0) &=& 0\\
+S(0, j) &=& 0
+\end{eqnarray*}
+
+For all $1 \le i \le n$, and $1 \le j \le m$
+
+Then to calculate another element, we can use the recursive function:
+\begin{equation*}
+S(i, j) = 
+\begin{cases}
+S(i-1, j-1) + 1, & \text{if } x_i = y_j\\
+0,&\text{Otherwise}
+\end{cases}
+\end{equation*}
+
+This is a very simple algorithm. Our initialization is clearly correct, if
+either of our arguments are zero, then the length of the subset is clearly zero.
+Then when we are looking at any $(i, j)$ pair, there are two options, either
+$x_i = y_j$, or they aren't. If they aren't equal, then the value is clearly
+$0$, and if they are, then the value is equal to $S(i-1, j-1) + 1$, since we are
+simply adding a new character. 
+
+There are $O(nm)$ subproblems like this to calculate, and each of them will take
+constant time, therefore the entire algorithm will take $O(nm)$ time as
+required.
 \newpage
 \section*{3.}
-\begin{verbatim}
-make table T:
-  init: 
-    for i in range(n):
-      T(i,i) = vi
-  for i in range(n-1):
-    a = 0
-    for b = i -> n-1:
-      T(a,b) = va if max[va - T(a+1, b), vb - T(a, b-1)] = va - T(a+1, b)
-      T(a,b) = vb if max[va - T(a+1, b), vb - T(a, b-1)] = vb - T(a, b-1)
-      a++
-\end{verbatim}
+\begin{enumerate}
+\item[(a)]
+A very simple example where the greedy algorithm would not work is the
+following:
+\begin{equation*}
+2, 5, 100, 4
+\end{equation*}
+
+The optimal choice here would be to pick the $2$, because that would force your
+opponent to reveal the $100$ to you. The greedy algorithm would chose $4$, which
+is clearly not what we want. 
+\item[(b)]
+We construct a table with information about the possible moves. The $x$
+coordinate represents the start of the remaining subsequence of cards, and $y$
+coordinate represents the end of the remaining subsequence of cards. An entry in
+this table represents the optimal move for a player when faced with this
+remaining subsequence.
+
+We initialize our net score function as such:
+\begin{equation*}
+N(a, a) = v_a
+\end{equation*}
+
+We can continue to calculate the values of this function as follows:
+\begin{equation*}
+N(a, b) = \max[v_a - N(a+1, b), v_b - N(a, b-1)]
+\end{equation*}
+
+From here, we can construct a table of optimal moves. Populate the table as
+such:
+\begin{equation*}
+T(a, a) = N(a, a)
+\end{equation*}
+
+And for all other cases:
+\begin{equation*}
+T(a, b) =
+\begin{cases}
+\text{first}, & \text{if } v_a - A(a+1, b) > v_b - A(a, b-1)\\
+\text{last}, & \text{Otherwise}
+\end{cases}
+\end{equation*}
+\end{enumerate}
+
+At any stage in the game, there are two possible moves for the player to make.
+The player could take the first card ($a$) at which point his score would be
+increased by $v_a$, and in all other moves, he will gain at most $-A(a+1, b)$.
+The same argument can be made for taking the last card. 
+
+There are $O(n^2)$ possible subproblems to calculate. Each of them take $O(1)$
+time to compute. Therefor the total running time is $O(n^2)$ as required. 
 \newpage
 \section*{4.}
+If we think of the optimal cost of a tree consisting of the words between index
+$a$, and $b$, then we can define our function $T(a, b)$ as follows. If $a > b$,
+then $T(a,b) = 0$. 
+
+Additionally, in the range $[a,b]$, we can select a single element to be the
+pivot. For each level of the tree, all items remaining in the tree must pay for
+the comparison at that level, so we have the cost of all of those items at each
+level as:
+\begin{equation*}
+Cl(a, b) = \sum_{x=a}^{b} p_x
+\end{equation*}
+
+In addition to this cost at the level, we must maximize the value across the
+possible pivots. 
+So we must select a $y$ value such that the sub trees are maximized. In other
+words:
+\begin{equation*}
+Cs(a, b) = \max_{y=a}^{b} [T(a, y-1) + T(y+1, b)]
+\end{equation*}
+
+Adding these values together we get the cost of the optimal tree:
+\begin{equation*}
+T(a, b) = Cl(a,b) + Cs(a,b)
+\end{equation*}
+
+Our final answer will be the value of $T(1, n)$.
 \newpage
 \section*{5.}
 \newpage
