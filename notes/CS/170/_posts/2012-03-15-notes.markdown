@@ -34,3 +34,41 @@ Maximize $!x\_1 + 6x\_2 + 13x\_3!$
     x_1, x_2 \ge 0
     x_2 + 3x_3 \le 600
     $$
+
+Via both algebra and simplex, we can show that the maximum of this system is
+$!3100!$
+
+### An example from the book.
+Let's say you are running a business, where you know the demand for products
+$!d\_1, \dots, d\_12!$ for each months of the year. 
+
+We have 30 employees that can each produce 20 units/month
+
+Workers can work overtime for $!80\%!$ more money. 
+
+You can also hire or fire. Hiring costs $320, Firing costs $400. 
+
+Workers get $2000 per month
+
+You can also store at $8/unit/month
+
+Variables?
+  
+    $!x_i!$: units made
+    $!w_i!$: workers  ($!w_1 = 30!$)
+    $!y_i!$: units made by overtime
+    $!h_i, f_i!$: Workers hired/fired
+    $!s_i!$: Units Stored
+
+    $$
+    x_i, w_i, y_i, f_i, h_i, s_i \ge 0
+    x_i = 20w_i + y_i
+    w_i = w_{i-1} + h_i - f_i
+    s_i = s_{i-1} + x_i - d_i
+    y_i \le 6w_i
+    $$
+
+    Minimize: 
+    $$
+    \sum_{i = 1}^{12}(2000w_i + 320h_i + 400f_i + 8s_i + 180y_i)
+    $$
