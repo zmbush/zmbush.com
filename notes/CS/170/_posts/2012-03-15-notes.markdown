@@ -9,7 +9,11 @@ other problems reduce to it.
 
 Maximize $!x\_1 + 6x\_2!$
 
-$!x\_1 \le 200!$
-$!x\_2 \le 300!$
-$!x\_1 + x\_2 \le 400!$
-$!x\_1, x\_2 \ge 0!$
+    $!x_1 \le 200!$
+    $!x_2 \le 300!$
+    $!x_1 + x_2 \le 400!$
+    $!x_1, x_2 \ge 0!$
+
+Construct a feasible region by graphing the constraints. 
+
+
