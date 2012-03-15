@@ -73,6 +73,7 @@ constant time, therefore the entire algorithm will take $O(nm)$ time as
 required.
 \newpage
 \section*{3.}
+Collaborators: Hayg Astorian, Andr\'e Crabb, Mary Stufflebeam
 \begin{enumerate}
 \item[(a)]
 A very simple example where the greedy algorithm would not work is the
@@ -111,7 +112,7 @@ And for all other cases:
 \begin{equation*}
 T(a, b) =
 \begin{cases}
-\text{first}, & \text{if } v_a - A(a+1, b) > v_b - A(a, b-1)\\
+\text{first}, & \text{if } v_a - N(a+1, b) > v_b - N(a, b-1)\\
 \text{last}, & \text{Otherwise}
 \end{cases}
 \end{equation*}
@@ -138,12 +139,11 @@ level as:
 Cl(a, b) = \sum_{x=a}^{b} p_x
 \end{equation*}
 
-In addition to this cost at the level, we must maximize the value across the
-possible pivots. 
-So we must select a $y$ value such that the sub trees are maximized. In other
-words:
+In addition to this cost at the level, we must minimize the value across the
+possible pivots.  So we must select a $y$ value such that the sub trees are
+minimized. In other words:
 \begin{equation*}
-Cs(a, b) = \max_{y=a}^{b} [T(a, y-1) + T(y+1, b)]
+Cs(a, b) = \min_{y=a}^{b} [T(a, y-1) + T(y+1, b)]
 \end{equation*}
 
 Adding these values together we get the cost of the optimal tree:
@@ -154,6 +154,71 @@ T(a, b) = Cl(a,b) + Cs(a,b)
 Our final answer will be the value of $T(1, n)$.
 \newpage
 \section*{5.}
+Collaborators: Andr\'e Crabb, Hayg Astorian
+
+Recall the parallel implementation of Bor\r{u}vka's algorithm:
+\begin{enumerate}
+\item[(a)] Argue (succinctly but convincingly) that it takes parallel time
+$O(\log^2 n)$.
+
+Each iteration of Bor\r{u}vka's algorithm is done using pointer jumping, and
+thus takes $O(\log n)$ time.  Each time you run bor\r{u}vka's algorithm, the
+number of connected components is at least halved, so we only need to run the
+algorithm $O(\log n)$ times. Therefore the total algorithm runs in: $O(\log^2
+n)$.  \item[(b)] How much work is involved? Compared to the serial
+implementation.
+
+The amount of work done pointer jumping is $O(|E|\log |V|)$ because we are doing
+$O(\log |V|)$ work on each of the $O(|E|)$ edges. We have to perform this
+operation $O(\log |V|)$ times. Therefore the amount of work is $O(|E|\log^2
+|V|)$
+
+The amount of work done by the serial implementation is actually less, because
+we have to do $O(|E|)$ work at most $O(\log |V|)$ times. Therefore our running
+time is: $(|E|\log |V|)$.
+
+\item[(c)] Suppose that we only count remote steps of the algorithm, steps in
+which one processor must access data in another. How much is the parallel time
+now? Do you think that it can it be improved?
+
+Counting the amount of work done accesing remote data, we need only consider
+steps where we are performing pointer jumping. The amount of work done pointer
+jumping is still $O(\log n)$, and thus our total time we see is $O(\log^2 n)$.
+\end{enumerate}
 \newpage
 \section*{6.}
+In class we discussed Huffman's algorithm for encoding text and the Edit
+Distance dynamic program for aligning sequences. The purpose of this assignment
+is to help you find out about the important algorithms used, for these same two
+tasks, in the world.
+\begin{enumerate}
+\item[(a)] Look up in the www the Lempel-Ziv algorithm (you can even watch an
+animation!). Write a paragraph describing it and its use. What is lossless
+compression?
+
+Lempel-Ziv performs compression in such a way as to make the compression in one
+pass through the file. We keep track of a table of character sequences an
+associated values. We look up in the table to find the largest subsequence of
+the current block in the table and insert that value. We then take the next
+character, and append it to the current sequence and add it back to the table.
+thus, commonly repeated sequences of letters can be encoded very compactly. 
+
+Lossless compression is a method of shrinking the size of a data set in such a
+way as to enable the data to be restored to it's original state without losing
+any information. Any text compression algorithm needs to be lossless. Other
+compression formats such as the image compression JPEG does not need to be
+lossless.
+
+\item[(b)] Repeat for BLAST. What are the main heuristics used?
+
+BLAST is commonly used for gene sequencing, to determine how different two genes
+are. It basically aligns the gene in such a way as to determine the minimum edit
+distance from one gene to another. It is done through a search through the data,
+and looking at all the words that are of length $k$, and then ranking the areas
+of the text by similarity and repeating until the we arrive at a solution. 
+
+The main heuristics used are Maximal Segment Pair measurement, which measure the
+segments with large matching pairs, and MSP approximation, which does this
+faster than a brute force search.
+\end{enumerate}
 \end{document}
