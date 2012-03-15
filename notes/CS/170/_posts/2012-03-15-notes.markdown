@@ -10,9 +10,9 @@ other problems reduce to it.
 Maximize $!x\_1 + 6x\_2!$
 
     $$
-    x_1 \le 200
-    x_2 \le 300
-    x_1 + x_2 \le 400
+    x_1 \le 200\\
+    x_2 \le 300\\
+    x_1 + x_2 \le 400\\
     x_1, x_2 \ge 0
     $$
 
@@ -28,10 +28,10 @@ Imagine that we add an even more lucrative product.
 Maximize $!x\_1 + 6x\_2 + 13x\_3!$
 
     $$
-    x_1 \le 200
-    x_2 \le 300
-    x_1 + x_2 + x_3 \le 400
-    x_1, x_2 \ge 0
+    x_1 \le 200\\
+    x_2 \le 300\\
+    x_1 + x_2 + x_3 \le 400\\
+    x_1, x_2 \ge 0\\
     x_2 + 3x_3 \le 600
     $$
 
@@ -61,14 +61,27 @@ Variables?
     $!s_i!$: Units Stored
 
     $$
-    x_i, w_i, y_i, f_i, h_i, s_i \ge 0
-    x_i = 20w_i + y_i
-    w_i = w_{i-1} + h_i - f_i
-    s_i = s_{i-1} + x_i - d_i
-    y_i \le 6w_i
+    x_i, w_i, y_i, f_i, h_i, s_i \ge 0\\
+    x_i = 20w_i + y_i\\
+    w_i = w_{i-1} + h_i - f_i\\
+    s_i = s_{i-1} + x_i - d_i\\
+    y_i \le 6w_i\\
     $$
 
     Minimize: 
     $$
     \sum_{i = 1}^{12}(2000w_i + 320h_i + 400f_i + 8s_i + 180y_i)
     $$
+
+In linear programming, you often get fractional solutions. This can sometimes be
+very bad. For example, we may have to fire 8.2 people... 
+
+We must find new techniques that only find integer techniques. 
+
+### Integer linear programming is harder!!!
+
+NP-Complete...
+
+
+### Another problem we can solve with linear programming
+Imagine
