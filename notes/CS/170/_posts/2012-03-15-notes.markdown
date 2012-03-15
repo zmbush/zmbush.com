@@ -1,0 +1,15 @@
+---
+layout: notes
+title: CS 170 Lecture 15
+topic: Linear Programming
+---
+
+Linear programming is a problem that is extremely useful in such a way as many
+other problems reduce to it. 
+
+Maximize $!x\_1 + 6x\_2!$
+
+$!x\_1 \le 200!$
+$!x\_2 \le 300!$
+$!x\_1 + x\_2 \le 400!$
+$!x\_1, x\_2 \ge 0!$
