@@ -1,0 +1,7 @@
+---
+layout: post
+title: Yelp Coding for Grub
+image: yelp.jpg
+snippet: A 3 hour coding project, to analyze a dataset from yelp
+---
+

@@ -4,8 +4,6 @@ title: .mp-Complete
 image: mp-complete.png
 snippet: A project to fix the metadata of music.
 ---
-## .mp-Complete 
-
 This was a project for the 2012 CSUA hackathon. An 18 hour programming
 competition that began at 6:00 PM on February 17th, and ended at noon the
 following day. 

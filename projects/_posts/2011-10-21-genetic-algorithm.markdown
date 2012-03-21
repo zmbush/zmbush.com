@@ -7,9 +7,6 @@ snippet: |
   create a simulation involving multiple agents working towards a common goal
   of collecting enough food to survive to the next generation. 
 ---
-
-## Genetic Algorihms
-
 This project was aiming to create a simulation involving multiple agents all
 working towards collecting enough food. 
 
