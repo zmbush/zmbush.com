@@ -82,3 +82,21 @@ DIV.contents P{
   padding-bottom: 5px;
   text-indent: 1.5em;
 }
+
+DIV.contents P A{
+  color: lime;
+}
+
+FOOTER{
+  padding-top: 10px;
+}
+
+FOOTER A{
+  color: #9999FF;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+FOOTER A:hover{
+  text-decoration: underline;
+}
