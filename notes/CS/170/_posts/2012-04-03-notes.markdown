@@ -29,10 +29,12 @@ Note: $!x!$ can be $!(0,0,\cdots,1,\cdots,0)!$
 Example: Roshambo. Value of R?
 
      | | R | P | S |
-    x|R|  0| -1|  1|
-    x|P|  1|  0| -1|
-    x|S| -1|  1|  0|
+    $!x_1!$|R|  0| -1|  1|
+    $!x_2!$|P|  1|  0| -1|
+    $!x_3!$|S| -1|  1|  0|
 
 Pick R, P, S to maximize
 
     $$min\{ x_2 - x_3, -x_1 + x_3, x_1 - x_2 \}$$
+
+
