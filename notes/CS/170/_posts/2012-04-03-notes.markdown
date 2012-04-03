@@ -128,5 +128,27 @@ Perturb problem a bit.
   $!O(nm)!$ total.
 * Find new coordinate system, rewrite LP
   Naively: $!O(n^3)!$
-  
 Only one new constraint. 
+$!O(nm)!$ time to update LP.
+
+How many steps?
+
+Could be large. Exponential in worst case!
+
+Linear Programmers: 
+* [Dantzig](http://en.wikipedia.org/wiki/George_Dantzig)
+* [Kantorovich](http://en.wikipedia.org/wiki/Leonid_Kantorovich)
+* [Khachiyan](http://en.wikipedia.org/wiki/Leonid_Khachiyan)
+* [Karmakar](http://en.wikipedia.org/wiki/Narendra_Karmarkar)
+
+Linear programming solves many problems.
+
+How applicable is it?
+
+### Circuit evaluation
+
+The circuit value problem is completely general!
+
+If we can evaluate a circuit, we can evaluate __ANY__ problem!
+
+Not efficient!
