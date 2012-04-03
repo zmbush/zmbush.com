@@ -51,7 +51,7 @@ A vertex is where two inequities are forced to be equal.
 
 ex: $!x\_1 = 0!$, and $!x\_2 = 0!$.
 
-To find a neighbor, take one of the two constraints, and make it not tied. Then
+To find a neighbor, take one of the two constraints, and make it not tight. Then
 tie another constraint. 
 
 In three dimensions, we need 3 tight constraints instead of two.
@@ -61,3 +61,28 @@ Two tight constraints will define a line, which is not a point.
 In n dimensions, we need n tight constraints. 
 
 n constraints define a vertex in $!\mathbb{R}^n!$
+
+* Two tasks in simplex algorithm
+  * Check optimality of vertex
+  * Where to go next
+
+Generic LP:
+
+    $$\max c^T x$$
+    $$Ax \le b$$
+    $$x \ge 0$$
+
+Start at origin, supposing it is feasible.
+
+Vertex since intersection of n constraints of form $!x\_i = 0!$
+
+Optimal? 
+
+If all $!C[i]!$ is negative, and we are at origin, then we are optimal. 
+
+If there is a $!C[i] > 0!$, and we can increase $!x\_i!$, then we are not
+optimal. 
+
+$!x\_i \ge 0!$ is no longer tight, but new constraint is. 
+
+
