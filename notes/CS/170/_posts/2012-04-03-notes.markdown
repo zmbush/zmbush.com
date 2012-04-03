@@ -68,8 +68,8 @@ n constraints define a vertex in $!\mathbb{R}^n!$
 
 Generic LP:
 
-    $$\max c^T x
-    Ax \le b
+    $$\max c^T x\\
+    Ax \le b\\
     x \ge 0$$
 
 Start at origin, supposing it is feasible.
@@ -85,4 +85,48 @@ optimal.
 
 $!x\_i \ge 0!$ is no longer tight, but new constraint is. 
 
+A new coordinate system, Distance from new constraints. 
 
+$!y\_i!$ is the distance from constraint $!i!$. 
+
+$!x!$ is at $!(y\_1, y\_2)!$ in new coordinate system. 
+
+### What if the origin is not feasible?
+
+Hew do you find a feasible vertex?
+
+An x where $!Ax \le b!$ and at vertex.
+
+Make a new linear program. 
+
+Introduce positive variables $!z\_i!$ for inequality i.
+
+Constraints: $!a\_ix - z\_i \le b\_i!$
+
+    $$\max \sum -z_i$$
+
+vertex solution $!(x, z)!$ of value zero. 
+
+### Degeneracy
+
+Degenerate vertices 
+
+intersection of more than n constraints. 
+
+All neighboring vertices are no better!!!!!!!!!!!!!!!!!!!!!!
+
+Infinite looping: 
+[Bland's anticycling rule](http://en.wikipedia.org/wiki/Bland's_rule)
+
+Perturb problem a bit. 
+
+### Unboundness!
+
+### Running time
+* Check optimality? $!O(n)!$
+* Find tight constraint: $!O(m)!$ constraints, $!O(n)!$ time per constraint.
+  $!O(nm)!$ total.
+* Find new coordinate system, rewrite LP
+  Naively: $!O(n^3)!$
+  
+Only one new constraint. 
