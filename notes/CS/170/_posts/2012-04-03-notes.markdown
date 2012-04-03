@@ -17,4 +17,22 @@ $$p(x,y) = x^TGy$$
 
 That is,
 
-    $$\sum_i x_i \left(\sum_j Gi,jy_i \right) = \sum_j (\sum_i x_i G i,j) y_j$$
+    $$\sum_i x_i \left(\sum_j Gi,jy_i \right) = \sum_j \left(\sum_i x_i G i,j\right) y_j$$
+
+Row goes first:
+find x, where best row is not too low..
+
+    $$R = \min_y \max_x (x^T G y)$$
+
+Note: $!x!$ can be $!(0,0,\cdots,1,\cdots,0)!$
+
+Example: Roshambo. Value of R?
+
+     | | R | P | S |
+    x|R|  0| -1|  1|
+    x|P|  1|  0| -1|
+    x|S| -1|  1|  0|
+
+Pick R, P, S to maximize
+
+    $$min\{ x_2 - x_3, -x_1 + x_3, x_1 - x_2 \}$$
