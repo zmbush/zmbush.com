@@ -1,0 +1,20 @@
+---
+layout: notes
+title: CS 170 Lecture 16
+topic: Zero Sum Games
+---
+
+Two person zero sum games.
+
+$!m \times n!$ payoff matrix G.
+
+Row mixed strategy: $!x = (x\_1, \dots, x\_m)!$
+Column mixed strategy: $!y = (y\_1, \dots y\_n)!$
+
+Payoff for strategy pair $!(x, y)!$:
+
+$$p(x,y) = x^TGy$$
+
+That is,
+
+    $$\sum_i x_i \left(\sum_j Gi,jy_i \right) = \sum_j (\sum_i x_i G i,j) y_j$$
