@@ -37,4 +37,12 @@ Pick R, P, S to maximize
 
     $$min\{ x_2 - x_3, -x_1 + x_3, x_1 - x_2 \}$$
 
+Linear programming dual, means $!z = w!$, it doesn't matter who goes first. 
+
+[Von Neumann's minimax theorem](http://en.wikipedia.org/wiki/Minimax)
+[Nash's theorem](http://en.wikipedia.org/wiki/Nash_equilibrium)
+
+## Simplex Algorithm
+Start at a vertex, move to better neighboring vertex, until there is no better
+neighboring vertex. 
 
