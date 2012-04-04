@@ -1,3 +1,7 @@
 .ZM-augmented-div {
   background-color: #000000;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  color: #FFFFFF;
 }

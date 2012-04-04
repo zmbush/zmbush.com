@@ -6,7 +6,7 @@
 \def\Name{Zachary Bush}  % Your name
 \def\Sec{Th 4-5; Starfield}  % Your discussion section
 \def\Login{cs170-nx} % Your login
-\def\HW{7}
+\def\HW{10}
 
 \title{CS170--Spring 2012 --- Solutions to Homework \HW}
 \author{\Name, section \Sec, \texttt{\Login}}
@@ -18,8 +18,39 @@ Homework \HW \Name, section \Sec, \texttt{\Login}}
 \maketitle
 
 \section*{1.}
+Give an example of a quadratic programming problem such that the feasible
+region is nonempty and bounded, and yet none of the vertices maximize your
+function. 
+
+\begin{eqnarray*}
+\min (x_1-1)^2 \\
+x_1, x_2 \ge 0\\
+x_2 \le 2\\
+x_1 \le 2
+\end{eqnarray*}
+The optimal: $(1, 0)$, is not at a vertex. 
+
+
 \newpage
 \section*{2.}
+\begin{eqnarray*}
+\max x_1 - 2x_3\\
+x_1 - x_2 \le 1\\
+2x_1 - x_3 \le 1\\
+x_1, x_2, x_3 \ge 0
+\end{eqnarray*}
+
+\begin{eqnarray*}
+x_1(y_1 + 2y_2) - x_2(y_1) - x_3(y_2) \le y_1 + y_2
+\end{eqnarray*}
+if
+\begin{eqnarray*}
+y_1, y_2 \ge 0\\
+y_1 + 2y_2 \ge 1\\
+y_1 \ge 2\\
+y_2 \ge 0
+\end{eqnarray*}
+
 \newpage
 \section*{3.}
 \newpage
