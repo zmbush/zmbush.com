@@ -1,0 +1,26 @@
+---
+layout: notes
+title: CS 170 Lecture 17
+topic: NP-Completeness
+---
+We have so far seen most of the P problems. These are problems that we know how
+to solve in polynomial time. 
+
+    ---- harder ---->
+    [{P}  {NP-Complete}]
+
+Factoring is not NP-Complete, but it is not P. It is NP-Hard
+
+    P                        | NP-Complete
+    -------------------------|---------------
+    MST                      | Traveling Salesman
+    2SAT/Horn SAT            | 3Sat
+    LP                       | Integer Linear Programming
+    Max Flow                 | Max multicommodity flow
+    Bipartate Matching       | Tripartate Matching
+    Shortest Path            | Longest Path
+    Euler's Cycle            | Rudrata Cycle (Visit all vertices)
+    Independent set in trees | Independent set in graphs
+    Unary Knapsack           | Binary Knapsack
+
+
