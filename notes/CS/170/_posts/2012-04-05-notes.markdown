@@ -9,7 +9,7 @@ to solve in polynomial time.
     ---- harder ---->
     [{P}  {NP-Complete}]
 
-Factoring is not NP-Complete, but it is not P. It is NP-Hard
+Factoring is not NP-Complete, but it is not P. It is NP.
 
     P                        | NP-Complete
     -------------------------|---------------
@@ -23,4 +23,7 @@ Factoring is not NP-Complete, but it is not P. It is NP-Hard
     Independent set in trees | Independent set in graphs
     Unary Knapsack           | Binary Knapsack
 
+### NP: All search problems. 
+
+"Given instance/input x Find solution Y"
 
