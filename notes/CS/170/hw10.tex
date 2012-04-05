@@ -33,6 +33,7 @@ The optimal: $(1, 0)$, is not at a vertex.
 
 \newpage
 \section*{2.}
+If we start from the maximization problem:
 \begin{eqnarray*}
 \max x_1 - 2x_3\\
 x_1 - x_2 \le 1\\
@@ -40,23 +41,108 @@ x_1 - x_2 \le 1\\
 x_1, x_2, x_3 \ge 0
 \end{eqnarray*}
 
+We can prove the optimality of the solution $(3/2, 1/2, 0)$, by computing the
+dual, which is:
 \begin{eqnarray*}
-x_1(y_1 + 2y_2) - x_2(y_1) - x_3(y_2) \le y_1 + y_2
-\end{eqnarray*}
-if
-\begin{eqnarray*}
-y_1, y_2 \ge 0\\
-y_1 + 2y_2 \ge 1\\
-y_1 \ge 2\\
-y_2 \ge 0
+\min y_1 + y_2\\
+y_1 \ge 1\\
+y_2 \le 2\\
+2y_2 - y_1 \ge 0
 \end{eqnarray*}
 
+The optimal solution for this dual is: $(1, 1/2)$, whose value is: $3/2$, which
+is the same value as for the primal problem. Therefore $(3/2, 1/2, 0)$ is indeed
+optimal.
 \newpage
 \section*{3.}
+The payoffs for the row player are as follows:
+\begin{tabular}[h]{c|c|c|}
+&H&T\\
+\hline
+H&1&-1\\
+\hline
+T&-1&1\\
+\hline
+\end{tabular}
+
+
+The optimal strategies for the two players are for them to play uniformly at
+random. 
+
+The value for this game is: 
+\begin{equation*}
+(1/2)(-1) + (1/2)(1) = 0
+\end{equation*}
+
 \newpage
 \section*{4.}
+From the start node, we connect to each vertex in the graph with an edge of
+infinite width. Each vertex then has an outgoing edge with a weight equal to the
+number of edges connecting to it. The destination node also has edges backwards
+to each vertex that it removes an edge from. Each of these nodes point to the
+final node. Thus we construct a bipartate graph that represents our minimum
+vertex cover.
+
+From there, all we have to do is find the maximum flow through the system, and
+we have our answer. 
 \newpage
 \section*{5.}
+\begin{enumerate}
+\item[(a)]
+\begin{eqnarray*}
+\max f_{at} + f_{bt}\\
+f_{sa} \le 1\\
+f_{sb} \le 3\\
+f_{ab} \le 1\\
+f_{at} \le 2\\
+f_{bt} \le 1\\
+f_{ab} + f_{at} - f_{sa} = 0\\
+f_{bt} - f_{ab} - f_{sb} = 0
+\end{eqnarray*}
+
+\item[(b)]
+The dual for this problem is:
+\begin{eqnarray*}
+\min y_1 + 3y_2 + y_3 + 2y_4 + y_5\\
+y_4 \ge 1\\
+y_5 \ge 1\\
+y_1,y_2,y_3 \ge 0
+\end{eqnarray*}
+
+\item[(c)]
+The dual for the general case is as follows:
+\begin{eqnarray*}
+\min \sum_{(a,b) \in E} c_{ab}y_{ab}\\
+\forall (s, n) \in E,\quad y_{sn} \ge 1\\
+\forall (a, b) \in E,\quad y_{ab} \ge 0
+\end{eqnarray*}
+
+\item[(d)]
+Since every edge $y_{sn}$ from the start node, must be greater than or equal to
+one, than any path from s, must also have a value greater than or equal to one.
+\end{enumerate}
 \newpage
 \section*{6.}
+\begin{enumerate}
+\item[(a)] If we always chose to use the flow of 1 from each edge, that is to
+say, each time we add a new path, the total flow increases by one, then in order
+to find the optimal flow (2000), we would have to run the algorithm over 1000
+times. 
+\item[(b)] The fattest path can be found with a variant of the Dijkstra
+algorithm. Instead of trying to find the minimum value, we try to maximize the
+value, and when we update the value of a path, we take the minimum of the
+current value and the value of the newly added edge. In this way, we can easily
+find the fattest path from the start node to the end node. 
+\item[(c)] Each of the paths found by this modified Dijkstra algorithm can be
+thought of as maximizing the flow through at least one edge. If we repeat this
+search, we will come up with at most $|E|$ different paths each of which
+maximize at least one edge. Once an edge is maximized, it needs never be
+included in the search again. As such, once we find our set of paths that
+maximize flow for each of the edges, the total flow is simply the sum of these
+edges. 
+\item[(d)] Each time we run this procedure of increasing flow along the fattest
+path, we must add at least $\log_{|E|} V$ flow to the current flow. We will have
+to run this procedure at most $|E|$ times to get the total number of paths.
+Which gives us a final runtime of $O(|E|\log v)$.
+\end{enumerate}
 \end{document}
