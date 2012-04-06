@@ -20,5 +20,5 @@ DIV#ZM-augmented-div {
   border: solid #555;
   border-width: 2px;
   padding: 5px;
-  width: 0;
+  width: auto;
 }
