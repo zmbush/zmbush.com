@@ -5,7 +5,6 @@ DIV#ZM-augmented-div {
   bottom: 0;
   right: 0;
   color: #FFFFFF;
+  border: solid red;
   border-width: 3px;
-  border-top-width: 10px;
-  border-color: red;
 }
