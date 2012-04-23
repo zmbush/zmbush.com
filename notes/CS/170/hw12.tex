@@ -18,14 +18,123 @@ Homework \HW \Name, section \Sec, \texttt{\Login}}
 \maketitle
 
 \section*{1.}
+{\bf 3D Matching to SAT}\\
+We must construct a variable for each connection between parties, essentially
+for each triple $(b, g, p)$, you have a variable $S_{bgp}$. For each boy, girl
+and pet, we can construct a clause such that there is at least one connection
+to them that has been selected. $(S_{bg_1p_1} \lor \dots \lor S_{bg_kp_k})$,
+and also for each pair of connections to a particular person, we can't have
+both of them true, in other words: $(\lnot S_{bg_ap_a} \lor \lnot
+S_{bg_bp_b})$. We construct these set of constraints for each boy, girl, and
+pet, and then we and them all together. The solution to the resulting SAT is
+the solution to our tripartate matching problem.
+
+{\bf Rudrata Cycle to SAT}\\
+If we start out with, as suggested, the $x_{ij}$ variables, then we can
+construct a sat to represent our rudrata cycle. The first thing we must do is
+ensure that each vertex is represented at least once, i.e.:
+
+\begin{equation*}
+x_{i1} \lor x_{i2} \lor \dots \lor x_{ij}
+\end{equation*}
+
+for each vertex $i$.
+
+We then need to constrain this problem further. In order for any two vertices
+to have subsequent indices, there must be an edge between them. Or, two
+vertices cannot be connected if there is no edge between them. So we have:
+
+\begin{equation*}
+\forall (u,v) \notin E, \quad (\lnot x_{uj} \lor \lnot x_{v(j+1)})
+\end{equation*}
+
+And with this, we have a reduction to SAT.
+
 \newpage
 \section*{2.}
+\begin{enumerate}
+\item[(a)] We can think of this as a generalization of a clique problem. If we
+start with a graph G that is a with k vertices with every pair of vertices is
+connected. Then if we can find in H, a clique of size k, then G is a subgraph
+of H.
+
+\item[(b)]
+This problem generalizes Rudrata Path. With our graph G, containing n nodes, if
+we call Longest Path on (G, n-1), then you are solving a Rudrata Path problem
+on the graph. 
+
+\item[(c)]
+Max Sat is a generalization of SAT. If we have n clauses, setting $g = n$ gives
+us a normal SAT problem.
+
+\item[(d)]
+This problem is a generalization of clique. Given a graph of $n$ nodes, then if
+we set $a = n$, and $b = \frac{n(n-1)}{2}$, then we are solving the clique
+problem.
+
+\item[(e)]
+Sparse Subgraph can be thought of as a generalization of the independent set
+problem. All we do, is set $a = x$, and $b = 0$, and we will find the
+independent set with $x$ elements.
+
+\item[(f)]
+Set cover is a generalization of Vertex Cover. If we think of each vertex as a
+set of nodes that are next to it, then the cover of these sets is equal to the
+vertex cover of the original graph. 
+
+\item[(g)]
+This problem, if we set $b=n$, all $r_{ij} = 2$ for all $(i, j)$, and
+$d_{ij} = 1$ if $(i, j) \in E$ (2 otherwise), is rudrata cycle. This ensures
+that we have a large cycle (because we need 2 disjoint paths between each pair
+of points), and every node has a single other node leaving it. 
+\end{enumerate}
 \newpage
 \section*{3.}
+\begin{enumerate}
+\item[(a)] In order to verify that a spanning tree is a valid solution, then
+all we need to do is perform a depth first search on the resulting tree, and
+make sure that each node has degree at most k, and that every node is
+represented. This would take polynomial time, and therefore we have a search
+problem. 
+\item[(b)] If we look at the special case of the 2 spanning tree, then we
+essentially have the rudrata path problem. Since splitting the path at any
+point will make the degree of a node more than two. Therefore this problem is
+NP-Complete. 
+\end{enumerate}
 \newpage
 \section*{4.}
+\begin{enumerate}
+\item[(a)] This problem can be solved in polynomial time. What we do is we
+remove the vertices in L, and solve the minimum spanning tree on the remaining
+graph. We then add the vertices back into the graph by connecting them to
+exactly one incident edge, thereby ensuring that there are at least the L
+vertices as vertices. 
+\item[(b)] This problem can be thought of as a generalization of the rudrata
+path problem. If we set $L={u,v}$, then we must have a rudrata path, because if
+we were to branch at any point, then we would have more than the two specified
+branches. 
+\item[(c)] This problem in a similar way to the first is a rudrata path
+problem. If we again set $L = {u,v}$, then the set of leaves must be equal to
+$L$, since we can never have fewer than two leaves. 
+\item[(d)] In this case, if we set $k$ equal to two, we once again have a
+rudrata path problem. 
+\item[(f)] Also here, if $k = 2$, we are again left with a rudrata path
+problem. 
+\end{enumerate}
 \newpage
 \section*{5.}
+If we assume that we have a search problem, then we must have an algorithm that
+checks the correctness of the solution in $O(c(n))$ time. Since this algorithm
+must check every bit in the solution, we can think of this as an upper bound on
+the number of bits in the solution. Therefore, if we have an algorithm that can
+iterate over each possible bit combination which can then be checked in
+$O(c(n))$ time. We then have an algorithm that takes $O(c(n)2^{c(n)}) =
+O(2^n2^{c(n)}) = O(2^{n + c(n)})$ and then if we set $p(n) = n + c(n)$ then we
+have a running time of: $O(2^{p(n)})$ as required.
 \newpage
 \section*{6.}
+If $N = NP$ then from our public key $(N, e)$ we can factor $N$ into $p$, and
+$q$ in polynomial time. Once we have that we can find $d = e^{-1}
+\pmod{(p-1)(q-1)}$ and we can decrypt the encrypted data by doing $x^d
+\pmod{N}$. Thus RSA is worthless. 
 \end{document}
