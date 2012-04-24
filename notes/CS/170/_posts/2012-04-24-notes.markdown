@@ -1,0 +1,16 @@
+---
+layout: notes
+title: CS 170 Lecture 18
+topic: Dealing with hard problems (NP-Complete)
+---
+##Dealing with hard problems once we have proven that they are NP-Complete
+Branch and Bound
+Exhaustive search
+
+## Approximation
+A(I)
+
+Algorithm A (minimization problem)
+
+    $$ \max_I \frac{A(I)}{Opt(I)} = \alpha_A $$
+
