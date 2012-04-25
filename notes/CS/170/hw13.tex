@@ -6,7 +6,7 @@
 \def\Name{Zachary Bush}  % Your name
 \def\Sec{Th 4-5; Starfield}  % Your discussion section
 \def\Login{cs170-nx} % Your login
-\def\HW{7}
+\def\HW{13}
 
 \title{CS170--Spring 2012 --- Solutions to Homework \HW}
 \author{\Name, section \Sec, \texttt{\Login}}
@@ -18,14 +18,55 @@ Homework \HW \Name, section \Sec, \texttt{\Login}}
 \maketitle
 
 \section*{1.}
+Show that Dominating Set problem is NP-Complete.
+
+To show that this problem is NP-Complete, we will reduce a known NP-Complete
+problem to this one and thereby show that this problem is at least as hard as
+the other. 
+
+We will in this case be reducing Set Cover to dominating set.
+
+The reduction is as follows:
+
+For each subset in the set cover problem we will create a node $s_n$. We turn
+all of these $s$ variables into a Clicque so that selecting any set will touch
+all other sets. 
+
+From each of these sets, we create edges to each element $e_n$ in that subset. 
+
+For example, if set $s_k$ had elements $\left\{ e_1, e_3, e_4 \right\}$, then
+there would be edges from the node $s_k$ to $e_1$, $e_3$, and $e_4$.
+
+From here we simply find the dominating set of this resulting graph. 
+
+This is almost the answer. 
+
+We have to perform a post-process that will look through each of the $e_n$
+elements. If any of these elements have been selected, then we instead select
+any of its connected sets. 
+
+We thereby add no new nodes to the dominating set, and our final answer will be
+the sets that were selected by the dominating set problem.
+
+
+The logic of this algorithm is as follows. Each set selects a certain number of
+elements, if each set node is connected to each of its element, then selecting
+the set in dominating set is the same as selecting the set in set cover. We
+have all the sets connected together to ensure that a selection of at least one
+set will be the answer. There are certain cases where either an element or a
+set could be selected, such as the case of a single set with a single element.
+In that case, we use our post-process to enforce that sets are the only things
+selected. 
+
+If we had an optimal dominating set where an element is selected, then
+switching that selection for one of its covering sets will not reduce the
+optimality. Furthermore, if an element with no covering set is selected, then
+we can signal a failure as there is no solution to the initial set cover
+problem.
 \newpage
 \section*{2.}
-\newpage
-\section*{3.}
-\newpage
-\section*{4.}
-\newpage
-\section*{5.}
-\newpage
-\section*{6.}
+To show that connected dominating set is NP-Complete, we can perform the exact
+same reduction as we did in part 1, since all of the sets are connected to each
+other, a solution to the first part is actually going to be a connected
+dominating set. 
 \end{document}
