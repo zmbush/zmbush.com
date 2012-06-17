@@ -24,7 +24,7 @@ of grass every round, but the number of gatherers would fluctuate. Also we
 worked only with discrete generations, which limited the meaningfulness of our
 simulation. 
 
-The next steps would be to modify the algorithm to work on a continuous bansis.
+The next steps would be to modify the algorithm to work on a continuous basis.
 Also, the grass should be able to grow back, so there would hopefull be some
 equillibrium that maintains the populations of both the predators and the
 gatherers. 
