@@ -3,6 +3,14 @@ layout: home
 title: Home
 ---
 
+<div id="employers">
+  <h2>Employers</h2>
+  <ul id="employers-list">
+  {% for post in site.categories.employers %}
+  <li>{{ post.content }}</li>
+  {% endfor %}
+  </ul>
+</div>
 <div id="classes">
   <h2>Classes</h2>
   <ul id="classes">
