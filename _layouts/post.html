@@ -27,13 +27,12 @@ layout: default
         {% if page.site-name %}
           at:
         {% endif %}
-        <a href="{{ page.site-url }}">
         {% if page.site-name %}
-          {{ page.site-name }}
+          {% assign text = page.site-name %}
         {% else %}
-          here
+          {% assign text = 'here' %}
         {% endif %}
-        </a>.<p>
+        <a href="{{ page.site-url }}">{{ text }}</a>.<p>
       {% endif %}
       {% if page.source-url %}
         <p>You can view the code for this project 
