@@ -3,6 +3,8 @@ layout: post
 title: Yelp Coding for Grub
 image: yelp.jpg
 snippet: A 3 hour coding project, to analyze a dataset from yelp
+partners: [hayg, andre]
+source-url: https://github.com/zipcodeman/Yelp-CFG
 ---
 
 This was a 3 hour coding project to take a set of reviews taken from the Yelp
@@ -23,6 +25,3 @@ or lowered the value of the stars.
 
 With this we were able to get a Root Mean Squared error of around 1.079, which
 was an improvement on the naive approach. 
-
-My partners for this project were {{ site.partners.hayg }}, and 
-{{ site.partners.andre }}

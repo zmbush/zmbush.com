@@ -6,20 +6,38 @@ layout: default
       <h2>{{ page.title }}</h2>
       {{ content }}
       {% if page.partners %}
-        <!-- Collaborators:
+        <p>This project was done in conjunction with 
         {% for partner in page.partners %}
-          {% if not forloop.first %}
-            ,
-          {% endif %}
-          {% if forloop.last %}
+          {% assign p = site.partners[partner] %}
+          {% if forloop.last and forloop.length > 1 %}
             and
           {% endif %}
-          {{ site.partners[partner] }}
-        {% endfor %} -->
+          {% if forloop.last %}
+            {% assign after = "." %}
+          {% elsif forloop.length > 2 %}
+            {% assign after = "," %}
+          {% else %}
+            {% assign after = "" %}
+          {% endif %}
+          <a href="{{ p.url }}">{{ p.name }}</a>{{ after }}
+        {% endfor %}</p>
       {% endif %} 
+      {% if page.site-url %}
+        <p>You can see it in action 
+        {% if page.site-name %}
+          at:
+        {% endif %}
+        <a href="{{ page.site-url }}">
+        {% if page.site-name %}
+          {{ page.site-name }}
+        {% else %}
+          here
+        {% endif %}
+        </a>.<p>
+      {% endif %}
       {% if page.source-url %}
         <p>You can view the code for this project 
-          <a href="{{ page.source-url }}">here</a>
+          <a href="{{ page.source-url }}">here</a>.
         </p>
       {% endif %}
     </div>

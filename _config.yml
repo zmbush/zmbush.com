@@ -1,7 +1,15 @@
 partners:
-  mary: <a href="http://www.facebook.com/marystufflebeam">Mary Stufflebeam</a>
-  andre: <a href="http://acrabb.github.com">Andr&eacute; Crabb</a>
-  hayg: <a href="http://www.facebook.com/hayg.astourian">Hayg Astourian</a>
-  josh: <a href="http://www.facebook.com/joshua.hawn">Josh Hawn</a>
+  mary: 
+    name: Mary Stufflebeam
+    url: http://www.facebook.com/marystufflebeam/
+  andre: 
+    name: Andr&eacute; Crabb
+    url: http://acrabb.github.com/
+  hayg: 
+    name: Hayg Astourian
+    url: http://www.facebook.com/hayg.astourian
+  josh: 
+    name: Joshua Hawn
+    url: http://www.facebook.com/joshua.hawn
 
 permalink: pretty
