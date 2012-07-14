@@ -5,5 +5,22 @@ layout: default
     <div class="contents">
       <h2>{{ page.title }}</h2>
       {{ content }}
+      {% if page.partners %}
+        <!-- Collaborators:
+        {% for partner in page.partners %}
+          {% if not forloop.first %}
+            ,
+          {% endif %}
+          {% if forloop.last %}
+            and
+          {% endif %}
+          {{ site.partners[partner] }}
+        {% endfor %} -->
+      {% endif %} 
+      {% if page.source-url %}
+        <p>You can view the code for this project 
+          <a href="{{ page.source-url }}">here</a>
+        </p>
+      {% endif %}
     </div>
   </section>
