@@ -1,0 +1,22 @@
+---
+layout: notes
+title: EE 42 Lecture 1
+topic: Initial Lecture
+---
+
+Profs:
+
+* Vivek 513 Sutardja Dai Hall
+* Maharbiz 646 Setardja Dai Hall
+
+To schedule appointment go [here](http://www.eecs.berkeley.edu/~viveks/schedule.htm)
+
+First chapter of book is
+[here](http://www.ntspress.com/publications/circuits-second-edition)
+
+Cell phone arch
+ 
+Things work together because they are black boxes with pins that do specific
+things.
+
+
