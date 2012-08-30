@@ -1,0 +1,30 @@
+---
+layout: notes
+title: CS 162 Lecture 2
+topic: Parallelization
+---
+* Os as a traffic cop
+  * Manages all resources
+  * settles conflicting requests for resources
+  * Prevents errors and improper use of the computer
+* OS as a facilitator
+  * Provides facilities/services that everyone needs
+  * Standard libraries, windowing systems
+  * Make application programming easier, faster, less error-prone
+* Some features reflect both tasks
+  * File system is needed by everyone
+  * But file system must be protected
+
+# What is an operating system?
+
+* Most likely
+  * Memory management
+  * I/O management
+  * CPI SCHed
+  * spnchronization
+  * communications? Does email belong in OS?
+  * Multitasking/multiprogramming
+* What about?
+  * File system?
+  * Multimedia support?
+  * User interface
