@@ -1,0 +1,9 @@
+---
+layout: notes
+title: EE 42 Lecture 3
+topic:
+---
+i     = Current may or may be not time varying
+i(t)  = Current (Time Variant)
+I     = Constant Current
+
