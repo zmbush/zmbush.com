@@ -14,5 +14,8 @@ After several hours, I managed to have a working product that did what I
 wanted. Over the next couple days, I worked on it to make it better and fix
 bugs. 
 
+The project is still being worked on on and off. The most recent update adding
+support for notifications when new grades are posted.
+
 You can download the app from the [Android
 Market](https://market.android.com/details?id=zipcodeman.glookup)
