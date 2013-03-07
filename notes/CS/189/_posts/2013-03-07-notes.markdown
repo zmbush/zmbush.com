@@ -4,4 +4,10 @@ title: CS 189 Lecture 2
 topic: Lagrange Multiplication
 ---
 
-Claim: For any $$\alpha \le 0$$, $$d(x) \le p^\*$$
+Claim: For any $!\alpha \le 0!$, $!d(x) \le p^\*!$.
+
+k any feasible $!\~{w}!$
+
+$$f(\~w) - \alpha G(\~w) \le f(\~w)$$
+
+
