@@ -14,3 +14,5 @@ $$L(\~w,b,\alpha) = \frac12 w^Tw - \sum\_{n=1}^N \alpha\_n (y\_n(w^Tx\_n + b) -
 1)$$
 $$ d(\alpha) = \min\_{w,b} \frac12 w^Tw - \sum\_{n=1}^N \alpha\_n y\_n
 w^Tx\_n + b\sum\_{n=1}^n\alpha\_ny\_n - \sum\_{n=1}^N\alpha\_n$$
+
+
