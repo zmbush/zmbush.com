@@ -1,0 +1,7 @@
+---
+layout: notes
+title: CS 189 Lecture 2
+topic: Lagrange Multiplication
+---
+
+Claim: For any $$\alpha \le 0$$, $$d(x) \le p^\*$$
