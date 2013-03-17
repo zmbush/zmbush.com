@@ -1,8 +1,6 @@
 body{
-  background-color: black;
-  color: #00FF00;
-  width: 900px;
-  margin: 0 auto;
+  background-image: url('/images/dark_wood.png');
+  color: orange;
   font-family: monospace, sans-serif;
 }
 
@@ -16,22 +14,64 @@ H3{
   font-size: 30px;
 }
 
-NAV UL LI{
+ARTICLE{ 
+  padding-top: 70px;
+  padding: 80px 20px 20px 20px;
+  clear: both;
+  margin: 0 auto 50px auto;
+  background-image: url('/images/lightpaperfibers.png');
+  width: 80%;
+
+  border-top: none;
+  border: thin solid grey;
+  color: #600;
+}
+
+ARTICLE DIV.me {
+  margin-left: 10px;
+  float: right;
+}
+
+ARTICLE DIV.me-caption {
+  text-align: right;
+  font-size: 10px;
+}
+
+ARTICLE P {
+  margin-bottom: 10px;
+  line-height: 1.5em;
+}
+
+HEADER {
+  position: fixed;
+  padding: 10px 5% 10px 5%;
+  background-color: #777;
+  width: 90%;
+}
+
+HEADER H1 {
   float: left;
 }
 
-NAV UL LI A{
-  display: block;
-  margin-right: 10px;
+NAV {
+  float: right;
+  color: black;
+  font-weight: bold;
+}
+
+NAV A {
+  margin-right: 5px;
+  margin-left: 5px;
   color: #9999FF;
   text-decoration: none;
   font-weight: bold;
   line-height: 44px;
+  font-size: 17px;
   width: 100px;
   text-align: center;
 }
 
-NAV UL LI A:hover{
+NAV A:hover{
   text-decoration: underline;
 }
 
