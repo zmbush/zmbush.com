@@ -1,0 +1,10 @@
+---
+layout: notes
+title: CS 189 Lecture 3
+topic: Unifying view of loss functions
+---
+
+# Support Vector Machines
+- Soft margin case (Equation 47 in Burges paper)
+  - Minimize $$\frac12 |w|^2 + (\sum \epsilon\_i - \sum \alpha\_i (y\_i(x\_i\*w
+    + b) - 1 + \epsilon\_i) - \sum \mu\_i\epsilon\_i$$
