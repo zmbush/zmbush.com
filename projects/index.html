@@ -3,23 +3,46 @@ layout: default
 title: Projects
 ---
 
-<div id="projects">
-  <ul id="posts">
-  {% for post in site.categories.projects %}
-    <li>
-      <a href="{{ post.url }}">
-        <div class="posta">
-          <img src="/images/{{ post.image }}" /><br />
-        </div>
-        <div class="postl">
-          <h3>{{ post.title }}</h3>
-          <p>
-            {{ post.snippet }}
-          </p>
-        </div>
-      </a>
-    </li>
-  {% endfor %}
-  </ul>
-  <div style="clear:both;"></div>
-</div>
+{% for post in site.categories.projects %}
+  <div class="post">
+    <a href="{{ post.url }}"><h3>{{ post.title }}</h3></a>
+      <p>{{ post.date | date: "%B %Y" }}</p>
+      {{ post.content }}
+      {% if post.partners %}
+        <p>This project was done in conjunction with
+        {% for partner in post.partners %}
+          {% assign p = site.partners[partner] %}
+          {% if forloop.last and forloop.length > 1 %}
+            and
+          {% endif %}
+          {% if forloop.last %}
+            {% assign after = "." %}
+          {% elsif forloop.length > 2 %}
+            {% assign after = "," %}
+          {% else %}
+            {% assign after = "" %}
+          {% endif %}
+          <a href="{{ p.url }}">{{ p.name }}</a>{{ after }}
+        {% endfor %}</p>
+      {% endif %}
+      {% if post.site-url %}
+        <p>You can see it in action
+        {% if post.site-name %}
+          at:
+        {% endif %}
+        {% if post.site-name %}
+          {% assign text = post.site-name %}
+        {% else %}
+          {% assign text = 'here' %}
+        {% endif %}
+        <a href="{{ post.site-url }}">{{ text }}</a>.</p>
+      {% endif %}
+      {% if post.source-url %}
+        <p>You can view the code for this project
+          <a href="{{ post.source-url }}">here</a>.
+        </p>
+      {% endif %}
+    </a>
+  </div>
+{% endfor %}
+<div style="clear:both;"></div>

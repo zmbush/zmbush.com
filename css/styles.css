@@ -17,6 +17,7 @@ H3{
 ARTICLE H1,H2,H3 {
   margin-bottom: 5px;
 }
+
 ARTICLE{ 
   padding-top: 70px;
   padding: 80px 20px 20px 20px;
@@ -28,6 +29,14 @@ ARTICLE{
   border-top: none;
   border: thin solid grey;
   color: #600;
+}
+
+ARTICLE DIV.post {
+  padding-bottom: 40px;
+}
+
+ARTICLE H3 {
+  padding-bottom: 10px;
 }
 
 ARTICLE DIV.me {
@@ -43,6 +52,15 @@ ARTICLE DIV.me-caption {
 ARTICLE P {
   margin-bottom: 10px;
   line-height: 1.5em;
+}
+
+ARTICLE A {
+  color: #99F;
+  text-decoration: none;
+}
+
+ARTICLE A:hover {
+  text-decoration: underline;
 }
 
 HEADER {
@@ -74,7 +92,7 @@ NAV A {
   text-align: center;
 }
 
-NAV A:hover{
+NAV A:hover {
   text-decoration: underline;
 }
 
@@ -95,14 +113,15 @@ UL#posts LI{
 }
 
 UL#posts LI DIV.posta{
-  float: left;
+  float: right;
+  text-align: right;
   width: 30%;
 }
 
 UL#posts LI DIV.postl{
-  float: right;
+  float: left;
   width: 70%;
-  text-align: right;
+  text-align: left;
   vertical-align: top;
 }
 
@@ -127,7 +146,7 @@ DIV.contents P{
 }
 
 DIV.contents P A{
-  color: lime;
+  color: #9999FF;
 }
 
 FOOTER{
