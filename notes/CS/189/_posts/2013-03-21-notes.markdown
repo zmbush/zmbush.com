@@ -1,0 +1,114 @@
+---
+layout: notes
+title: CS 189 Lecture 4
+topic: Decision Trees
+---
+
+## What is a decision tree?
+
+    Is it in North America, South America or Africa?
+                     /                \
+                   No                Yes
+                   /                    \
+            Is the currency         In North America?
+                The Euro?               /       \
+              /      \                 NO      Yes
+             No      Yes                         \
+                      \                      Is the main 
+                    Is population           language english?
+                    > 100 M                    /      \
+                     /     \                  No     Yes
+                    No     Yes
+
+### Purity at leaves
+Find leaves which are pure (or as pure as possible)
+
+Entropy of a distribution:
+
+       P4|---------------\
+         |               |
+       P2|--------\      |
+         |        |      |
+       P3|-----------\   |
+       P1|----\   |  |   |
+         |    |   |  |   |
+         ------------------
+              1   2  3   4
+
+Discrete random variables. 
+
+Entropy:
+
+$$-\sum p\_i\log\_2p\_i$$
+
+Suppose you have k possibilities, entropy is maximized when $!p\_i = \frac1k!$
+
+Original Entropy = H
+
+After the question has been answered:
+
+Entropy = H- or H+ (Depending on whether or no)
+
+$$\frac{n\_-H\_-+n\_+H\_+}{n\_-+n\_+}$$
+
+Initial - Final Entropy
+
+$$H - \frac{n\_-H\_-+n\_+H\_+}{n\_-+n\_+}$$
+
+"Information Gain" (We want to maximize this!)
+
+Use the greedy approach to maximize the information gain!!!
+
+## How deep to we go?
+If we build a very deep tree the training set error will be zero! But this is
+probably over fitting. 
+
+## How do we fix this????
+* When the second most frequent class has less than 10
+* points, or stop when tree has gone to a depth of 20. 
+
+Microsoft kinect is decision tree (on order of ms) What is the pose of the body?
+
+Blazing fast at runtime. 
+
+Training a decision tree is extremely slow. We need to calculate all the
+questions, and the tree for each, and the information gain, and such. 
+
+At the leaves the entropy should be zero (Minimize Entropy = Maximize
+Information Gain)
+
+## How do we make up a set of questions for a particular domain?
+Is this digit black or white? -\_-
+
+^(T^T)^
+
+Read _shape features and tree classifiers_
+
+Read _Real-time human pose recognition in parts from single depth images_
+
+
+## Amit, German & Wilder's Approach
+TAG -> Is there an edge of certain orientation?
+
+Arrangement -> TAG of nearby things "northwest of TAG is other TAG"
+
+- Is there a vertical tag?
+- Is there a 135 tag northwest of that?
+- Is there a 0 tag north of that?
+
+5 of these questions will get a pretty accurate picture :D
+
+Make multiple trees (one is too noisy) and then, while each is faulty, they are
+faulty in different ways. The average of their votes would be better than any
+one vote.
+
+## How do you train multiple decision trees?
+Always chose the best question? Run it again, you get the exact same tree
+
+Bagging -> Breiman (Bootstrap aggregation)
+- Pick some samples from a set of questions
+
+Randomization -> Only allow a subset of questions
+
+# RANDOM FOREST!
+
