@@ -6,7 +6,6 @@ topic: Decision Trees
 
 ## What is a decision tree?
 
-    Is it in North America, South America or Africa?
                      /                \
                    No                Yes
                    /                    \
