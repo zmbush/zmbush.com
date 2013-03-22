@@ -5,7 +5,7 @@ topic: Decision Trees
 ---
 
 ## What is a decision tree?
-{% graphviz dot %}
+
 digraph {
   a[label="Is it in North America, South America or Bob?"];
   b[label="Is the currency the euro?"];
@@ -26,7 +26,6 @@ digraph {
   e -> i [label="No"];
 
 }
-{% endgraphviz %}
 
 ### Purity at leaves
 Find leaves which are pure (or as pure as possible)
