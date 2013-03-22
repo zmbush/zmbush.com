@@ -5,19 +5,28 @@ topic: Decision Trees
 ---
 
 ## What is a decision tree?
+{% graphviz dot %}
+digraph {
+  a[label="Is it in North America, South America or Bob?"];
+  b[label="Is the currency the euro?"];
+  c[label="Is population > 100 M"];
+  d[label="In north america?"];
+  e[label="Is the main language english?"];
+  f[label="."];
+  g[label="."];
+  h[label="."];
+  i[label="."];
+  a -> b [label="No"];
+  b -> f [label="No"];
+  b -> c [label="Yes"];
+  a -> d [label="Yes"];
+  d -> e [label="Yes"];
+  d -> g [label="No"];
+  e -> h [label="Yes"];
+  e -> i [label="No"];
 
-                     /                \
-                   No                Yes
-                   /                    \
-            Is the currency         In North America?
-                The Euro?               /       \
-              /      \                 NO      Yes
-             No      Yes                         \
-                      \                      Is the main 
-                    Is population           language english?
-                    > 100 M                    /      \
-                     /     \                  No     Yes
-                    No     Yes
+}
+{% endgraphviz %}
 
 ### Purity at leaves
 Find leaves which are pure (or as pure as possible)
