@@ -15,7 +15,7 @@ digraph {
   f[label="..."];
   g[label="..."];
   h[label="..."];
-  i[label="..."];
+  i[label="..:"];
   a -> b [label="No"];
   b -> f [label="No"];
   b -> c [label="Yes"];
