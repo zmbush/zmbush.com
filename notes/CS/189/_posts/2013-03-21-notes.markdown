@@ -12,10 +12,10 @@ digraph {
   c[label="Is population > 100 M"];
   d[label="In north america?"];
   e[label="Is the main language english?"];
-  f[label="..."];
-  g[label="..."];
-  h[label="..."];
-  i[label="..:"];
+  f[label=":"];
+  g[label=":"];
+  h[label=":"];
+  i[label=":"];
   a -> b [label="No"];
   b -> f [label="No"];
   b -> c [label="Yes"];
