@@ -38,6 +38,11 @@ I like to cook, hang out with [my five roommates][Roomies], and play with
 Legos. I love visiting with my family, especially my baby nephew
 [Landon][landy].
 
+*[FORTRAN]: FORmula TRANslator
+*[UC]: University of California
+*[CS]: Computer Science
+*[Bash]: Bourne-again Shell
+
 [meraki]: http://www.meraki.com/ "Meraki"
 [cisco]: http://www.cisco.com/ "Cisco Systems"
 [cs61c]: http://www-inst.eecs.berkeley.edu/~cs61c/sp13#staff "Machine Structures"
