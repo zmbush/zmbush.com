@@ -6,6 +6,7 @@ title: Projects
 <div class="projects-image">
   <img class="projects-image" src="/images/me-fire-thumbnail.jpg" />
 </div>
+<div id="project-posts">
 {% for post in site.categories.projects %}
   <div class="post">
     <div class="post-title">
@@ -13,45 +14,50 @@ title: Projects
         <h3>{{ post.title }}</h3>
       </a>
     </div>
-    <div class="post-date">
-      {{ post.date | date: "%B %Y" }}
-    </div>
+      <div class="post-date">
+        {{ post.date | date: "%B %Y" }}
+      </div>
+    <div class="post-contents">
       <p>{{ post.snippet }}</p>
+      <p>
       {% if post.partners %}
-        <p>This project was done in conjunction with
+        Partners: 
         {% for partner in post.partners %}
           {% assign p = site.partners[partner] %}
           {% if forloop.last and forloop.length > 1 %}
             and
           {% endif %}
           {% if forloop.last %}
-            {% assign after = "." %}
+            {% assign after = "" %}
           {% elsif forloop.length > 2 %}
             {% assign after = "," %}
           {% else %}
             {% assign after = "" %}
           {% endif %}
           <a href="{{ p.url }}">{{ p.name }}</a>{{ after }}
-        {% endfor %}</p>
+        {% endfor %}
       {% endif %}
       {% if post.site-url %}
-        <p>You can see it in action
-        {% if post.site-name %}
-          at:
+        {% if post.partners %}
+          |
         {% endif %}
+        Live Site: 
         {% if post.site-name %}
           {% assign text = post.site-name %}
         {% else %}
           {% assign text = 'here' %}
         {% endif %}
-        <a href="{{ post.site-url }}">{{ text }}</a>.</p>
+        <a href="{{ post.site-url }}">{{ text }}</a>
       {% endif %}
       {% if post.source-url %}
-        <p>You can view the code for this project
-          <a href="{{ post.source-url }}">here</a>.
-        </p>
+        {% if post.partners or post.site-url %}
+          |
+        {% endif %}
+        Source Code: <a href="{{ post.source-url }}">here</a>
       {% endif %}
+      </div>
     </a>
   </div>
 {% endfor %}
+</div>
 <div style="clear:both;"></div>

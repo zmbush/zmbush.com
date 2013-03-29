@@ -18,6 +18,22 @@ ARTICLE H1,H2,H3 {
   margin-bottom: 5px;
 }
 
+
+.post-title {
+  float: left;
+  height: 40px;
+}
+
+.post-date {
+  position: relative;
+  top: 12px;
+  left: 10px;
+}
+
+.post-contents {
+  clear: left;
+}
+
 CODE {
   font-family: monospace;
 }
@@ -36,7 +52,7 @@ ARTICLE{
 }
 
 ARTICLE DIV.post {
-  padding-bottom: 40px;
+  padding-bottom: 20px;
 }
 
 ARTICLE H3 {
