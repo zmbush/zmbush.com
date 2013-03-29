@@ -38,14 +38,6 @@ I like to cook, and often do so for my five roommates, and I love legos. I like
 hanging out with my roommates, and visiting my family, Especially my nephew
 [landon] [landy]. 
 
-{% graphviz %}
-digraph {
-  A -> B;
-  B -> C;
-  C -> A;
-}
-{% endgraphviz %}
-
 [meraki]: http://www.meraki.com/ (Meraki)
 [cisco]: http://www.cisco.com/ (Cisco Systems)
 [cs61c]: http://www-inst.eecs.berkeley.edu/~cs61c/sp13#staff (Machine Structures)
