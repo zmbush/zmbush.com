@@ -1,6 +1,6 @@
 ---
 layout: profile
-title: zmbush.com
+title: Home
 local-picture: true
 picture: me
 ---
