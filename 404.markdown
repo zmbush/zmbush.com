@@ -2,4 +2,7 @@
 layout: default
 title: Page not Found!
 ---
-404!
+## What have you done?
+I can't find the page you wanted.
+![Page not
+Found](/images/404.jpg){:style="margin-left:auto;margin-right:auto;width:100%;"}
