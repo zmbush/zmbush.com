@@ -2,7 +2,9 @@
 layout: post
 title: Python Nameserver
 image: nameserver.png
-snippet: A basic nameserver, written in python
+snippet: |
+  A small project to create a rudimentary nameserver that can handle basic
+  requests, written in python
 partners: [hayg]
 source-url: https://github.com/zipcodeman/nameserver
 ---

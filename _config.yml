@@ -13,3 +13,7 @@ partners:
     url: http://www.facebook.com/joshua.hawn
 
 permalink: pretty
+markdown: rdiscount
+future: false
+server: true
+auto: true
