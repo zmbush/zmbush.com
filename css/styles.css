@@ -25,6 +25,7 @@ ARTICLE H1,H2,H3 {
 }
 
 .post-date {
+  float: left;
   position: relative;
   top: 12px;
   left: 10px;
