@@ -35,7 +35,7 @@ projects] [projects], as well as occasional hardware hacking. I like to go on
 hikes, bike rides, and other things of the sort, regretfully, not as often as I
 once did. I also play the guitar (poorly).
 
-I like to cook, hang out with my five roommates, and play with Legos. I love
+I like to cook, hang out with [my five roommates][Roomies], and play with Legos. I love
 visiting with my family, especially my baby nephew [Landon][landy].
 
 [meraki]: http://www.meraki.com/ (Meraki)
@@ -45,4 +45,5 @@ visiting with my family, especially my baby nephew [Landon][landy].
 [indowsway]: http://www.indowsway.com/ (Indowsway Software)
 [bss]: http://www.berkeleysimulation.com/ (Berkeley Simulation Software)
 [landy]: http://blog.meofamily.net/ (Meo Family Blog)
-[projects]: /projects/
+[projects]: /projects/ (Hobby Projects)
+[roomies]: /images/roomies.jpg (My Roommates)
