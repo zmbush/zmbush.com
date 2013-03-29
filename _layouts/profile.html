@@ -9,9 +9,11 @@ layout: default
   {% else %}
     <img class="me" src="{{ page.picture }}" />
   {% endif %}
-  <div class="me-caption">
-    {{ page.caption }}
-  </div>
+  {% if page.caption %}
+    <div class="me-caption">
+      {{ page.caption }}
+    </div>
+  {% endif %}
 </div>
 {{ content }}
 <div style="clear:both;"></div>

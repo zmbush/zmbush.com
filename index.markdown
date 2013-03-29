@@ -3,7 +3,6 @@ layout: profile
 title: zmbush.com
 local-picture: true
 picture: me
-caption: I am white
 ---
 ## Hello!
 
