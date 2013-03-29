@@ -34,15 +34,16 @@ projects] [projects], as well as occasional hardware hacking. I like to go on
 hikes, bike rides, and other things of the sort, regretfully, not as often as I
 once did. I also play the guitar (poorly).
 
-I like to cook, hang out with [my five roommates][Roomies], and play with Legos. I love
-visiting with my family, especially my baby nephew [Landon][landy].
+I like to cook, hang out with [my five roommates][Roomies], and play with
+Legos. I love visiting with my family, especially my baby nephew
+[Landon][landy].
 
-[meraki]: http://www.meraki.com/ (Meraki)
-[cisco]: http://www.cisco.com/ (Cisco Systems)
-[cs61c]: http://www-inst.eecs.berkeley.edu/~cs61c/sp13#staff (Machine Structures)
-[sierra]: http://www.sierracollege.edu/ (Sierra College)
-[indowsway]: http://www.indowsway.com/ (Indowsway Software)
-[bss]: http://www.berkeleysimulation.com/ (Berkeley Simulation Software)
-[landy]: http://blog.meofamily.net/ (Meo Family Blog)
-[projects]: /projects/ (Hobby Projects)
-[roomies]: /images/roomies.jpg (My Roommates)
+[meraki]: http://www.meraki.com/ "Meraki"
+[cisco]: http://www.cisco.com/ "Cisco Systems"
+[cs61c]: http://www-inst.eecs.berkeley.edu/~cs61c/sp13#staff "Machine Structures"
+[sierra]: http://www.sierracollege.edu/ "Sierra College"
+[indowsway]: http://www.indowsway.com/ "Indowsway Software"
+[bss]: http://www.berkeleysimulation.com/ "Berkeley Simulation Software"
+[landy]: http://blog.meofamily.net/ "Meo Family Blog"
+[projects]: /projects/ "Hobby Projects"
+[roomies]: /images/roomies.jpg "My Roommates"
