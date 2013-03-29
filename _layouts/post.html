@@ -1,43 +1,39 @@
 ---
 layout: default
 ---
-  <section id="mainContent">
-    <div class="contents">
-      <h2>{{ page.title }}</h2>
-      {{ content }}
-      {% if page.partners %}
-        <p>This project was done in conjunction with 
-        {% for partner in page.partners %}
-          {% assign p = site.partners[partner] %}
-          {% if forloop.last and forloop.length > 1 %}
-            and
-          {% endif %}
-          {% if forloop.last %}
-            {% assign after = "." %}
-          {% elsif forloop.length > 2 %}
-            {% assign after = "," %}
-          {% else %}
-            {% assign after = "" %}
-          {% endif %}
-          <a href="{{ p.url }}">{{ p.name }}</a>{{ after }}
-        {% endfor %}</p>
-      {% endif %} 
-      {% if page.site-url %}
-        <p>You can see it in action 
-        {% if page.site-name %}
-          at:
-        {% endif %}
-        {% if page.site-name %}
-          {% assign text = page.site-name %}
-        {% else %}
-          {% assign text = 'here' %}
-        {% endif %}
-        <a href="{{ page.site-url }}">{{ text }}</a>.<p>
-      {% endif %}
-      {% if page.source-url %}
-        <p>You can view the code for this project 
-          <a href="{{ page.source-url }}">here</a>.
-        </p>
-      {% endif %}
-    </div>
-  </section>
+<div class="me"><img src="/images/{{ page.image }}" /></div>
+{{ content }}
+{% if page.partners %}
+  <p>This project was done in conjunction with 
+  {% for partner in page.partners %}
+    {% assign p = site.partners[partner] %}
+    {% if forloop.last and forloop.length > 1 %}
+      and
+    {% endif %}
+    {% if forloop.last %}
+      {% assign after = "." %}
+    {% elsif forloop.length > 2 %}
+      {% assign after = "," %}
+    {% else %}
+      {% assign after = "" %}
+    {% endif %}
+    <a href="{{ p.url }}">{{ p.name }}</a>{{ after }}
+  {% endfor %}</p>
+{% endif %} 
+{% if page.site-url %}
+  <p>You can see it in action 
+  {% if page.site-name %}
+    at:
+  {% endif %}
+  {% if page.site-name %}
+    {% assign text = page.site-name %}
+  {% else %}
+    {% assign text = 'here' %}
+  {% endif %}
+  <a href="{{ page.site-url }}">{{ text }}</a>.<p>
+{% endif %}
+{% if page.source-url %}
+  <p>You can view the code for this project 
+    <a href="{{ page.source-url }}">here</a>.
+  </p>
+{% endif %}

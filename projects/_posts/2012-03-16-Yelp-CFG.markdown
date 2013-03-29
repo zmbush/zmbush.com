@@ -2,7 +2,10 @@
 layout: post
 title: Yelp Coding for Grub
 image: yelp.jpg
-snippet: A 3 hour coding project, to analyze a dataset from yelp
+snippet: |
+  A 3 hour coding project: design an algorithm to, given some training data set,
+  guess what rating will be given to a review based on the contents of the
+  review and the person reviewing it.
 partners: [hayg, andre]
 source-url: https://github.com/zipcodeman/Yelp-CFG
 ---

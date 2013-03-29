@@ -2,7 +2,10 @@
 layout: post
 title: .mp-Complete
 image: mp-complete.png
-snippet: A project to fix the metadata of music.
+snippet: |
+  A simple project incorporating many web APIs to find and repair mp3 metadata.
+  Simply drag and drop your damaged mp3 on the website and mp-complete will fix
+  it for you.
 partners: [andre]
 site-url: http://mp-complete.zmbush.com/
 site-name: mp-complete.zmbush.com
