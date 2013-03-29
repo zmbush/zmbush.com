@@ -2,7 +2,13 @@
 layout: default
 ---
 <div class="me">
-  <img class="me" src="{{ page.picture }}" />
+  {% if page.local-picture %}
+    <a href="/images/{{ page.picture }}.jpg">
+      <img class="me" src="/images/{{ page.picture }}-thumbnail.jpg" />
+    </a>
+  {% else %}
+    <img class="me" src="{{ page.picture }}" />
+  {% endif %}
   <div class="me-caption">
     {{ page.caption }}
   </div>

@@ -43,7 +43,7 @@ ARTICLE H3 {
   padding-bottom: 10px;
 }
 
-ARTICLE DIV.me {
+DIV.projects-image, ARTICLE DIV.me {
   margin-left: 10px;
   float: right;
 }

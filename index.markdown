@@ -1,7 +1,8 @@
 ---
 layout: profile
-title: About Me
-picture: http://en.gravatar.com/userimage/11147411/d9bf0240d76495d5de9482653e957f7c.jpg?size=200
+title: zmbush.com
+local-picture: true
+picture: me
 caption: I am white
 ---
 ## Hello!
