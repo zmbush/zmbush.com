@@ -15,8 +15,6 @@ I am a computer science major in the College of Letters and Sciences.
 
 ### Work
 
-[apple](/plinkle/)
-
 I work part-time at [Meraki] [meraki], which was recently acquired by [Cisco
 systems] [cisco]. I also work as a undergraduate student instructor for [CS61C]
 [cs61c], which deals with the internal organization of computers as well as
