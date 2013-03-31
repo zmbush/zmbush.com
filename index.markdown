@@ -6,7 +6,7 @@ picture: me
 ---
 ## Hello!
 
-#### My name is Zach Bush, thanks for visiting my website today!
+#### My name is Zach Bush, thanks for visiting my website today! :D
 
 ### School
 
