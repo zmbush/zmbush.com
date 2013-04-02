@@ -1,0 +1,38 @@
+---
+layout: notes
+title: CS 189 Lecture 5
+topic: Decision Trees & Neural Networks
+---
+
+## Decision Trees
+
+### Classification Trees
+
+$$f:x \rightarrow \{ 1, -1 \} $$
+
+- Averaging
+- Boosting
+
+{% graphviz classtree dot %}
+digraph {
+  "Question1"->"Question3"[label="NO"];
+  "Question1"->"Question2"[label="Yes"];
+}
+{% endgraphviz %}
+
+#### Training Time
+- Construct the tree
+  - Pick the questions at each node.
+- Stop growing the tree when too few points at a leaf
+- How to generate questions??????
+
+#### Test Time
+- Traverse the tree (Some path from root to leaf)
+- Take a majority from the examples on the leaf
+
+### Regression Trees
+
+$$f:x \rightarrow y \in \mathbb{R}$$
+
+- Average Y of points at the leaf node
+
