@@ -10,10 +10,7 @@ topic: Decision Trees & Neural Networks
 
 $$f:x \rightarrow \{ 1, -1 \} $$
 
-- Averaging
-- Boosting
-
-{% graphviz classtree dot %}
+{% graphviz classtree %}
 digraph {
   "Question1"->"Question3"[label="NO"];
   "Question1"->"Question2"[label="Yes"];
@@ -36,3 +33,14 @@ $$f:x \rightarrow y \in \mathbb{R}$$
 
 - Average Y of points at the leaf node
 
+### Ensemble Methods
+- Suppose we train classifiers: $!f\_1, f\_2, ..., f\_k!$
+  - *need classifiers to be different*
+  - Averaging
+    - Average the results of the classifiers
+  - Boosting
+    - Train a sequence of classifiers
+    - Each classifier focuses on the errors of previous classifiers!
+    - Each classifier gets a different training set.
+  - weak learner
+    - Better than $!50\%!$ correct.
