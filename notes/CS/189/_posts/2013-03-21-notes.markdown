@@ -5,7 +5,7 @@ topic: Decision Trees
 ---
 
 ## What is a decision tree?
-{% graphviz dot %}
+{% graphviz decision-tree-example %}
 digraph {
   a[label="Is it in North America, South America or Other?"];
   b[label="Is the currency the euro?"];
