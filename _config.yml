@@ -1,16 +1,19 @@
 partners:
-  mary: 
+  mary:
     name: Mary Stufflebeam
     url: http://www.facebook.com/marystufflebeam/
-  andre: 
+  andre:
     name: Andr&eacute; Crabb
     url: http://andrecrabb.com/
-  hayg: 
+  hayg:
     name: Hayg Astourian
     url: https://plus.google.com/118439878126727742596
-  josh: 
+  josh:
     name: Joshua Hawn
     url: http://www.facebook.com/joshua.hawn
+  molly:
+    name: Molly Raven
+    url: http://www.mollyraven.com
 
 permalink: pretty
 markdown: kramdown
