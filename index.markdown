@@ -34,9 +34,9 @@ In my free time (of which I have almost none) I enjoy working on
 like to go on hikes, bike rides, and other things of the sort, regretfully, not
 as often as I once did. I also play the guitar (poorly).
 
-I like to cook, hang out with [my friends][Roomies], [my girlfriend][Molly],
-and play with Legos. I love visiting with my family, especially my baby nephew
-[Landon][landy].
+I like to cook, play with Legos, hang out with [my girlfriend][molly], and see
+[my friends][Roomies]. I love visiting with my family, especially my baby
+nephew [Landon][landy].
 
 [meraki]: http://www.meraki.com/ "Meraki"
 [cisco]: http://www.cisco.com/ "Cisco Systems"
