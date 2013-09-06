@@ -47,7 +47,7 @@ and play with Legos. I love visiting with my family, especially my baby nephew
 [landy]: http://blog.meofamily.net/ "Meo Family Blog"
 [projects]: /projects/ "Hobby Projects"
 [roomies]: /images/roomies.jpg "My Roommates"
-[molly]: {{ partners.molly.url }} "{{ partners.molly.name }}"
+[molly]: {{ site.partners.molly.url }} "{{ site.partners.molly.name }}"
 
 *[FORTRAN]: FORmula TRANslator
 *[UC]: University of California
