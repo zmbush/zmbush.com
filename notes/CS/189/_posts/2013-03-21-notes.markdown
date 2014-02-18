@@ -24,7 +24,6 @@ digraph {
   d -> g [label="No"];
   e -> h [label="Yes"];
   e -> i [label="No"];
-
 }
 {% endgraphviz %}
 
