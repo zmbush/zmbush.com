@@ -6,7 +6,7 @@ snippet: |
   A small project to create a rudimentary nameserver that can handle basic
   requests, written in python
 partners: [hayg]
-source-url: https://github.com/zipcodeman/nameserver
+source-url: https://github.com/zmbush/nameserver
 ---
 
 I started working on this project while in my networking class at

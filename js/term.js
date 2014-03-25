@@ -1,9 +1,9 @@
 ---
 ---
-var p = "<div style=\"clear:both\"></div>guest@zmbush.com $ "
-var text = '<br /><br /><br />Type `help` for a list of commands.<br />' + p
-var command = ""
-var cursor = "_"
+var p = "<div style=\"clear:both\"></div>guest@zmbush.com $ ";
+var text = '<br /><br /><br />Type `help` for a list of commands.<br />' + p;
+var command = "";
+var cursor = "_";
 var accepting_input = true;
 $(function(){
   $(document).keypress(function(e){
@@ -29,7 +29,7 @@ $(function(){
     if(accepting_input){
       if(e.which == 8){
         if(command.length > 0){
-          command = command.substring(0, command.length - 1)
+          command = command.substring(0, command.length - 1);
           $('#term').html(text + command + cursor);
         }
         return false;
@@ -48,7 +48,7 @@ function processCommand(cin){
       window.location = "http://www.linkedin.com/pub/zachary-bush/1a/a78/671";
       break;
     case 'github':
-      window.location = "https://github.com/zipcodeman";
+      window.location = "https://github.com/zmbush";
       break;
     case 'static':
       window.location = '/static/';
@@ -60,8 +60,8 @@ function processCommand(cin){
       args = cin.split(' ');
       command = args[0];
       if(args.length > 0){
-        args.shift()
-        arg = args.join(';')
+        args.shift();
+        arg = args.join(';');
       }
       $.ajax({
         url: 'http://shell-backend.zmbush.com/' + command + '/' + arg,
@@ -78,7 +78,7 @@ function processCommand(cin){
 
 function displayOutput(output){
   text += output;
-  newPrompt()
+  newPrompt();
 }
 
 function newPrompt(){

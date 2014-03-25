@@ -7,7 +7,7 @@ snippet: |
   guess what rating will be given to a review based on the contents of the
   review and the person reviewing it.
 partners: [hayg, andre]
-source-url: https://github.com/zipcodeman/Yelp-CFG
+source-url: https://github.com/zmbush/Yelp-CFG
 ---
 
 This was a 3 hour coding project to take a set of reviews taken from the Yelp

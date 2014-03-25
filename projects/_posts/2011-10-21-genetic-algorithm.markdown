@@ -7,7 +7,7 @@ snippet: |
   create a simulation involving multiple agents working towards a common goal
   of collecting enough food to survive to the next generation. 
 partners: [mary]
-source-url: https://github.com/zipcodeman/genetic-algorithm 
+source-url: https://github.com/zmbush/genetic-algorithm 
 ---
 This project was aiming to create a simulation involving multiple agents all
 working towards collecting enough food. 

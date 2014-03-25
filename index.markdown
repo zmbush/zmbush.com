@@ -16,7 +16,7 @@ I am a computer science major in the College of Letters and Sciences.
 ### Work
 
 I currently work as a software engineer at [Meraki][meraki], which was recently
-acquired by [Cisco systems][cisco]. 
+acquired by [Cisco systems][cisco].
 
 Previously, I have worked as a math tutor at [Sierra College] [sierra], and as
 a CS tutor for Java, C++, Bash, Python, and data structures at UC Berkeley, as
