@@ -1,0 +1,213 @@
+body{
+  background-image: url('/images/dark_wood.png');
+  font-family: sans-serif;
+}
+
+H1{
+  font-size: 50px;
+}
+H2{
+  font-size: 40px;
+}
+H3{
+  font-size: 30px;
+}
+H4{
+  font-size: 20px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+ARTICLE H1,H2,H3 {
+  margin-bottom: 5px;
+}
+
+
+.post-title {
+  float: left;
+  height: 40px;
+}
+
+.post-date {
+  float: left;
+  position: relative;
+  top: 12px;
+  left: 10px;
+}
+
+.post-contents {
+  clear: left;
+}
+
+CODE {
+  font-family: monospace;
+}
+
+ARTICLE{ 
+  padding: 80px 20px 20px 20px;
+  clear: both;
+  margin: 0 auto 50px auto;
+  background-image: url('/images/lightpaperfibers.png');
+  width: 80%;
+  min-width: 700px;
+  border-top: none;
+  border: thin solid grey;
+  color: #600;
+}
+
+ARTICLE DIV.post {
+  padding-bottom: 20px;
+}
+
+ARTICLE H3 {
+  padding-bottom: 10px;
+}
+
+DIV.projects-image, ARTICLE DIV.me {
+  margin-left: 10px;
+  float: right;
+}
+
+ARTICLE DIV.me-caption {
+  text-align: right;
+  font-size: 10px;
+}
+
+ARTICLE P {
+  margin-bottom: 10px;
+  line-height: 1.5em;
+}
+
+ARTICLE A {
+  color: #99F;
+  text-decoration: none;
+}
+
+ARTICLE A:hover {
+  text-decoration: underline;
+}
+
+HEADER {
+  position: fixed;
+  background-color: #777;
+  width: 90%;
+  min-width: 600px;
+}
+
+HEADER H1 {
+  float: left;
+}
+
+NAV {
+  float: right;
+
+  color: black;
+  font-weight: bold;
+}
+
+NAV A {
+  margin-right: 5px;
+  margin-left: 5px;
+  color: #9999FF;
+  text-decoration: none;
+  font-weight: bold;
+  line-height: 44px;
+  font-size: 17px;
+  width: 100px;
+  text-align: center;
+}
+
+NAV A:hover {
+  text-decoration: underline;
+}
+
+#intro{
+  clear: both;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#mainContent{
+  clear: both;
+}
+
+UL#posts LI{
+  clear: both;
+  padding-top: 11px;
+  width: 100%;
+}
+
+UL#posts LI DIV.posta{
+  float: right;
+  text-align: right;
+  width: 30%;
+}
+
+UL#posts LI DIV.postl{
+  float: left;
+  width: 70%;
+  text-align: left;
+  vertical-align: top;
+}
+
+UL#posts LI A{
+  color: #9999FF;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+UL#posts LI A:hover {
+  text-decoration: underline;
+}
+
+#classes{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+DIV.contents P{
+  padding-bottom: 5px;
+  text-indent: 1.5em;
+}
+
+DIV.contents P A{
+  color: #9999FF;
+}
+
+FOOTER{
+  padding-top: 10px;
+}
+
+FOOTER A{
+  color: #9999FF;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+FOOTER A:hover {
+  text-decoration: underline;
+}
+
+ARTICLE I,EM {
+  font-style: italic;
+}
+
+ARTICLE B {
+  font-style: bold;
+}
+
+ARTICLE UL {
+  list-style-type: disc;
+  margin-left: 50px;
+  margin-bottom: 10px;
+}
+
+ARTICLE UL UL {
+  list-style-type: circle;
+  margin-bottom: 10px;
+}
+
+ARTICLE OL {
+  list-style-type: lower-alpha;
+  margin-left: 50px;
+}
