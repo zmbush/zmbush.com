@@ -1,3 +1,5 @@
 _site
 *.swp
 bower_components
+.bundle
+_vendor/bundle
