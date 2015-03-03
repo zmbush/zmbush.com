@@ -36,7 +36,7 @@ as often as I once did. I also play the guitar (poorly).
 
 I like to cook, play with Legos, hang out with [my girlfriend][molly], and see
 [my friends][Roomies]. I love visiting with my family, especially my baby
-nephew [Landon][landy].
+nephew [Landon][landon].
 
 [meraki]: http://www.meraki.com/ "Meraki"
 [cisco]: http://www.cisco.com/ "Cisco Systems"
@@ -44,7 +44,7 @@ nephew [Landon][landy].
 [sierra]: http://www.sierracollege.edu/ "Sierra College"
 [indowsway]: http://www.indowsway.com/ "Indowsway Software"
 [bss]: http://www.berkeleysimulation.com/ "Berkeley Simulation Software"
-[landy]: http://blog.meofamily.net/ "Meo Family Blog"
+[lanon]: http://blog.meofamily.net/ "Meo Family Blog"
 [projects]: /projects/ "Hobby Projects"
 [roomies]: /images/roomies.jpg "My Roommates"
 [molly]: {{ site.partners.molly.url }} "{{ site.partners.molly.name }}"
