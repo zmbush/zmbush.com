@@ -44,7 +44,7 @@ nephew [Landon][landon].
 [sierra]: http://www.sierracollege.edu/ "Sierra College"
 [indowsway]: http://www.indowsway.com/ "Indowsway Software"
 [bss]: http://www.berkeleysimulation.com/ "Berkeley Simulation Software"
-[lanon]: http://blog.meofamily.net/ "Meo Family Blog"
+[landon]: http://blog.meofamily.net/ "Meo Family Blog"
 [projects]: /projects/ "Hobby Projects"
 [roomies]: /images/roomies.jpg "My Roommates"
 [molly]: {{ site.partners.molly.url }} "{{ site.partners.molly.name }}"
