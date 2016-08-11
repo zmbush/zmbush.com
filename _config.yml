@@ -31,5 +31,4 @@ kramdown:
     coderay_bold_every: 10
     coderay_css: style
 future: false
-server: true
-auto: true
+exclude: ['vendor']
