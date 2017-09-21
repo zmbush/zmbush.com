@@ -1,8 +1,0 @@
----
-layout: notes
-title: CS 188 Lecture 1
-topic: Perceptron
----
-Inputs x
-candidates y
-many feature vectors

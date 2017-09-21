@@ -1,7 +1,7 @@
 partners:
   mary:
     name: Mary Stufflebeam
-    url: http://www.facebook.com/marystufflebeam/
+    url: https://www.linkedin.com/in/stufflebear
   andre:
     name: Andr&eacute; Crabb
     url: http://andrecrabb.com/
@@ -15,20 +15,46 @@ partners:
     name: Molly Raven
     url: http://www.mollyraven.com
 
+source: _source
 permalink: pretty
 markdown: kramdown
 kramdown:
-  auto_ids: true,
-  footnote_nr: 1
-  entity_output: as_char
-  toc_levels: 1..6
-  use_coderay: true
+  input: GFM
+  syntax_highlighter: rogue
 
-  coderay:
-    coderay_line_numbers: ''
-    coderay_wrap: div
-    coderay_tab_width: 4
-    coderay_bold_every: 10
-    coderay_css: style
 future: false
-exclude: ['vendor']
+exclude:
+  - _assets/stylesheets/fontcustom/*
+  - vendor
+
+assets:
+  sources:
+    - _assets/fonts
+    - _assets/images
+    - _assets/javascripts
+    - _assets/stylesheets
+    - _assets/bower
+    - _generated/images
+  autoprefixer:
+    browsers:
+      - "last 10 versions"
+      - "> 5%"
+      - "IE > 8"
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+  - scope:
+      path: "projects"
+      type: "posts"
+    values:
+      layout: "project"
+
+  - scope:
+      path: "blog"
+      type: "posts"
+    values:
+      layout: "blog"
