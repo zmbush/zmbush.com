@@ -57,7 +57,7 @@ class GrammarCheck < ::HTMLProofer::Check
       text.concat(str).concat("\n")
     end
     errors = []
-    Retriable.retriable tries: 3 do
+    Retriable.retriable tries: 15 do
       errors = @@client.check text, action: "checkGrammar"
     end
     errors.each do |error|
