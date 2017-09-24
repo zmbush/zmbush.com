@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    {% include favicons.html %}
+
+    <title>{{ page.title }} - zmbush.com</title>
+
+    <style>{% asset base %}</style>
+  </head>
+  <body>
+    {{ content }}
+
+    <script type="text/javascript">{% asset ga_setup %}</script>
+    {% if page.has_math %}
+      <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+      <script type="text/javascript">{% asset mathjax_config %}</script>
+    {% endif %}
+    {% javascript "x-tag-core/dist/x-tag-core" %}
+    <script type="text/javascript">{% asset custom_elements %}</script>
+
+    <noscript id="deferred-styles">
+      {% stylesheet main %}
+      <link
+        href="https://fonts.googleapis.com/css?family=Roboto:400,300|Roboto+Mono:100"
+        rel="stylesheet"
+        type="text/css"
+        />
+    </noscript>
+    <script type="text/javascript">{% asset deferred_css %}</script>
+  </body>
+</html>

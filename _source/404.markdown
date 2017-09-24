@@ -1,0 +1,7 @@
+---
+layout: blog
+title: What have you done?
+image: 404.jpg
+---
+
+I can't find the page you wanted... Perhaps try clicking on one of the links in the header?

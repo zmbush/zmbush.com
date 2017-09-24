@@ -3,3 +3,10 @@ _site
 bower_components
 .bundle
 _vendor/bundle
+.sass-cache
+.asset-cache
+_source/_assets/stylesheets/fontcustom
+_source/_assets/fonts/fontcustom
+_source/_assets/bower
+.fontcustom-manifest.json
+_source/_assets/bower

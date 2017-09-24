@@ -1,0 +1,42 @@
+ignore:
+  - André
+  - APIs
+  - app
+  - Astourian
+  - backend
+  - Cisco
+  - Crabb
+  - CSUA
+  - Facebook
+  - frontend
+  - Frontend
+  - glookup
+  - Glookup
+  - hackathon
+  - Hayg
+  - Legos
+  - Meraki
+  - metadata
+  - mp3
+  - naïve
+  - nameserver
+  - Nameserver
+  - nameservers
+  - SmallBASIC
+  - Stufflebeam
+  - UC
+  - username
+  - whois
+  - zmbush
+by-file:
+  piranha:
+    - ain’t
+    - ain
+    - gon
+    - homies
+    - muthafucka
+  mp-complete:
+    - echonest
+    - eyeD3
+    - musixmatch
+
