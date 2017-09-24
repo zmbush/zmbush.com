@@ -13,7 +13,7 @@ body {
 
 a.logo-icon {
   line-height: 1.25;
-  @include zmbush-icon(logo-prototype);
+  @include zmbush-icon(zb-logo);
   text-decoration: none;
   font-size: 2rem;
   @include phone {
