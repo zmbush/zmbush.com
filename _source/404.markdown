@@ -1,7 +1,9 @@
 ---
 layout: blog
-title: What have you done?
+title: There is nothing here
+subtitle: I don't know what you were looking for, but it's not here
 image: 404.jpg
 ---
 
-I can't find the page you wanted... Perhaps try clicking on one of the links in the header?
+This may refer to some deleted content, but is most likely a mistyped link. You might be able to
+find what you're looking for by checking the pages in the header. Apologies for the inconvenience.
