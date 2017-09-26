@@ -6,6 +6,10 @@ html {
   height: 100%;
 }
 
+html.shell {
+  background-color: black;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
@@ -29,6 +33,7 @@ nav.top {
   width: 100%;
   line-height: 2.5;
   border-bottom: 1px solid $divider-color;
+  background-color: white;
 
   .pad {
     flex: 1;
@@ -136,7 +141,6 @@ header {
 
 }
 
-
 .contact-buttons {
   .github {
     @include zmbush-icon(github);
@@ -168,4 +172,15 @@ article {
       height: auto;
     }
   }
+}
+
+footer.shell, header.shell {
+  display: none;
+}
+
+article.shell {
+  background-color: black;
+  color: $accent;
+  font-family: 'Roboto Mono', monospace;
+  padding: 10px;
 }

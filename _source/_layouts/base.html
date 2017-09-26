@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html {% if layout.class %}class={{ layout.class }}{% endif %}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
@@ -9,6 +9,9 @@
     <title>{{ page.title }} - zmbush.com</title>
 
     <style>{% asset base %}</style>
+    {% for js in page.extra_js %}
+      {% javascript '{{ js }}' %}
+    {% endfor %}
   </head>
   <body>
     {{ content }}
@@ -18,8 +21,7 @@
       <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
       <script type="text/javascript">{% asset mathjax_config %}</script>
     {% endif %}
-    {% javascript "x-tag-core/dist/x-tag-core" %}
-    <script type="text/javascript">{% asset custom_elements %}</script>
+    <script type="text/javascript">{% asset custom_elements.bundle %}</script>
 
     <noscript id="deferred-styles">
       {% stylesheet main %}

@@ -10,3 +10,5 @@ _source/_assets/fonts/fontcustom
 _source/_assets/bower
 .fontcustom-manifest.json
 _source/_assets/bower
+node_modules
+_source/_assets/webpack
