@@ -16,7 +16,7 @@ before_install:
   - cd woff2 && make clean all && cd -
   - export PATH=$PATH:$PWD/woff2
 rvm:
-  - 2.3.0
+  - 2.4.2
 script:
   - yarn run build
   - bundle exec jekyll build
