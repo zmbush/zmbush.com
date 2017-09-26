@@ -2638,6 +2638,10 @@ wrappy@1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/wrappy/-/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
 
+x-tag@^1.5.11:
+  version "1.5.11"
+  resolved "https://registry.yarnpkg.com/x-tag/-/x-tag-1.5.11.tgz#b75167837cdccdc3fa1eb9af56b730a1f0225539"
+
 xtend@^4.0.0:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/xtend/-/xtend-4.0.1.tgz#a5c6d532be656e23db820efb943a1f04998d63af"

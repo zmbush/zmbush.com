@@ -4,6 +4,7 @@ const DirectoryNamedWebpackPlugin = require("directory-named-webpack-plugin");
 module.exports = {
   entry: {
     "fake-shell": './apps/fake-shell.jsx',
+    custom_elements: './apps/custom_elements.js',
   },
   output: {
     filename: '[name].bundle.js',
@@ -23,7 +24,13 @@ module.exports = {
       use: {
         loader: 'babel-loader',
         options: {
-          presets: ['env', 'react'],
+          presets: [
+              ['env', {
+                loose: true,
+                modules: false
+              }],
+              'react',
+          ],
           plugins: ['transform-class-properties'],
         }
       }

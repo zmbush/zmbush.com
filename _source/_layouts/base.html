@@ -21,8 +21,7 @@
       <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
       <script type="text/javascript">{% asset mathjax_config %}</script>
     {% endif %}
-    {% javascript "x-tag-core/dist/x-tag-core" %}
-    <script type="text/javascript">{% asset custom_elements %}</script>
+    <script type="text/javascript">{% asset custom_elements.bundle %}</script>
 
     <noscript id="deferred-styles">
       {% stylesheet main %}
