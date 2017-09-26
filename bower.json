@@ -17,6 +17,7 @@
     "tests"
   ],
   "dependencies": {
-    "x-tag-core": "^1.5.11"
+    "x-tag-core": "^1.5.11",
+    "react": "^15.6.1"
   }
 }
