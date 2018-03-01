@@ -4,9 +4,11 @@ title: $ whois zmbush
 image: pano-in-a-park.jpg
 ---
 
-I'm Zachary Bush, and I work as a Site Reliability Engineer at [Google][google].  Previously, I was
-a Member of Technical Staff at [Cisco Meraki][meraki], and in 2013, I graduated from UC Berkeley
-with a degree in computer science.
+I'm Zachary Bush, and I work as a Software Engineer helping to develop
+[Fuchsia][fuchsia]. Before that I was a Site Reliability Engineer at
+[Google][google], and before that I was a Member of Technical Staff at
+[Cisco Meraki][meraki], and in 2013, I graduated from UC Berkeley with a degree
+in computer science.
 
 {% include small-image.html
   url="albany-bulb-portrait.jpg"
@@ -50,6 +52,7 @@ baby nephew [Landon][landon], and Harper.
 [rust]: https://www.rust-lang.org/ "The Rust Programming Language"
 [sierra]: http://www.sierracollege.edu/ "Sierra College"
 [small-basic]: http://smallbasic.sourceforge.net/ "SmallBASIC"
+[fuchsia]: https://fuchsia.googlesource.com "Fuchsia"
 
 *[FORTRAN]: FORmula TRANslator
 *[UC]: University of California
