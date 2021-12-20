@@ -100,7 +100,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
-        siteUrl: 'http://www.zmbush.com',
+        siteUrl: 'https://www.zmbush.com',
         stripQueryString: true,
       },
     },

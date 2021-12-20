@@ -62,7 +62,6 @@ const Default = ({
       site {
         siteMetadata {
           title
-          siteUrl
         }
       }
     }
@@ -76,7 +75,6 @@ const Default = ({
           {pageTitle}
           {metadata.title ? ` | ${metadata.title}` : ''}
         </title>
-        {metadata.siteUrl ? <link rel='canonical' href={metadata.siteUrl} /> : null}
       </Helmet>
       <Navbar />
       {hideTitle ? null : (

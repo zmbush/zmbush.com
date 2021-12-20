@@ -3951,7 +3951,7 @@ export type PartnerYamlSortInput = {
 export type GetSiteMetadataAndImageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetSiteMetadataAndImageQuery = { site?: { siteMetadata?: { title?: string | null | undefined, siteUrl?: string | null | undefined } | null | undefined } | null | undefined };
+export type GetSiteMetadataAndImageQuery = { site?: { siteMetadata?: { title?: string | null | undefined } | null | undefined } | null | undefined };
 
 export type Get404ImageQueryVariables = Exact<{ [key: string]: never; }>;
 
