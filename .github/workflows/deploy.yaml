@@ -1,6 +1,14 @@
 name: Deploy To Branch
 'on':
   workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch to Deploy To'
+        required: true
+        default: main-www
+        type: choice
+        options:
+          - main-www
 concurrency:
   group: deploy-www
 jobs:
@@ -15,7 +23,7 @@ jobs:
       - name: Checkout site
         uses: actions/checkout@v2
         with:
-          ref: main-www
+          ref: ${{ github.event.inputs.branch }}
           path: site
       - name: Setup node
         uses: actions/setup-node@v2
@@ -43,7 +51,7 @@ jobs:
           git rm -r *
           cp -R ../main/public/* .
           git add .
-          git commit -m"Deploy `cd ../main; git log --pretty=format:%s -n 1`"
+          git commit -m"Deploy `cd ../main; git log --pretty=format:'%h %s' -n 1`"
       - name: Push
         run: git push
         working-directory: site
