@@ -1,36 +1,10 @@
-import styled from '@emotion/styled';
-import '@fontsource/roboto-mono/100.css';
+/* @jsx jsx */
+import { jsx, css } from '@emotion/react';
+import '@fontsource/roboto-mono/latin-100.css';
 import BackgroundImage from 'gatsby-background-image';
 import { getImage, ImageDataLike } from 'gatsby-plugin-image';
 import { convertToBgImage } from 'gbimage-bridge';
 import * as React from 'react';
-
-const StyledHeader = styled.header`
-  background-color: #2196f3;
-  background-size: cover;
-  color: #ffffff;
-  display: block;
-
-  h1,
-  h3,
-  h5 {
-    margin: 0 auto;
-    text-align: center;
-    font-family: 'Roboto Mono', monospace;
-    font-weight: 100;
-  }
-`;
-
-const HeaderColor = styled.div`
-  background-color: rgba(33, 150, 243, 0.75);
-  height: 100%;
-`;
-
-const HeaderContent = styled.div`
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 50px 0;
-`;
 
 interface PropsWithoutTitle {
   hideTitle: true;
@@ -63,10 +37,37 @@ const MaybeBackgroundImage = ({ headerImg, children }: MBIProps) => {
 type Props = Omit<MBIProps, 'children'> & (PropsWithoutTitle | PropsWithTitle);
 
 const Header = ({ hideTitle = false, title, subtitle, date, headerImg }: Props) => (
-  <StyledHeader>
+  <header
+    css={css`
+      background-color: #2196f3;
+      background-size: cover;
+      color: #ffffff;
+      display: block;
+
+      h1,
+      h3,
+      h5 {
+        margin: 0 auto;
+        text-align: center;
+        font-family: 'Roboto Mono', monospace;
+        font-weight: 100;
+      }
+    `}
+  >
     <MaybeBackgroundImage headerImg={headerImg}>
-      <HeaderColor>
-        <HeaderContent>
+      <div
+        css={css`
+          background-color: rgba(33, 150, 243, 0.75);
+          height: 100%;
+        `}
+      >
+        <div
+          css={css`
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 50px 0;
+          `}
+        >
           {hideTitle ? null : (
             <>
               {title ? <h1>{title}</h1> : null}
@@ -75,10 +76,10 @@ const Header = ({ hideTitle = false, title, subtitle, date, headerImg }: Props) 
               {subtitle && date ? <h5>Published {date}</h5> : null}
             </>
           )}
-        </HeaderContent>
-      </HeaderColor>
+        </div>
+      </div>
     </MaybeBackgroundImage>
-  </StyledHeader>
+  </header>
 );
 
 export default Header;

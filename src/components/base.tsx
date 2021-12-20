@@ -1,6 +1,7 @@
 import { css, Global } from '@emotion/react';
-import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/latin-300.css';
 import * as React from 'react';
+import { Helmet } from 'react-helmet';
 
 const reset = css`
   /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -180,6 +181,7 @@ const Base = ({ children }: Props) => (
     <Global styles={reset} />
     <Global styles={boilerplate} />
     <Global styles={base} />
+    <Helmet htmlAttributes={{ lang: 'en' }} />
     {children}
   </>
 );

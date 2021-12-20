@@ -1,7 +1,6 @@
-const { unlink } = require('fs/promises');
 const path = require('path');
 
-exports.createSchemaCustomization = async ({ actions, schema }) => {
+exports.createSchemaCustomization = async ({ actions }) => {
   const { createTypes, printTypeDefinitions } = actions;
 
   createTypes(`
@@ -36,12 +35,7 @@ exports.createSchemaCustomization = async ({ actions, schema }) => {
             siteName: String
         }
     `);
-  try {
-    await unlink(path.join(path.dirname(__filename), 'schema.gql'));
-  } catch (e) {
-  } finally {
-    printTypeDefinitions({ path: './schema.gql' });
-  }
+  printTypeDefinitions({ path: './schema.gql' });
 };
 
 exports.createPages = async ({ graphql, actions }) => {
@@ -75,14 +69,14 @@ exports.createPages = async ({ graphql, actions }) => {
   });
 };
 
-const stringToSlug = (str) => {
-  str = str.replace(/^\s+|\s+$/g, ''); // trim
+const stringToSlug = (strIn) => {
+  let str = strIn.replace(/^\s+|\s+$/g, ''); // trim
   str = str.toLowerCase();
 
   // remove accents, swap ñ for n, etc
-  var fr = 'àáäâèéëêìíïîòóöôùúüûñç·_,:;';
-  var to = 'aaaaeeeeiiiioooouuuunc-----';
-  for (var i = 0, l = fr.length; i < l; i++) {
+  const fr = 'àáäâèéëêìíïîòóöôùúüûñç·_,:;';
+  const to = 'aaaaeeeeiiiioooouuuunc-----';
+  for (let i = 0, l = fr.length; i < l; i += 1) {
     str = str.replace(new RegExp(fr.charAt(i), 'g'), to.charAt(i));
   }
 
@@ -117,18 +111,19 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
     if (node.frontmatter && node.frontmatter.slug) {
       slug = node.frontmatter.slug;
+    } else if (parsedFilePath.name !== 'index' && parsedFilePath.dir !== '') {
+      slug = `${parsedFilePath.dir}/${parsedFilePath.name}`;
+    } else if (parsedFilePath.dir === '') {
+      slug = `${parsedFilePath.name}`;
     } else {
-      if (parsedFilePath.name !== 'index' && parsedFilePath.dir !== '') {
-        slug = `${parsedFilePath.dir}/${parsedFilePath.name}`;
-      } else if (parsedFilePath.dir === '') {
-        slug = `${parsedFilePath.name}`;
-      } else {
-        slug = `${parsedFilePath.dir}`;
-      }
+      slug = `${parsedFilePath.dir}`;
     }
-    const m = slug.match(dateLikeSlugPrefix);
-    if (m) {
-      slug = `${m[1]}/${m[2]}/${m[3]}/${m[4]}`;
+
+    {
+      const m = slug.match(dateLikeSlugPrefix);
+      if (m) {
+        slug = `${m[1]}/${m[2]}/${m[3]}/${m[4]}`;
+      }
     }
 
     if (!date) {
@@ -141,7 +136,8 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     if (!title) {
       const m = slug.match(titleInSlug);
       if (m) {
-        title = m[1];
+        let _;
+        [_, title] = m;
       }
     }
 

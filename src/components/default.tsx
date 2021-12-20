@@ -1,8 +1,8 @@
 /* @jsx jsx */
 import { jsx, css, ClassNames } from '@emotion/react';
 import styled from '@emotion/styled';
-import '@fontsource/roboto/300.css';
-import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/latin-300.css';
+import '@fontsource/roboto/latin-400.css';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import { ImageDataLike, StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
@@ -20,35 +20,6 @@ const Footer = styled.footer`
   border-top: 5px solid #1976d2;
   padding: 15px;
   font-size: .9rem;
-  
-  section.main {
-    margin: 0 auto;
-  }
-
-  ${up('md')} {
-    section.main {
-      width: 800px;
-    }
-  }
-
-  .copyright {
-    text-align: right;
-    font-size: .5rem;
-
-    ${down('md')} {
-      text-align: center;
-      padding: 10px;
-    }
-  }
-
-  .logo-icon {
-    font-size: 2rem;
-    padding-bottom: 10px;
-
-    ${down('md')} {
-      font-size: 1.5rem;
-    }
-  }
 
   a {
     color: black;
@@ -58,16 +29,6 @@ const Footer = styled.footer`
 
     &:hover {
       text-decoration: underline;
-    }
-  }
-
-  nav {
-    margin: 0 auto;
-    text-align: center;
-    line-height: 25px;
-
-    ${up('md')} {
-      display: inline-block;
     }
   }
 }
@@ -203,11 +164,32 @@ const Default = ({
         )}
       </ClassNames>
       <Footer>
-        <section className='main'>
-          <Link to='/' className='logo-icon'>
+        <section
+          css={css`
+            margin: 0 auto;
+
+            ${up('md')} {
+              width: 800px;
+            }
+          `}
+        >
+          <Link
+            to='/'
+            css={css`
+              padding-bottom: 10px;
+
+              ${down('md')} {
+                display: block;
+              }
+            `}
+          >
             <StaticImage
               css={css`
                 margin-top: 5px;
+                ${down('md')} {
+                  left: 50%;
+                  transform: translateX(-50%);
+                }
               `}
               height={34}
               src='../images/zb-logo.svg'
@@ -215,18 +197,46 @@ const Default = ({
               placeholder='tracedSVG'
             />
           </Link>
-          <nav>
+          <nav
+            css={css`
+              margin: 0 auto;
+              text-align: center;
+              line-height: 25px;
+
+              ${up('md')} {
+                display: inline-block;
+                a {
+                  padding-top: 15px;
+                  display: inline-block;
+                }
+              }
+            `}
+          >
             <Link to='/'>About Me</Link>
             <Link to='/projects'>Projects</Link>
             <Link to='/contact'>Contact Me</Link>
-            {/* <!-- <Link to="/blog">Blog</Link> --> */}
+            {/* <Link to="/blog">Blog</Link> */}
           </nav>
-          <div className='copyright'>
-            all content &copy; 2011-{new Date().getFullYear()} Zachary Bush
-            <br />
-            <br />
-            Opinions expressed here are solely my own and do not express the views or opinions of my
-            employer.
+          <div
+            css={css`
+              text-align: right;
+              font-size: 0.5rem;
+
+              ${down('md')} {
+                text-align: center;
+                padding: 10px;
+              }
+
+              p {
+                padding-bottom: 5px;
+              }
+            `}
+          >
+            <p>all content &copy; 2011-{new Date().getFullYear()} Zachary Bush</p>
+            <p>
+              Opinions expressed here are solely my own and do not express the views or opinions of
+              my employer.
+            </p>
           </div>
         </section>
       </Footer>
