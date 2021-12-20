@@ -1,9 +1,7 @@
 /* @jsx jsx */
 import { jsx, css } from '@emotion/react';
 import '@fontsource/roboto-mono/latin-100.css';
-import BackgroundImage from 'gatsby-background-image';
-import { getImage, ImageDataLike } from 'gatsby-plugin-image';
-import { convertToBgImage } from 'gbimage-bridge';
+import { GatsbyImage, getImage, ImageDataLike } from 'gatsby-plugin-image';
 import * as React from 'react';
 
 interface PropsWithoutTitle {
@@ -20,41 +18,43 @@ interface PropsWithTitle {
   date?: string;
 }
 
-interface MBIProps {
+type Props = {
   headerImg: ImageDataLike;
-  children: React.ReactNode;
-}
+} & (PropsWithoutTitle | PropsWithTitle);
 
-const MaybeBackgroundImage = ({ headerImg, children }: MBIProps) => {
-  const bgImage = convertToBgImage(getImage(headerImg));
-  if (!bgImage) {
-    // eslint-disable-next-line react/jsx-no-useless-fragment
-    return <>{children}</>;
-  }
-  return <BackgroundImage {...bgImage}>{children}</BackgroundImage>;
-};
+const Header = ({ hideTitle = false, title, subtitle, date, headerImg }: Props) => {
+  const bgImage = getImage(headerImg);
+  return (
+    <header
+      css={css`
+        background-size: cover;
+        color: #ffffff;
+        display: block;
+        position: relative;
 
-type Props = Omit<MBIProps, 'children'> & (PropsWithoutTitle | PropsWithTitle);
-
-const Header = ({ hideTitle = false, title, subtitle, date, headerImg }: Props) => (
-  <header
-    css={css`
-      background-color: #2196f3;
-      background-size: cover;
-      color: #ffffff;
-      display: block;
-
-      h1,
-      h3,
-      h5 {
-        margin: 0 auto;
-        text-align: center;
-        font-family: 'Roboto Mono', monospace;
-        font-weight: 100;
-      }
-    `}
-  >
-    <MaybeBackgroundImage headerImg={headerImg}>
+        h1,
+        h3,
+        h5 {
+          margin: 0 auto;
+          text-align: center;
+          font-family: 'Roboto Mono', monospace;
+          font-weight: 100;
+        }
+      `}
+    >
+      {bgImage ? (
+        <GatsbyImage
+          css={css`
+            pointer-events: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+          `}
+          image={bgImage}
+          alt='Banner Image'
+        />
+      ) : null}
       <div
         css={css`
           background-color: rgba(33, 150, 243, 0.75);
@@ -78,8 +78,8 @@ const Header = ({ hideTitle = false, title, subtitle, date, headerImg }: Props) 
           )}
         </div>
       </div>
-    </MaybeBackgroundImage>
-  </header>
-);
+    </header>
+  );
+};
 
 export default Header;

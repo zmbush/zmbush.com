@@ -51,7 +51,7 @@ jobs:
           git rm -r *
           cp -R ../main/public/* .
           git add .
-          git commit -m"Deploy `cd ../main; git log --pretty=format:'%h %s' -n 1`"
+          git commit --allow-empty -m"Deploy `cd ../main; git log --pretty=format:'%h %s' -n 1`"
       - name: Push
         run: git push
         working-directory: site
