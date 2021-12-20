@@ -1,8 +1,0 @@
-output:
-  css: _source/_assets/stylesheets/fontcustom
-  fonts: _source/_assets/fonts/fontcustom
-templates:
-  - _fontcustom.scss
-font_name: zmbush
-no_hash: true
-autowidth: true
