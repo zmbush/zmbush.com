@@ -1,4 +1,4 @@
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import * as React from 'react';
 
@@ -16,24 +16,24 @@ const ExtraLinks = ({
       <p>
         I built this project with{' '}
         {partners.map((partner, i) => (
-          <>
+          <React.Fragment key={partner.ref}>
             {partners.length > 1 && i === partners.length - 1 ? ' and ' : null}
-            <Link to={partner.url}>{partner.name}</Link>
+            <a href={partner.url}>{partner.name}</a>
             {i === partners.length - 1 ? '.' : null}
             {partners.length > 2 && i !== partners.length - 1 ? ',' : null}
-          </>
+          </React.Fragment>
         ))}
       </p>
     ) : null}
     {siteUrl ? (
       <p>
         You can see it in action {siteName ? 'at: ' : null}
-        <Link to={siteUrl}>{siteName || 'here'}</Link>.
+        <a href={siteUrl}>{siteName || 'here'}</a>.
       </p>
     ) : null}
     {sourceUrl ? (
       <p>
-        You can view the code for this project <Link to={sourceUrl}>here</Link>.
+        You can view the code for this project <a href={sourceUrl}>here</a>.
       </p>
     ) : null}
   </>
@@ -87,6 +87,7 @@ export const query = graphql`
           }
         }
         partners {
+          ref
           name
           url
         }
