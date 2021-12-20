@@ -1,0 +1,49 @@
+name: Deploy To Branch
+'on':
+  workflow_dispatch:
+concurrency:
+  group: deploy-www
+jobs:
+  node-ci:
+    name: Deploy Gatsby Site to Branch
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v2
+        with:
+          path: main
+      - name: Checkout site
+        uses: actions/checkout@v2
+        with:
+          ref: main-www
+          path: site
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - name: Build Cache
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: "${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}"
+          restore-keys: "${{ runner.os }}-node-\n"
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
+        working-directory: main
+      - name: Build Site
+        run: yarn build
+        working-directory: main
+      - name: Configure Git
+        run: |
+          git config --global user.email "zach+deploy@zmbush.com"
+          git config --global user.name "zmbush.com Deploy Script"
+      - name: Prepare site directory
+        working-directory: site
+        run: |
+          git rm -r *
+          cp -R ../main/public/* .
+          git add .
+          git commit -m"Deploy `cd ../main; git log --pretty=format:%s -n 1`"
+      - name: Push
+        run: git push
+        working-directory: site
