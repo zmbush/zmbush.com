@@ -251,6 +251,8 @@ export type DirectoryCtimeArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
+  port?: Maybe<Scalars['Int']>;
+  host?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
   jsxRuntime?: Maybe<Scalars['String']>;
@@ -697,6 +699,7 @@ export type Frontmatter = {
   sourceUrl?: Maybe<Scalars['String']>;
   siteUrl?: Maybe<Scalars['String']>;
   siteName?: Maybe<Scalars['String']>;
+  siteMsg?: Maybe<Scalars['String']>;
 };
 
 
@@ -837,6 +840,8 @@ export type QueryAllDirectoryArgs = {
 export type QuerySiteArgs = {
   buildTime?: InputMaybe<DateQueryOperatorInput>;
   siteMetadata?: InputMaybe<SiteSiteMetadataFilterInput>;
+  port?: InputMaybe<IntQueryOperatorInput>;
+  host?: InputMaybe<StringQueryOperatorInput>;
   polyfill?: InputMaybe<BooleanQueryOperatorInput>;
   pathPrefix?: InputMaybe<StringQueryOperatorInput>;
   jsxRuntime?: InputMaybe<StringQueryOperatorInput>;
@@ -1184,6 +1189,7 @@ export type FrontmatterFilterInput = {
   sourceUrl?: InputMaybe<StringQueryOperatorInput>;
   siteUrl?: InputMaybe<StringQueryOperatorInput>;
   siteName?: InputMaybe<StringQueryOperatorInput>;
+  siteMsg?: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type FileFilterInput = {
@@ -1556,6 +1562,7 @@ export type FileFieldsEnum =
   | 'childrenMdx___frontmatter___sourceUrl'
   | 'childrenMdx___frontmatter___siteUrl'
   | 'childrenMdx___frontmatter___siteName'
+  | 'childrenMdx___frontmatter___siteMsg'
   | 'childrenMdx___slug'
   | 'childrenMdx___body'
   | 'childrenMdx___excerpt'
@@ -1666,6 +1673,7 @@ export type FileFieldsEnum =
   | 'childMdx___frontmatter___sourceUrl'
   | 'childMdx___frontmatter___siteUrl'
   | 'childMdx___frontmatter___siteName'
+  | 'childMdx___frontmatter___siteMsg'
   | 'childMdx___slug'
   | 'childMdx___body'
   | 'childMdx___excerpt'
@@ -2246,6 +2254,8 @@ export type SiteFieldsEnum =
   | 'siteMetadata___title'
   | 'siteMetadata___description'
   | 'siteMetadata___siteUrl'
+  | 'port'
+  | 'host'
   | 'polyfill'
   | 'pathPrefix'
   | 'jsxRuntime'
@@ -2380,6 +2390,8 @@ export type SiteGroupConnectionGroupArgs = {
 export type SiteFilterInput = {
   buildTime?: InputMaybe<DateQueryOperatorInput>;
   siteMetadata?: InputMaybe<SiteSiteMetadataFilterInput>;
+  port?: InputMaybe<IntQueryOperatorInput>;
+  host?: InputMaybe<StringQueryOperatorInput>;
   polyfill?: InputMaybe<BooleanQueryOperatorInput>;
   pathPrefix?: InputMaybe<StringQueryOperatorInput>;
   jsxRuntime?: InputMaybe<StringQueryOperatorInput>;
@@ -3607,6 +3619,7 @@ export type MdxFieldsEnum =
   | 'frontmatter___sourceUrl'
   | 'frontmatter___siteUrl'
   | 'frontmatter___siteName'
+  | 'frontmatter___siteMsg'
   | 'slug'
   | 'body'
   | 'excerpt'
@@ -3970,7 +3983,7 @@ export type SingleBlogPostQueryVariables = Exact<{
 }>;
 
 
-export type SingleBlogPostQuery = { mdx?: { body: string, frontmatter?: { subtitle?: string | null | undefined, draft?: boolean | null | undefined, sourceUrl?: string | null | undefined, siteUrl?: string | null | undefined, siteName?: string | null | undefined, heroImage?: { childImageSharp?: { gatsbyImageData: any } | null | undefined } | null | undefined, partners?: Array<{ ref: string, name: string, url: string }> | null | undefined } | null | undefined, fields: { title: string, date: any, source: string }, headings?: Array<{ depth?: number | null | undefined, value?: string | null | undefined } | null | undefined> | null | undefined } | null | undefined };
+export type SingleBlogPostQuery = { mdx?: { body: string, frontmatter?: { subtitle?: string | null | undefined, draft?: boolean | null | undefined, sourceUrl?: string | null | undefined, siteUrl?: string | null | undefined, siteName?: string | null | undefined, siteMsg?: string | null | undefined, heroImage?: { childImageSharp?: { gatsbyImageData: any } | null | undefined } | null | undefined, partners?: Array<{ ref: string, name: string, url: string }> | null | undefined } | null | undefined, fields: { title: string, date: any, source: string }, headings?: Array<{ depth?: number | null | undefined, value?: string | null | undefined } | null | undefined> | null | undefined } | null | undefined };
 
 export type GatsbyImageSharpFixedFragment = { base64?: string | null | undefined, width: number, height: number, src: string, srcSet: string };
 

@@ -33,6 +33,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
             sourceUrl: String
             siteUrl: String
             siteName: String
+            siteMsg: String
         }
     `);
   printTypeDefinitions({ path: './schema.gql' });

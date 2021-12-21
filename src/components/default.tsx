@@ -13,12 +13,14 @@ import { GetSiteMetadataAndImageQuery } from '../../types/graphql-types';
 import { up, down } from '../util/mediaQueries';
 
 import Base from './base';
+import Caption from './caption';
 import Header from './header';
 import Navbar from './navbar';
 import Toc from './toc';
 
 const shortCodes = {
   Toc,
+  Caption,
 };
 
 const Footer = styled.footer`
@@ -155,13 +157,6 @@ const Default = ({
                   }
                 }
 
-                .gatsby-resp-image-figcaption {
-                  text-align: right;
-                  padding-bottom: 10px;
-                  color: #9e9e9e;
-                  font-size: 0.8rem;
-                }
-
                 ol,ul {
                   margin-bottom: 10px;
                 }
@@ -175,6 +170,22 @@ const Default = ({
                     margin-left: 10px;
                     font-size: 80%;
                   }
+                }
+
+                em {
+                  font-style: italic;
+                }
+
+                strong {
+                  font-weight: bold;
+                }
+
+                .gatsby-resp-image-figcaption {
+                  text-align: center;
+                  display: block;
+                  padding-bottom: 20px;
+                  margin-top: 5px;
+                  font-style: italic;
                 }
               `]: true,
               })}

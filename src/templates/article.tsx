@@ -9,9 +9,16 @@ const ExtraLinks = ({
   partners,
   siteUrl,
   siteName,
+  siteMsg,
   sourceUrl,
 }: NonNullable<NonNullable<SingleBlogPostQuery['mdx']>['frontmatter']>) => (
   <>
+    {siteUrl ? (
+      <p>
+        {siteMsg || 'You can see it in action'} {siteName ? 'at: ' : null}
+        <a href={siteUrl}>{siteName || 'here'}</a>.
+      </p>
+    ) : null}
     {partners ? (
       <p>
         I built this project with{' '}
@@ -23,12 +30,6 @@ const ExtraLinks = ({
             {partners.length > 2 && i !== partners.length - 1 ? ',' : null}
           </React.Fragment>
         ))}
-      </p>
-    ) : null}
-    {siteUrl ? (
-      <p>
-        You can see it in action {siteName ? 'at: ' : null}
-        <a href={siteUrl}>{siteName || 'here'}</a>.
       </p>
     ) : null}
     {sourceUrl ? (
@@ -94,6 +95,7 @@ export const query = graphql`
         sourceUrl
         siteUrl
         siteName
+        siteMsg
       }
       fields {
         title
