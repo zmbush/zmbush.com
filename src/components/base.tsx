@@ -1,5 +1,6 @@
 import { css, Global } from '@emotion/react';
 import '@fontsource/roboto/latin-300.css';
+import 'prism-themes/themes/prism-solarized-dark-atom.css';
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
 
@@ -169,6 +170,16 @@ const base = css`
   body {
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
+  }
+
+  .gatsby-highlight-code-line {
+    background-color: #024658;
+    display: block;
+    margin-right: -1em;
+    margin-left: -1em;
+    padding-right: 1em;
+    padding-left: 0.75em;
+    border-left: 0.25em solid #027e9e;
   }
 `;
 

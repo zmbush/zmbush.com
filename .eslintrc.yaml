@@ -23,6 +23,7 @@ overrides:
     globals:
       props: true
       Toc: true
+      Caption: true
     rules:
       'react/prop-types': off
       'react/jsx-filename-extension': off
