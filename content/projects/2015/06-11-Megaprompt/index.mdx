@@ -1,0 +1,26 @@
+---
+heroImage: ./megaprompt.jpg
+sourceUrl: https://github.com/zmbush/megaprompt
+---
+
+Many people tend to want to pack as much information as densely as possible into
+their prompt line, often abbreviating information and omitting less relevant
+data. Most of these prompts expect to be rendered on a single line, so brevity is
+of the utmost import.
+
+![Megaprompt](./megaprompt.jpg 'I did not care about any of these concerns')
+
+When I created [pyprompt][pyprompt] back in 2012, I did not care about any of
+these concerns. My only concern was packing as much information into the prompt
+as possible, including current git branch, modified/staged files, and more.
+
+Over the years of using pyprompt, however, I found its performance to be lacking
+(and I wanted to experiment with this newish language rust), so in late 2014 I
+began a project to rewrite pyprompt in rust, a project I dubbed megaprompt.
+
+It took me a couple months to implements suitable replacement for pyprompt, and
+it was an excellent learning opportunity. It also represented my first foray
+into Rust which has since become my favorite and go-to language for any new
+project.
+
+[pyprompt]: https://github.com/zmbush/binaries/blob/master/pyprompt 'pyprompt.py'

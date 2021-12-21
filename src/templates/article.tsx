@@ -56,7 +56,7 @@ const BlogPost = ({ data }: Props) => {
       </Default>
     );
   }
-  const { frontmatter, body, fields } = data.mdx;
+  const { frontmatter, body, headings, fields } = data.mdx;
   let Component = templates.blog;
   if (fields && fields.source && fields.source in templates) {
     Component = templates[fields.source];
@@ -69,7 +69,7 @@ const BlogPost = ({ data }: Props) => {
       date={fields.date}
       headerImg={frontmatter.heroImage}
     >
-      <MDXRenderer>{body}</MDXRenderer>
+      <MDXRenderer headings={headings}>{body}</MDXRenderer>
       <ExtraLinks {...frontmatter} />
     </Component>
   );
@@ -101,6 +101,10 @@ export const query = graphql`
         source
       }
       body
+      headings {
+        depth
+        value
+      }
     }
   }
 `;

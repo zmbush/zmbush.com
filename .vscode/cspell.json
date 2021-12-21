@@ -13,5 +13,8 @@
         "Keybase",
         "Stufflebeam",
         "WEBP"
+    ],
+    "enableFiletypes": [
+        "mdx"
     ]
 }

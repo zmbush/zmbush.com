@@ -251,8 +251,6 @@ export type DirectoryCtimeArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
-  port?: Maybe<Scalars['Int']>;
-  host?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
   jsxRuntime?: Maybe<Scalars['String']>;
@@ -839,8 +837,6 @@ export type QueryAllDirectoryArgs = {
 export type QuerySiteArgs = {
   buildTime?: InputMaybe<DateQueryOperatorInput>;
   siteMetadata?: InputMaybe<SiteSiteMetadataFilterInput>;
-  port?: InputMaybe<IntQueryOperatorInput>;
-  host?: InputMaybe<StringQueryOperatorInput>;
   polyfill?: InputMaybe<BooleanQueryOperatorInput>;
   pathPrefix?: InputMaybe<StringQueryOperatorInput>;
   jsxRuntime?: InputMaybe<StringQueryOperatorInput>;
@@ -2250,8 +2246,6 @@ export type SiteFieldsEnum =
   | 'siteMetadata___title'
   | 'siteMetadata___description'
   | 'siteMetadata___siteUrl'
-  | 'port'
-  | 'host'
   | 'polyfill'
   | 'pathPrefix'
   | 'jsxRuntime'
@@ -2386,8 +2380,6 @@ export type SiteGroupConnectionGroupArgs = {
 export type SiteFilterInput = {
   buildTime?: InputMaybe<DateQueryOperatorInput>;
   siteMetadata?: InputMaybe<SiteSiteMetadataFilterInput>;
-  port?: InputMaybe<IntQueryOperatorInput>;
-  host?: InputMaybe<StringQueryOperatorInput>;
   polyfill?: InputMaybe<BooleanQueryOperatorInput>;
   pathPrefix?: InputMaybe<StringQueryOperatorInput>;
   jsxRuntime?: InputMaybe<StringQueryOperatorInput>;
@@ -3978,7 +3970,7 @@ export type SingleBlogPostQueryVariables = Exact<{
 }>;
 
 
-export type SingleBlogPostQuery = { mdx?: { body: string, frontmatter?: { subtitle?: string | null | undefined, draft?: boolean | null | undefined, sourceUrl?: string | null | undefined, siteUrl?: string | null | undefined, siteName?: string | null | undefined, heroImage?: { childImageSharp?: { gatsbyImageData: any } | null | undefined } | null | undefined, partners?: Array<{ ref: string, name: string, url: string }> | null | undefined } | null | undefined, fields: { title: string, date: any, source: string } } | null | undefined };
+export type SingleBlogPostQuery = { mdx?: { body: string, frontmatter?: { subtitle?: string | null | undefined, draft?: boolean | null | undefined, sourceUrl?: string | null | undefined, siteUrl?: string | null | undefined, siteName?: string | null | undefined, heroImage?: { childImageSharp?: { gatsbyImageData: any } | null | undefined } | null | undefined, partners?: Array<{ ref: string, name: string, url: string }> | null | undefined } | null | undefined, fields: { title: string, date: any, source: string }, headings?: Array<{ depth?: number | null | undefined, value?: string | null | undefined } | null | undefined> | null | undefined } | null | undefined };
 
 export type GatsbyImageSharpFixedFragment = { base64?: string | null | undefined, width: number, height: number, src: string, srcSet: string };
 
