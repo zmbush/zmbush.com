@@ -5,9 +5,6 @@ name: Continuous Integration
       - main
       - staging
       - trying
-  pull_request:
-    branches:
-      - main
 jobs:
   node-ci:
     name: Build Gatsby Site

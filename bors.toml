@@ -1,5 +1,4 @@
 commit-title = "[chore] Merge in ${PR_REFS}"
 delete-merged-branches = true
-pr_status = ['Build Gatsby Site']
 status = ['Build Gatsby Site']
 update-base-for-deletes = true
