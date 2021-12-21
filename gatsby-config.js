@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 module.exports = {
   siteMetadata: {
     siteUrl: 'https://www.zmbush.com',
@@ -42,7 +43,7 @@ module.exports = {
         name: `projects`,
         path: `${__dirname}/content/projects`,
       },
-      __key: 'blog',
+      __key: 'projects',
     },
     'gatsby-plugin-mdx-source-name',
     'gatsby-plugin-emotion',
@@ -68,6 +69,7 @@ module.exports = {
       resolve: 'gatsby-plugin-mdx',
       options: {
         commonmark: true,
+        rehypePlugins: [require('rehype-slug')],
         gatsbyRemarkPlugins: [
           'gatsby-remark-unwrap-images',
           {

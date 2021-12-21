@@ -3,6 +3,7 @@ import { jsx, css, ClassNames } from '@emotion/react';
 import styled from '@emotion/styled';
 import '@fontsource/roboto/latin-300.css';
 import '@fontsource/roboto/latin-400.css';
+import { MDXProvider } from '@mdx-js/react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import { ImageDataLike, StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
@@ -14,6 +15,11 @@ import { up, down } from '../util/mediaQueries';
 import Base from './base';
 import Header from './header';
 import Navbar from './navbar';
+import Toc from './toc';
+
+const shortCodes = {
+  Toc,
+};
 
 const Footer = styled.footer`
   margin-top: 30px;
@@ -69,32 +75,33 @@ const Default = ({
   const metadata = data.site?.siteMetadata || {};
   return (
     <Base>
-      <Helmet>
-        <meta charSet='utf-8' />
-        <title>
-          {pageTitle}
-          {metadata.title ? ` | ${metadata.title}` : ''}
-        </title>
-      </Helmet>
-      <Navbar />
-      {hideTitle ? null : (
-        <Header
-          title={pageTitle}
-          subtitle={subtitle}
-          date={date}
-          headerImg={headerImg as ImageDataLike}
-        />
-      )}
-      <ClassNames>
-        {({ css: cs, cx }) => (
-          <article
-            css={cx({
-              [cs`
+      <MDXProvider components={shortCodes}>
+        <Helmet>
+          <meta charSet='utf-8' />
+          <title>
+            {pageTitle}
+            {metadata.title ? ` | ${metadata.title}` : ''}
+          </title>
+        </Helmet>
+        <Navbar />
+        {hideTitle ? null : (
+          <Header
+            title={pageTitle}
+            subtitle={subtitle}
+            date={date}
+            headerImg={headerImg as ImageDataLike}
+          />
+        )}
+        <ClassNames>
+          {({ css: cs, cx }) => (
+            <article
+              css={cx({
+                [cs`
                 padding-top: 10px;
                 max-width: 800px;
                 margin: 0 auto;
               `]: article,
-              [cs`
+                [cs`
                 &:before,
                 &:after {
                   content: '';
@@ -154,90 +161,106 @@ const Default = ({
                   color: #9e9e9e;
                   font-size: 0.8rem;
                 }
-              `]: true,
-            })}
-          >
-            {children}
-          </article>
-        )}
-      </ClassNames>
-      <Footer>
-        <section
-          css={css`
-            margin: 0 auto;
 
-            ${up('md')} {
-              width: 800px;
-            }
-          `}
-        >
-          <Link
-            to='/'
-            css={css`
-              padding-bottom: 10px;
-
-              ${down('md')} {
-                display: block;
-              }
-            `}
-          >
-            <StaticImage
-              css={css`
-                margin-top: 5px;
-                ${down('md')} {
-                  left: 50%;
-                  transform: translateX(-50%);
+                ol,ul {
+                  margin-bottom: 10px;
                 }
-              `}
-              height={34}
-              src='../images/zb-logo.svg'
-              alt='logo'
-              placeholder='tracedSVG'
-            />
-          </Link>
-          <nav
+
+                ol li {
+                  counter-increment: step-counter;
+
+                  &::before {
+                    content: counter(step-counter) ". ";
+                    margin-right: 5px;
+                    margin-left: 10px;
+                    font-size: 80%;
+                  }
+                }
+              `]: true,
+              })}
+            >
+              {children}
+            </article>
+          )}
+        </ClassNames>
+        <Footer>
+          <section
             css={css`
               margin: 0 auto;
-              text-align: center;
-              line-height: 25px;
 
               ${up('md')} {
-                display: inline-block;
-                a {
-                  padding-top: 15px;
-                  display: inline-block;
+                width: 800px;
+              }
+            `}
+          >
+            <Link
+              to='/'
+              css={css`
+                padding-bottom: 10px;
+
+                ${down('md')} {
+                  display: block;
                 }
-              }
-            `}
-          >
-            <Link to='/'>About Me</Link>
-            <Link to='/projects'>Projects</Link>
-            <Link to='/contact'>Contact Me</Link>
-            {/* <Link to="/blog">Blog</Link> */}
-          </nav>
-          <div
-            css={css`
-              text-align: right;
-              font-size: 0.5rem;
-
-              ${down('md')} {
+              `}
+            >
+              <StaticImage
+                css={css`
+                  margin-top: 5px;
+                  ${down('md')} {
+                    left: 50%;
+                    transform: translateX(-50%);
+                  }
+                `}
+                height={34}
+                src='../images/zb-logo.svg'
+                alt='logo'
+                placeholder='tracedSVG'
+              />
+            </Link>
+            <nav
+              css={css`
+                margin: 0 auto;
                 text-align: center;
-                padding: 10px;
-              }
+                line-height: 25px;
 
-              p {
-                padding-bottom: 5px;
-              }
-            `}
-          >
-            <p>all content &copy; 2011-{new Date().getFullYear()} Zachary Bush</p>
-            <p>
-              Opinions expressed here are solely my own and do not express the views or opinions of
-              my employer.
-            </p>
-          </div>
-        </section>
-      </Footer>
+                ${up('md')} {
+                  display: inline-block;
+                  a {
+                    padding-top: 15px;
+                    display: inline-block;
+                  }
+                }
+              `}
+            >
+              <Link to='/'>About Me</Link>
+              <Link to='/projects'>Projects</Link>
+              <Link to='/contact'>Contact Me</Link>
+              {/* <Link to="/blog">Blog</Link> */}
+            </nav>
+            <div
+              css={css`
+                text-align: right;
+                font-size: 0.5rem;
+
+                ${down('md')} {
+                  text-align: center;
+                  padding: 10px;
+                }
+
+                p {
+                  padding-bottom: 5px;
+                }
+              `}
+            >
+              <p>all content &copy; 2011-{new Date().getFullYear()} Zachary Bush</p>
+              <p>
+                Opinions expressed here are solely my own and do not express the views or opinions
+                of my employer.
+              </p>
+            </div>
+          </section>
+        </Footer>
+      </MDXProvider>
     </Base>
   );
 };

@@ -43,10 +43,10 @@ const ExtraLinks = ({
   <>
     {partners ? (
       <>
-        Partners:{' '}
+        Partner{partners.length > 1 ? 's' : ''}:{' '}
         {partners.map((partner, i) => (
           <React.Fragment key={partner.ref}>
-            {i === partners.length - 1 ? ' and ' : null}
+            {partners.length > 1 && i === partners.length - 1 ? ' and ' : null}
             <a href={partner.url}>{partner.name}</a>
             {partners.length > 2 && i !== partners.length - 1 ? ', ' : null}
           </React.Fragment>
@@ -56,7 +56,7 @@ const ExtraLinks = ({
     {partners && siteUrl ? ' | ' : null}
     {siteUrl ? (
       <>
-        Live Site: <a href={siteUrl}>{siteName || siteUrl}</a>
+        Live Site: <a href={siteUrl}>{siteName || 'here'}</a>
       </>
     ) : null}
     {(partners || siteUrl) && sourceUrl ? ' | ' : null}
@@ -110,7 +110,7 @@ export const query = graphql`
         frontmatter {
           thumbnail: heroImage {
             childImageSharp {
-              gatsbyImageData(height: 400, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+              gatsbyImageData(height: 200, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
             }
           }
           headerImg: heroImage {
