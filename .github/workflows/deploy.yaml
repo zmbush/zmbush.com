@@ -1,13 +1,9 @@
 name: Deploy To Branch
 'on':
   workflow_dispatch:
-  workflow_run:
-    workflows:
-      - Continuous Integration
+  push:
     branches:
       - main
-    types:
-      - completed
 
 concurrency:
   group: deploy-www
@@ -15,7 +11,6 @@ jobs:
   node-ci:
     name: Deploy Gatsby Site to Branch
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Checkout sources
         uses: actions/checkout@v2
