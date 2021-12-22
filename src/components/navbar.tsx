@@ -12,7 +12,7 @@ const Nav = styled.nav`
   display: flex;
   width: 100%;
   line-height: 2.5;
-  border-bottom: 1px solid #bdbdbd;
+  border-bottom: 0.1rem solid #bdbdbd;
   background-color: white;
 
   & a {
@@ -21,8 +21,8 @@ const Nav = styled.nav`
     white-space: nowrap;
     color: #212121;
     text-decoration: none;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 
   & a:hover {
@@ -45,7 +45,7 @@ const Nav = styled.nav`
     a,
     #menu-button {
       display: block;
-      padding: 10px 0;
+      padding: 1rem 0;
       text-align: center;
       width: 100%;
     }
@@ -53,17 +53,17 @@ const Nav = styled.nav`
     .mobilebar {
       display: flex;
       #menu-button {
-        padding-right: 10px;
+        padding-right: 1rem;
         flex: 1;
         text-align: right;
 
         svg {
           margin: 0 auto;
-          margin-top: 10px;
+          margin-top: 1rem;
         }
       }
       .logo-icon {
-        margin-left: 10px;
+        margin-left: 1rem;
         flex: 0;
       }
     }
@@ -106,7 +106,7 @@ const Navbar = () => (
       <Link to='/' className='logo-icon'>
         <StaticImage
           css={css`
-            margin-top: 5px;
+            margin-top: 0.5rem;
           `}
           height={34}
           src='../images/zb-logo.svg'

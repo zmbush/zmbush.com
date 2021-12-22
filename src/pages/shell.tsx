@@ -18,7 +18,7 @@ const ShellPage = () => (
     <div
       css={css`
         font-family: 'Roboto Mono', monospace;
-        padding: 10px;
+        padding: 1rem;
         color: #e040fb;
       `}
     >

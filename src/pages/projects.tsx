@@ -9,13 +9,13 @@ import { down, up } from '../util/mediaQueries';
 
 const ProjectSection = styled.section`
   &:not(:last-child) {
-    border-bottom: 1px solid #bdbdbd;
+    border-bottom: 0.1rem solid #bdbdbd;
   }
   ${down('sm')} {
     .gatsby-image-wrapper {
       display: none;
     }
-    padding: 10px;
+    padding: 1rem;
   }
   ${up('sm')} {
     display: flex;
@@ -28,7 +28,7 @@ const ProjectSection = styled.section`
     }
 
     .content {
-      padding: 30px;
+      padding: 3rem;
       flex 1;
     }
   }

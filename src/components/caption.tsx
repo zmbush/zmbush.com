@@ -12,7 +12,7 @@ const Caption = ({ children }: Props) => (
     css={css`
       text-align: center;
       display: block;
-      padding-bottom: 20px;
+      padding-bottom: 2rem;
       margin-top: -5px;
       font-style: italic;
     `}

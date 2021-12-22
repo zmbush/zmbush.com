@@ -6,21 +6,30 @@ siteMsg: If you'd like, the game is available for download on windows at
 partners: [molly]
 ---
 
-In early 2021, I heard about a [game jam][mfgj] being hosted on itch.io for
-first time game developers. I had been interested in building a game for many
-years, but never got around to it. This game jam, hosted over the course of 2
-weeks in late January seemed like a perfect opportunity.
+In early 2021, the ["My First Game Jam"][mfgj] was hosted on itch.io, welcoming
+all first-time game developers. As with many, I have toyed with the idea of
+making a video game many times over the years, but had never actually gotten
+around to it. This game jam, hosted over the course of 2 weeks in late January
+2021 seemed like a perfect opportunity.
 
-In the previous months, I had been dabbling with the very new (still only at
-v0.4 at the time) rust game engine [Bevy][bevy]. While the engine missed many of
-the quality-of-life features one would expect in a full featured game engine
-like Unreal or Unity, something about its simple structure strongly appealed to
-me from the start.
+# The Engine: [Bevy][bevy]
 
-Bevy is based on an ECS or Entity, Component, System model of game construction.
-In a system like that, "Entities" are simply just collections of "Component"s
-that are grouped together to do similar tasks. A "Component" in [Bevy][bevy]
-could be as simple as a plain rust `struct`.
+Months prior, I had been dabbling with the very new (Only at `v0.4.0` at the
+time) [rust][rustlang] game engine [Bevy][bevy]. The engine didn't have many of
+the quality of life features one would expect from a full-featured game engine
+like Unreal or Unity, but that wasn't a problem for me. The part of game
+development (at the time) that most interested me was more the nitty gritty of
+the various systems. How did graphics work? How do you handle assets? How do you
+implement dialog systems and quest lines? While a more mature engine would have
+let me make this game in likely half or less of the time, I wasn't really
+interested in what I saw as a shortcut.
+
+[Bevy][bevy] uses the "ECS" or _Entity_, _Component_, _System_ model of game
+development. The benefit of that system is that it strongly encourages
+modularity by making each element of the game world a simple object
+(_Component_), group of objects (_Entity_), or function (_System_). In Bevy, a
+_Component_ could be as simple as this plain rust `struct` for tracking player
+data:
 
 ```rust
 pub struct Player {
@@ -30,13 +39,15 @@ pub struct Player {
 ```
 
 <Caption>
-  A simple &apos;Player&apos; component that keeps track of data relevant to a player.
+  A simple <code className='language-rust'>Player</code> component that keeps track of data relevant
+  to a player.
 </Caption>
 
-"System"s as well are very simple. Their whole purpose is to perform operations
+_Systems_ as well are very simple. Their whole purpose is to perform operations
 on the data stored in the Entities, and since they are just plain rust
-functions, there is strong incentive to modularize. In _New York 2121_ there
-were some Systems that were as short as 3 lines long, like the one below.
+functions, there continues to be a strong incentive to modularize. In
+_New York 2121_ there were some _Systems_ that were as short as 3 lines long,
+like this one:
 
 ```rust{2-4}
 fn update_moving_state(mut player_query: Query<&mut Player>) {
@@ -48,19 +59,30 @@ fn update_moving_state(mut player_query: Query<&mut Player>) {
 
 <Caption>A very simple system to keep track of whether a player is in motion.</Caption>
 
+# Asset Creation
+
 All those nice features aside, [Bevy][bevy] didn't really have any sort of good
-interface for designing levels, or assets. To supplement the engine, I chose to
-use [Aseprite][aseprite] for editing pixel art. I started with a [sprite
-sheet][kenney] from itch.io, and modified it to support the visual-style I was
-going for. I'm not an artist by any stretch, and I got a lot of help from my
-collaborator [Molly Raven](https://mollyraven.com), but I think the sprite sheet
-turned out pretty good.
+interface for designing levels or assets. To supplement the engine, I chose to
+use [Aseprite][aseprite] for editing pixel art and sprites, and [Tiled][tiled]
+for map creation.
+
+## Sprites: [Aseprite][aseprite]
+
+I started with a [sprite sheet][kenney] from itch.io, and modified it to support
+the visual style I was going for. I'm not an artist by any stretch, and I got a
+lot of help from my collaborator and story writer [Molly
+Raven](https://mollyraven.com), but I think the sprite sheet turned out
+surprisingly cohesive:
 
 ![The Game's Tilemap](./tilemap.png 'I started with a sprite sheet and added to it')
+
+## Map Creation: [Tiled][tiled]
 
 Then came the assembling of the tilemap I'd created into a level. [Bevy][bevy]
 at this point did not have any sort of level editor, so I turned to
 [Tiled][tiled], which seemed to be a pretty good option for a 2d top-down game.
+A few hours in tiled were all it took to have a rudimentary map for my game. The
+next step, then, was to integrate the map that Tiled generated into Bevy.
 Unfortunately, I did not like any of the existing Tiled integrations for bevy,
 so I ended up building my own, which involved cobbling together some custom
 shaders to support rendering a the tilemap, and custom parsing logic to handle
@@ -96,20 +118,22 @@ void main() {
 Once I had all of that in place, I (and my collaborator) could easily edit the
 map and sprites. I used Tiled to encode event triggers and collision zones, and
 from there I was able to have a little character walking around in the city I
-had designed. Then I ran into another issue.
+had designed. Then I ran into the final big hurdle.
 
-_**Dialog.**_
+# The Dialog System
 
 You see, my plan for this game was to make it a sort of RPG-lite, so I needed
-dialog, and quest lines and items. The problem was that my collaborator was the
-writer, and did not have much programming experience, so embedding the dialog in
-the rust code was not an option. I looked into several dialog systems including
-[Yarn Spinner][yarnspinner], but found them to both be more complicated than I
-needed, and none of them had rust libraries. So I once again implemented my own!
+dialog, quest lines, and items. The problem was that my story writer was not a
+programmer, so embedding the dialog in the rust code was not an option (and, in
+retrospect, would have made development much slower).
 
-I took some of the features I liked from Yarn Spinner, and added the
-[Handlebars][handlebars] templating system, and produced a sort of
-proto-language that My collaborator could easily edit and add their content to.
+I looked into several dialog systems including [Yarn Spinner][yarnspinner], but
+found them to both be more complicated than I needed, and none of them had rust
+libraries. So I once again implemented my own! I took some of the features I
+liked from Yarn Spinner (like their method of linking parts of a conversation
+together), and added the [Handlebars][handlebars] templating system, and
+produced a sort of proto-language that My writer could easily edit and add their
+content to.
 
 ```handlebars
 # Quest 1: Robert Ruelas -> Rat Whistle
@@ -137,15 +161,19 @@ char :: robert         = Robert Ruelas
 
 Finally, I had all of the elements needed, to build my game, and only a few days
 left to complete it. I had thankfully chosen a game jam that was 2 weeks long,
-rather than the 2-3 days of your ludumdare or other such jams. Since I ended up
-implementing so much of the needed scaffolding on my own during the jam, I
-really needed the extra time. In the end, I created a game that I am very happy
-with despite its short runtime.
+rather than the 2-3 days of your [Ludum Dare][ludumdare] or other such jams.
+Since I ended up implementing so much of the needed scaffolding on my own during
+the jam, I really needed the extra time. In the end, I created a game that I am
+very happy with despite its short runtime.
+
+![New York 2121 Screenshot](./new-york-2121.png ' ')
 
 [mfgj]: https://itch.io/jam/my-first-game-jam-winter-2021 'My First Game Jam: Winter 2021'
+[rustlang]: https://rust-lang.org
 [bevy]: https://bevyengine.org/ 'A refreshingly simple data-driven game engine built in Rust'
 [aseprite]: https://www.aseprite.org/ 'Animated Sprite Editor & Pixel Art Tool'
 [kenney]: https://kenney-assets.itch.io/rpg-urban-kit 'RPG Urban Kit'
 [tiled]: https://www.mapeditor.org/ 'Flexible level editor'
 [yarnspinner]: https://yarnspinner.dev/ 'The friendly tool for writing game dialog'
 [handlebars]: https://docs.rs/handlebars/ 'Handlebars templating system'
+[ludumdare]: https://ludumdare.com/ 'Ludum Dare'

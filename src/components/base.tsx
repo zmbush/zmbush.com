@@ -138,31 +138,33 @@ const reset = css`
 
 const boilerplate = css`
   html {
-    font-size: 18px;
+    font-size: 62.5%; // 1rem ~= 10px
+    scroll-behavior: smooth;
   }
 
   // W3C recommended sizes
   h1 {
-    font-size: 2rem;
+    font-size: 3.6rem;
   }
   h2 {
-    font-size: 1.5rem;
+    font-size: 2.7rem;
   }
   h3 {
-    font-size: 1.17rem;
+    font-size: 2.106rem;
   }
   h4 {
-    font-size: 1.12rem;
+    font-size: 2.016rem;
   }
   h5 {
-    font-size: 0.83rem;
+    font-size: 1.494rem;
   }
   h6 {
-    font-size: 0.75rem;
+    font-size: 1.35rem;
   }
 
   body {
     font-family: sans-serif;
+    font-size: 1.9rem;
   }
 `;
 

@@ -63,9 +63,9 @@ const Header = ({ hideTitle = false, title, subtitle, date, headerImg }: Props) 
       >
         <div
           css={css`
-            max-width: 800px;
+            max-width: 75rem;
             margin: 0 auto;
-            padding: 50px 0;
+            padding: 5rem 0;
           `}
         >
           {hideTitle ? null : (

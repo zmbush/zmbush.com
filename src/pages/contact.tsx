@@ -19,7 +19,7 @@ const Contact = ({ data }: Props) => (
         a {
           color: #444444;
           text-decoration: none;
-          padding: 10px;
+          padding: 1rem;
           transition: color 0.25s ease;
           position: relative;
 
@@ -31,7 +31,7 @@ const Contact = ({ data }: Props) => (
             bottom: 0;
             width: 0%;
             transition: width 0.25s ease;
-            border-bottom: 2px solid #212121;
+            border-bottom: 0.2rem solid #212121;
           }
 
           svg {
