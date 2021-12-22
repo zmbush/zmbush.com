@@ -2,7 +2,6 @@
 import { jsx, css } from '@emotion/react';
 import { Link } from 'gatsby';
 import slugger from 'github-slugger';
-import * as React from 'react';
 
 interface Props {
   headings: [{ depth: number; value: string }];
@@ -10,14 +9,15 @@ interface Props {
 
 const Toc = ({ headings }: Props) => (
   <div
+    className='toc'
     css={css`
-      margin-top: 15px;
-      margin-bottom: 15px;
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
       background-color: #fafafa;
-      border: 2px solid #f0f0f0;
-      padding: 10px;
-      width: 400px;
-      border-radius: 5px;
+      border: 0.2rem solid #f0f0f0;
+      padding: 1rem;
+      max-width: 40rem;
+      border-radius: 0.5rem;
 
       a {
         color: black;
