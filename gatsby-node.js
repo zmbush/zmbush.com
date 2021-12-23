@@ -1,44 +1,5 @@
 const path = require('path');
 
-exports.createSchemaCustomization = async ({ actions }) => {
-  const { createTypes, printTypeDefinitions } = actions;
-
-  createTypes(`
-        type PartnerYaml implements Node {
-          ref: String!
-          name: String!
-          url: String!
-        }
-
-        type Mdx implements Node {
-            frontmatter: Frontmatter
-            fields: MdxFields!
-        }
-
-        type MdxFields @dontInfer {
-            date: Date! @dateformat(formatString: "YYYY-MM-DD")
-            timestamp: Int!
-            slug: String!
-            source: String!
-            title: String!
-        }
-
-        type Frontmatter @dontInfer {
-            title: String
-            date: Date @dateformat(formatString: "YYYY-MM-DD")
-            subtitle: String
-            draft: Boolean
-            heroImage: File @fileByRelativePath
-            partners: [PartnerYaml!] @link(by: "ref")
-            sourceUrl: String
-            siteUrl: String
-            siteName: String
-            siteMsg: String
-        }
-    `);
-  printTypeDefinitions({ path: './schema.gql' });
-};
-
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const projectsTemplate = path.resolve('src/templates/article.tsx');
