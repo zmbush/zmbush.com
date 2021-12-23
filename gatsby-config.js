@@ -109,5 +109,15 @@ module.exports = {
         stripQueryString: true,
       },
     },
+    {
+      resolve: `gatsby-plugin-schema-snapshot`,
+      options: {
+        path: `schema.gql`,
+        include: {
+          types: ['Mdx', 'PartnerYaml'],
+        },
+        update: process.env.GATSBY_UPDATE_SCHEMA_SNAPSHOT,
+      },
+    },
   ],
 };

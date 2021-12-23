@@ -1,5 +1,5 @@
 node_modules
 .cache
 public
-schema.gql
 yarn-error.log
+types/graphql-types.ts

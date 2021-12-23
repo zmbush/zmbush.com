@@ -8,6 +8,7 @@
   ],
   "scripts": {
     "develop": "gatsby develop",
+    "develop-schema-snapshot": "cross-env GATSBY_UPDATE_SCHEMA_SNAPSHOT=1 gatsby develop",
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
@@ -30,6 +31,7 @@
     "@types/react-helmet": "^6.1.4",
     "@typescript-eslint/eslint-plugin": "^5.7.0",
     "@typescript-eslint/parser": "^5.7.0",
+    "cross-env": "^7.0.3",
     "eslint": "^8.5.0",
     "eslint-config-airbnb": "^19.0.2",
     "eslint-config-prettier": "^8.3.0",
@@ -48,6 +50,7 @@
     "gatsby-plugin-mdx": "^3.4.0",
     "gatsby-plugin-mdx-source-name": "^1.0.1",
     "gatsby-plugin-react-helmet": "^5.4.0",
+    "gatsby-plugin-schema-snapshot": "^3.4.0",
     "gatsby-plugin-sharp": "^4.4.0",
     "gatsby-plugin-sitemap": "^5.4.0",
     "gatsby-plugin-ts": "^3.1.0",
