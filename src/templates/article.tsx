@@ -3,7 +3,7 @@ import { MDXRenderer } from 'gatsby-plugin-mdx';
 import * as React from 'react';
 
 import { SingleBlogPostQuery } from '../../types/graphql-types';
-import Default from '../components/default';
+import Default from '../components/core/default';
 
 const ExtraLinks = ({
   partners,

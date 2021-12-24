@@ -1,8 +1,8 @@
 /* @jsx jsx */
 import { jsx, css, Global } from '@emotion/react';
 
-import Base from '../components/base';
-import Navbar from '../components/navbar';
+import Base from '../components/core/base';
+import Navbar from '../components/core/navbar';
 import Shell from '../components/shell';
 
 const bg = css`

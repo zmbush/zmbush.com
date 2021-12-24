@@ -2,7 +2,7 @@ import { graphql, Link } from 'gatsby';
 import * as React from 'react';
 
 import { BlogListQuery } from '../../types/graphql-types';
-import Default from '../components/default';
+import Default from '../components/core/default';
 
 interface Props {
   data: BlogListQuery;

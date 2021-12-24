@@ -6,7 +6,7 @@ import { AiOutlineMenu } from '@react-icons/all-files/ai/AiOutlineMenu';
 import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 
-import { up, down } from '../util/mediaQueries';
+import { up, down } from '../../util/mediaQueries';
 
 const Nav = styled.nav`
   display: flex;

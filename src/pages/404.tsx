@@ -2,7 +2,7 @@ import { graphql } from 'gatsby';
 import * as React from 'react';
 
 import { Get404ImageQuery } from '../../types/graphql-types';
-import Default from '../components/default';
+import Default from '../components/core/default';
 
 interface Props {
   data: Get404ImageQuery;

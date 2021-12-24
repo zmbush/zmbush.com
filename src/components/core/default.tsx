@@ -9,15 +9,15 @@ import { ImageDataLike, StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
 
-import { GetSiteMetadataAndImageQuery } from '../../types/graphql-types';
-import { up, down } from '../util/mediaQueries';
+import { GetSiteMetadataAndImageQuery } from '../../../types/graphql-types';
+import { up, down } from '../../util/mediaQueries';
+import Caption from '../caption';
+import CodeSnippet from '../code-snippet';
+import Toc from '../toc';
 
 import Base from './base';
-import Caption from './caption';
-import CodeSnippet from './code-snippet';
 import Header from './header';
 import Navbar from './navbar';
-import Toc from './toc';
 
 const preToCodeBlock = (preProps: any) => {
   if (

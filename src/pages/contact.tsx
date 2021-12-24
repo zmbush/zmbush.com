@@ -6,7 +6,7 @@ import { FaLinkedin } from '@react-icons/all-files/fa/FaLinkedin';
 import { graphql } from 'gatsby';
 
 import { ContactImageQuery } from '../../types/graphql-types';
-import Default from '../components/default';
+import Default from '../components/core/default';
 
 interface Props {
   data: ContactImageQuery;
