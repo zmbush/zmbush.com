@@ -49,7 +49,7 @@ functions, there continues to be a strong incentive to modularize. In
 _New York 2121_ there were some _Systems_ that were as short as 3 lines long,
 like this one:
 
-```rust{2-4}
+```rust {2-4}
 fn update_moving_state(mut player_query: Query<&mut Player>) {
     for mut player in player_query.iter_mut() {
         player.moving = player.impulse.x != 0. || player.impulse.y != 0.;
