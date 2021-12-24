@@ -4,7 +4,7 @@ import { GatsbyImage, getImage, ImageDataLike } from 'gatsby-plugin-image';
 import * as React from 'react';
 
 import { ProjectListQuery } from '../../types/graphql-types';
-import Default from '../components/default';
+import Default from '../components/core/default';
 import { down, up } from '../util/mediaQueries';
 
 const ProjectSection = styled.section`

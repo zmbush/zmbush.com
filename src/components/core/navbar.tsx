@@ -6,7 +6,7 @@ import { AiOutlineMenu } from '@react-icons/all-files/ai/AiOutlineMenu';
 import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 
-import { up, down } from '../util/mediaQueries';
+import { up, down } from '../../util/mediaQueries';
 
 const Nav = styled.nav`
   display: flex;
@@ -109,7 +109,7 @@ const Navbar = () => (
             margin-top: 0.5rem;
           `}
           height={34}
-          src='../images/zb-logo.svg'
+          src='../../images/zb-logo.svg'
           alt='logo'
           placeholder='tracedSVG'
         />

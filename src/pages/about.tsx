@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import Default from '../components/default';
+import Default from '../components/core/default';
 
 const About = () => (
   <Default pageTitle='About Me'>
