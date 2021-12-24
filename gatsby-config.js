@@ -83,8 +83,6 @@ module.exports = {
             },
           },
           'gatsby-remark-embed-snippet',
-          'gatsby-remark-prismjs',
-          'gatsby-remark-unwrap-code', // local plugin to fix p/div/pre nesting issues
         ],
       },
     },
