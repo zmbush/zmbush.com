@@ -1,9 +1,7 @@
 /* @jsx jsx */
 import { jsx, css } from '@emotion/react';
-import { FaGithub } from '@react-icons/all-files/fa/FaGithub';
-import { FaKeybase } from '@react-icons/all-files/fa/FaKeybase';
-import { FaLinkedin } from '@react-icons/all-files/fa/FaLinkedin';
 import { graphql } from 'gatsby';
+import { FaGithub, FaKeybase, FaLinkedin } from 'react-icons/fa';
 
 import { ContactImageQuery } from '../../types/graphql-types';
 import Default from '../components/core/default';

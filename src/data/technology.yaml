@@ -1,0 +1,52 @@
+- ref: rust
+  name: Rust
+  url: https://www.rust-lang.org
+  tagline: A language empowering everyone to build reliable and efficient software.
+  type: LANGUAGE
+- ref: node
+  name: node.js
+  url: https://nodejs.org
+  tagline: A JavaScript runtime built on Chrome's V8
+  type: LANGUAGE
+- ref: ruby
+  name: Ruby
+  url: https://www.ruby-lang.org
+  tagline: A Programmer's Best Friend
+  type: LANGUAGE
+- ref: python
+  name: Python
+  url: https://www.python.org
+  tagline: A programming language that lets you work quickly and integrate systems more effectively
+  type: LANGUAGE
+- ref: java
+  name: Java
+  url: https://www.java.com
+  tagline: Write once, run anywhere
+  type: LANGUAGE
+
+- ref: react
+  name: React
+  url: https://reactjs.org
+  tagline: A JavaScript library for building user interfaces
+  type: FRAMEWORK
+- ref: mui
+  name: MUI
+  url: https://mui.com
+  tagline: The React UI library you always wanted
+  type: FRAMEWORK
+
+- ref: bevy
+  name: Bevy
+  url: https://bevyengine.org/
+  tagline: A refreshingly simple data-driven game engine built in Rust
+  type: TOOL
+- ref: aseprite
+  name: Aseprite
+  url: https://www.aseprite.org/
+  tagline: Animated Sprite Editor & Pixel Art Tool
+  type: TOOL
+- ref: tiled
+  name: Tiled
+  url: https://www.mapeditor.org/
+  tagline: Flexible level editor
+  type: TOOL
