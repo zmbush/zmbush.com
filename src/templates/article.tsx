@@ -3,7 +3,7 @@ import { MDXRenderer } from 'gatsby-plugin-mdx';
 import * as React from 'react';
 
 import { SingleBlogPostQuery } from '../../types/graphql-types';
-import Default from '../components/core/default';
+import Article from '../components/core/article';
 
 const ExtraLinks = ({
   partners,
@@ -44,17 +44,15 @@ interface Props {
   data: SingleBlogPostQuery;
 }
 
-const templates: { [name: string]: typeof Default } = {
-  blog: Default,
-  projects: Default,
+const templates: { [name: string]: typeof Article } = {
+  blog: Article,
+  projects: Article,
 };
 
 const BlogPost = ({ data }: Props) => {
   if (!data.mdx || !data.mdx.frontmatter || !data.mdx.body) {
     return (
-      <Default article pageTitle='ERROR'>
-        Unable to render blog post. Expected data is not present.
-      </Default>
+      <Article pageTitle='ERROR'>Unable to render blog post. Expected data is not present.</Article>
     );
   }
   const { frontmatter, body, headings, fields } = data.mdx;
@@ -64,7 +62,6 @@ const BlogPost = ({ data }: Props) => {
   }
   return (
     <Component
-      article
       pageTitle={fields.title}
       subtitle={frontmatter.subtitle || undefined}
       date={fields.date}

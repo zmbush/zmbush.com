@@ -109,7 +109,7 @@ const Navbar = () => (
             margin-top: 0.5rem;
           `}
           height={34}
-          src='../images/zb-logo.svg'
+          src='../../images/zb-logo.svg'
           alt='logo'
           placeholder='tracedSVG'
         />

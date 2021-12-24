@@ -6,16 +6,15 @@ heroImage: ../images/pano-in-a-park.jpg
 
 import { graphql } from 'gatsby';
 
-import Default from '../components/default';
+import Article from '../components/core/article';
 
 export default ({ data, children, pageContext }) => (
-  <Default
-    article
+  <Article
     pageTitle={pageContext.frontmatter.title}
     headerImg={data.file.mdx.frontmatter.heroImage}
   >
     {children}
-  </Default>
+  </Article>
 );
 
 export const pageQuery = graphql`

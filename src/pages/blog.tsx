@@ -2,17 +2,13 @@ import { graphql, Link } from 'gatsby';
 import * as React from 'react';
 
 import { BlogListQuery } from '../../types/graphql-types';
-import Default from '../components/core/default';
+import Article from '../components/core/article';
 
 interface Props {
   data: BlogListQuery;
 }
 const BlogPage = ({ data }: Props) => (
-  <Default
-    article
-    pageTitle='My Blog Posts'
-    headerImg={data.allMdx.nodes[0].frontmatter?.headerImg}
-  >
+  <Article pageTitle='My Blog Posts' headerImg={data.allMdx.nodes[0].frontmatter?.headerImg}>
     <p>My posts will go here! </p>
     {data.allMdx.nodes.map((node) => (
       <article key={node.id}>
@@ -21,7 +17,7 @@ const BlogPage = ({ data }: Props) => (
         <Link to={`/blog/${node.fields.slug}`}>Here</Link>
       </article>
     ))}
-  </Default>
+  </Article>
 );
 
 export const query = graphql`
