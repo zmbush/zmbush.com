@@ -4,6 +4,7 @@ import * as React from 'react';
 
 import { SingleBlogPostQuery } from '../../types/graphql-types';
 import Article from '../components/core/article';
+import TechIcon from '../components/shortcodes/tech-icon';
 
 const ExtraLinks = ({
   partners,
@@ -52,7 +53,12 @@ const templates: { [name: string]: typeof Article } = {
 const BlogPost = ({ data }: Props) => {
   if (!data.mdx || !data.mdx.frontmatter || !data.mdx.body) {
     return (
-      <Article pageTitle='ERROR'>Unable to render blog post. Expected data is not present.</Article>
+      <>
+        <Article pageTitle='ERROR'>
+          Unable to render blog post. Expected data is not present.
+        </Article>
+        <code className='language-json'>{JSON.stringify(data, null, 2)}</code>
+      </>
     );
   }
   const { frontmatter, body, headings, fields } = data.mdx;
@@ -64,6 +70,13 @@ const BlogPost = ({ data }: Props) => {
     <Component
       pageTitle={fields.title}
       subtitle={frontmatter.subtitle || undefined}
+      technologies={
+        <>
+          {(frontmatter.technologies || []).map((t) => (
+            <TechIcon key={t.ref} refName={t.ref} />
+          ))}
+        </>
+      }
       date={fields.date}
       headerImg={frontmatter.heroImage}
     >
@@ -88,6 +101,9 @@ export const query = graphql`
           ref
           name
           url
+        }
+        technologies {
+          ref
         }
         sourceUrl
         siteUrl

@@ -1,3 +1,5 @@
+/* @jsx jsx */
+import { jsx, css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { graphql, Link } from 'gatsby';
 import { GatsbyImage, getImage, ImageDataLike } from 'gatsby-plugin-image';
@@ -5,6 +7,7 @@ import * as React from 'react';
 
 import { ProjectListQuery } from '../../types/graphql-types';
 import Default from '../components/core/default';
+import TechIcon from '../components/shortcodes/tech-icon';
 import { down, up } from '../util/mediaQueries';
 
 const ProjectSection = styled.section`
@@ -29,7 +32,7 @@ const ProjectSection = styled.section`
 
     .content {
       padding: 3rem;
-      flex 1;
+      flex-grow: 1;
     }
   }
 `;
@@ -83,10 +86,41 @@ const ProjectsPage = ({ data }: Props) => (
         <ProjectSection key={node.id}>
           {img ? <GatsbyImage image={img} alt={node.fields.title} /> : null}
           <div className='content'>
-            <Link to={`/projects/${node.fields.slug}`}>
-              <div className='post-title'>
+            <div
+              className='post-title'
+              css={css`
+                display: flex;
+                > * {
+                  flex-grow: 0;
+                }
+              `}
+            >
+              <Link to={`/projects/${node.fields.slug}`}>
                 <h2>{node.fields.title}</h2>
-              </div>
+              </Link>
+              <div
+                css={css`
+                  flex-grow: 1;
+                `}
+              />
+              <span
+                css={css`
+                  color: black;
+                  margin-right: 1rem;
+                  a {
+                    color: black;
+                  }
+                  ${down('xs')} {
+                    display: none;
+                  }
+                `}
+              >
+                {(frontmatter.technologies || []).map((t) => (
+                  <TechIcon key={t.ref} refName={t.ref} />
+                ))}
+              </span>
+            </div>
+            <Link to={`/projects/${node.fields.slug}`}>
               <div className='post-date'>{node.fields.date}</div>
             </Link>
             <div className='post-contents'>
@@ -125,6 +159,9 @@ export const query = graphql`
             ref
             name
             url
+          }
+          technologies {
+            ref
           }
         }
         id

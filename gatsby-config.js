@@ -45,6 +45,7 @@ module.exports = {
       },
       __key: 'projects',
     },
+    'gatsby-plugin-image',
     'gatsby-plugin-mdx-source-name',
     'gatsby-plugin-emotion',
     {
@@ -53,7 +54,6 @@ module.exports = {
         trackingId: 'UA-33377926-1',
       },
     },
-    'gatsby-plugin-image',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sitemap',
     {
@@ -117,5 +117,6 @@ module.exports = {
         update: process.env.GATSBY_UPDATE_SCHEMA_SNAPSHOT,
       },
     },
+    'gatsby-plugin-react-svg',
   ],
 };

@@ -8,6 +8,7 @@ interface PropsWithoutTitle {
   hideTitle: true;
   title?: never;
   subtitle?: never;
+  technologies?: never;
   date?: never;
 }
 
@@ -15,6 +16,7 @@ interface PropsWithTitle {
   hideTitle?: false;
   title?: string;
   subtitle?: string;
+  technologies?: React.ReactNode;
   date?: string;
 }
 
@@ -22,7 +24,7 @@ type Props = {
   headerImg: ImageDataLike;
 } & (PropsWithoutTitle | PropsWithTitle);
 
-const Header = ({ hideTitle = false, title, subtitle, date, headerImg }: Props) => {
+const Header = ({ hideTitle = false, title, subtitle, date, technologies, headerImg }: Props) => {
   const bgImage = getImage(headerImg);
   return (
     <header
@@ -74,6 +76,14 @@ const Header = ({ hideTitle = false, title, subtitle, date, headerImg }: Props) 
               {subtitle ? <h3>{subtitle}</h3> : null}
               {!subtitle && date ? <h3>Published {date}</h3> : null}
               {subtitle && date ? <h5>Published {date}</h5> : null}
+              <div
+                css={css`
+                  text-align: center;
+                  margin-top: 0.5rem;
+                `}
+              >
+                {technologies}
+              </div>
             </>
           )}
         </div>

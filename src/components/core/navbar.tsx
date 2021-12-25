@@ -1,10 +1,9 @@
 /* @jsx jsx */
 import { jsx, css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { AiOutlineClose } from '@react-icons/all-files/ai/AiOutlineClose';
-import { AiOutlineMenu } from '@react-icons/all-files/ai/AiOutlineMenu';
 import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
+import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 
 import { up, down } from '../../util/mediaQueries';
 

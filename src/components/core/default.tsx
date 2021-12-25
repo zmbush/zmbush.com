@@ -12,6 +12,7 @@ import { GetSiteTitleQuery } from '../../../types/graphql-types';
 import { down } from '../../util/mediaQueries';
 import Caption from '../shortcodes/caption';
 import CodeSnippet from '../shortcodes/code-snippet';
+import LinkTo from '../shortcodes/linkto';
 import Toc from '../shortcodes/toc';
 
 import Base from './base';
@@ -46,6 +47,8 @@ const preToCodeBlock = (preProps: any) => {
 const shortCodes = {
   Toc,
   Caption,
+  LinkTo,
+  a: LinkTo,
   pre: (preProps: any) => {
     const props = preToCodeBlock(preProps);
     if (props) {
@@ -59,6 +62,7 @@ interface Props {
   pageTitle: string;
   hideTitle?: boolean;
   subtitle?: string;
+  technologies?: React.ReactNode;
   date?: string;
   headerImg?: {
     childImageSharp?: {
@@ -75,6 +79,7 @@ const Default = ({
   children,
   headerImg,
   subtitle,
+  technologies,
   date,
   className,
 }: Props) => {
@@ -103,6 +108,7 @@ const Default = ({
           <Header
             title={pageTitle}
             subtitle={subtitle}
+            technologies={technologies}
             date={date}
             headerImg={headerImg as ImageDataLike}
           />
@@ -124,6 +130,7 @@ const Default = ({
               text-decoration: none;
               font-weight: 400;
               color: #1565c0;
+              display: inline-block;
 
               &:hover {
                 text-decoration: underline;
@@ -136,8 +143,6 @@ const Default = ({
             h4,
             h5,
             h6 {
-              margin-top: 2rem;
-
               > a {
                 color: inherit;
                 font-weight: inherit;
