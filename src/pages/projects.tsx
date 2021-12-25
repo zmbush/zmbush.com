@@ -78,6 +78,14 @@ const ProjectsPage = ({ data }: Props) => (
   <Default
     pageTitle='Projects'
     headerImg={data.allMdx.nodes.find((n) => n.frontmatter?.headerImg)?.frontmatter?.headerImg}
+    css={css`
+      ${up('xl')} {
+        max-width: 140rem;
+        border: 0.1rem solid #bdbdbd;
+        border-top: none;
+        margin: 0 auto;
+      }
+    `}
   >
     {data.allMdx.nodes.map((node) => {
       const frontmatter = node.frontmatter!;

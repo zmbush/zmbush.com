@@ -1,13 +1,13 @@
 export const breakpoints = {
   xxs: 0,
-  xs: 40,
-  sm: 60,
-  article: 75,
-  md: 90,
-  lg: 120,
-  xl: 153.6,
+  xs: 400,
+  sm: 600,
+  article: 750,
+  md: 900,
+  lg: 1200,
+  xl: 1536,
 };
-const unit = 'rem';
+const unit = 'px';
 const step = 5;
 
 export type Breakpoint = keyof typeof breakpoints;

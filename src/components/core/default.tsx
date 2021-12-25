@@ -130,7 +130,6 @@ const Default = ({
               text-decoration: none;
               font-weight: 400;
               color: #1565c0;
-              display: inline-block;
 
               &:hover {
                 text-decoration: underline;

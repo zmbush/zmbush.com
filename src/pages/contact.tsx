@@ -4,13 +4,13 @@ import { graphql } from 'gatsby';
 import { FaGithub, FaKeybase, FaLinkedin } from 'react-icons/fa';
 
 import { ContactImageQuery } from '../../types/graphql-types';
-import Default from '../components/core/default';
+import Article from '../components/core/article';
 
 interface Props {
   data: ContactImageQuery;
 }
 const Contact = ({ data }: Props) => (
-  <Default article pageTitle='Get in Touch' headerImg={data.file}>
+  <Article pageTitle='Get in Touch' headerImg={data.file}>
     <div
       css={css`
         text-align: center;
@@ -58,7 +58,7 @@ const Contact = ({ data }: Props) => (
         <FaLinkedin size='90px' />
       </a>
     </div>
-  </Default>
+  </Article>
 );
 
 export const query = graphql`

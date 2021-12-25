@@ -30,5 +30,7 @@
     "**/node_modules": true,
     "**/bower_components": true,
     "**/*.code-search": true
-  }
+  },
+  "vim.textwidth": 100,
+  "editor.rulers": [100]
 }
