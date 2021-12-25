@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkzmbush_com=self.webpackChunkzmbush_com||[]).push([[49],{2449:function(e,u,t){t.r(u);var n=t(2840),s=t(3431);u.default=function(){return(0,s.tZ)(n.Z,{pageTitle:"About Me"},(0,s.tZ)("p",null,"I am a website"))}}}]);
-//# sourceMappingURL=component---src-pages-about-tsx-a0ce6116b766d58491d0.js.map
