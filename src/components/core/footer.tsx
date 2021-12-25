@@ -1,8 +1,8 @@
 /* @jsx jsx */
 import { css, jsx } from '@emotion/react';
 import { Link } from 'gatsby';
-import { StaticImage } from 'gatsby-plugin-image';
 
+import ZBLogo from '../../images/zb-logo.svg';
 import { down, up } from '../../util/mediaQueries';
 
 const Footer = () => (
@@ -44,18 +44,15 @@ const Footer = () => (
           }
         `}
       >
-        <StaticImage
+        <ZBLogo
+          height={34}
+          width={34}
           css={css`
             margin-top: 0.5rem;
             ${down('md')} {
-              left: 50%;
-              transform: translateX(-50%);
+              text-align: center;
             }
           `}
-          height={34}
-          src='../../images/zb-logo.svg'
-          alt='logo'
-          placeholder='tracedSVG'
         />
       </Link>
       <nav

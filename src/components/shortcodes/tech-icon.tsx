@@ -60,10 +60,10 @@ const TechIcon = ({ refName }: Props) => {
         css={css`
           display: inline-block;
           color: inherit;
-          padding-right: 1rem;
+          margin-right: 1rem;
 
           &:last-of-type {
-            padding-right: 0;
+            margin-right: 0;
           }
         `}
         href={entry.url}

@@ -2,9 +2,9 @@
 import { jsx, css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
-import { StaticImage } from 'gatsby-plugin-image';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 
+import ZBLogo from '../../images/zb-logo.svg';
 import { up, down } from '../../util/mediaQueries';
 
 const Nav = styled.nav`
@@ -62,8 +62,7 @@ const Nav = styled.nav`
         }
       }
       .logo-icon {
-        margin-left: 1rem;
-        flex: 0;
+        display: none;
       }
     }
 
@@ -102,16 +101,16 @@ const Navbar = () => (
   <Nav>
     <input type='checkbox' id='menu-toggle' />
     <div className='mobilebar'>
-      <Link to='/' className='logo-icon'>
-        <StaticImage
-          css={css`
-            margin-top: 0.5rem;
-          `}
-          height={34}
-          src='../../images/zb-logo.svg'
-          alt='logo'
-          placeholder='tracedSVG'
-        />
+      <Link
+        to='/'
+        className='logo-icon'
+        css={css`
+          height: 38px;
+          padding-top: 0.5rem;
+          padding-bottom: 0.5rem;
+        `}
+      >
+        <ZBLogo height={35} width={35} />
       </Link>
       {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
       <label htmlFor='menu-toggle' id='menu-button'>
