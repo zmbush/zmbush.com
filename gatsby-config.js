@@ -62,7 +62,15 @@ module.exports = {
         icon: 'src/images/zb-logo.svg',
       },
     },
-    'gatsby-plugin-sharp',
+    {
+      resolve: 'gatsby-plugin-sharp',
+      options: {
+        defaults: {
+          formats: ['auto', 'webp', 'avif'],
+          placeholder: 'blurred',
+        },
+      },
+    },
     'gatsby-transformer-sharp',
     'gatsby-transformer-yaml',
     {

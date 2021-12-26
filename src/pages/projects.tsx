@@ -8,19 +8,19 @@ import * as React from 'react';
 import { ProjectListQuery } from '../../types/graphql-types';
 import Default from '../components/core/default';
 import TechIcon from '../components/shortcodes/tech-icon';
-import { down, up } from '../util/mediaQueries';
+import theme from '../util/theme';
 
 const ProjectSection = styled.section`
   &:not(:last-child) {
-    border-bottom: 0.1rem solid #bdbdbd;
+    border-bottom: 0.1rem solid ${theme.colors.divider};
   }
-  ${down('sm')} {
+  ${theme.breakpoints.down('sm')} {
     .gatsby-image-wrapper {
       display: none;
     }
     padding: 1rem;
   }
-  ${up('sm')} {
+  ${theme.breakpoints.up('sm')} {
     display: flex;
     &:nth-of-type(2n) {
       flex-direction: row-reverse;
@@ -79,9 +79,9 @@ const ProjectsPage = ({ data }: Props) => (
     pageTitle='Projects'
     headerImg={data.allMdx.nodes.find((n) => n.frontmatter?.headerImg)?.frontmatter?.headerImg}
     css={css`
-      ${up('xl')} {
+      ${theme.breakpoints.up('xl')} {
         max-width: 140rem;
-        border: 0.1rem solid #bdbdbd;
+        border: 0.1rem solid ${theme.colors.divider};
         border-top: none;
         margin: 0 auto;
       }
@@ -118,7 +118,7 @@ const ProjectsPage = ({ data }: Props) => (
                   a {
                     color: black;
                   }
-                  ${down('xs')} {
+                  ${theme.breakpoints.down('xs')} {
                     display: none;
                   }
                 `}
@@ -152,12 +152,12 @@ export const query = graphql`
         frontmatter {
           thumbnail: heroImage {
             childImageSharp {
-              gatsbyImageData(height: 200, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+              gatsbyImageData(height: 200)
             }
           }
           headerImg: heroImage {
             childImageSharp {
-              gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+              gatsbyImageData
             }
           }
           siteUrl

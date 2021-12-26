@@ -94,7 +94,7 @@ export const query = graphql`
         draft
         heroImage {
           childImageSharp {
-            gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+            gatsbyImageData
           }
         }
         partners {

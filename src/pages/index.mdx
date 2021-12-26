@@ -1,12 +1,14 @@
 ---
-title: '$ whois zmbush'
+title: $ whois zmbush
 date: 2021-12-18
 heroImage: ../images/pano-in-a-park.jpg
 ---
 
+import { css, jsx } from '@emotion/react';
 import { graphql } from 'gatsby';
 
 import Article from '../components/core/article';
+import theme from '../util/theme';
 
 export default ({ data, children, pageContext }) => (
   <Article
@@ -24,15 +26,11 @@ export const pageQuery = graphql`
         frontmatter {
           heroImage {
             childImageSharp {
-              gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+              gatsbyImageData
             }
           }
         }
       }
-    }
-    molly: partnerYaml(ref: { eq: "molly" }) {
-      name
-      url
     }
   }
 `;

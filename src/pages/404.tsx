@@ -25,7 +25,7 @@ export const query = graphql`
   query Get404Image {
     image: file(relativePath: { eq: "404.jpg" }) {
       childImageSharp {
-        gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+        gatsbyImageData
       }
     }
   }

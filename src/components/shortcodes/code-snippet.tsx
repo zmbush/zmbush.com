@@ -14,6 +14,8 @@ import Prism from 'prismjs';
 require('prismjs/components/prism-rust');
 require('prismjs/components/prism-c');
 require('prismjs/components/prism-glsl');
+require('prismjs/components/prism-markup-templating');
+require('prismjs/components/prism-handlebars');
 
 // Create a closure that determines if we have
 // to highlight the given index

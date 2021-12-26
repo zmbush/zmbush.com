@@ -4,6 +4,8 @@ import '@fontsource/roboto-mono/latin-100.css';
 import { GatsbyImage, getImage, ImageDataLike } from 'gatsby-plugin-image';
 import * as React from 'react';
 
+import theme from '../../util/theme';
+
 interface PropsWithoutTitle {
   hideTitle: true;
   title?: never;
@@ -30,7 +32,7 @@ const Header = ({ hideTitle = false, title, subtitle, date, technologies, header
     <header
       css={css`
         background-size: cover;
-        color: #ffffff;
+        color: ${theme.colors.text.base};
         display: block;
         position: relative;
 
@@ -59,7 +61,7 @@ const Header = ({ hideTitle = false, title, subtitle, date, technologies, header
       ) : null}
       <div
         css={css`
-          background-color: rgba(33, 150, 243, 0.75);
+          background-color: ${theme.colors.alpha(theme.colors.primary.base, 0.75)};
           height: 100%;
         `}
       >
