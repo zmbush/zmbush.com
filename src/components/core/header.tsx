@@ -1,6 +1,6 @@
 /* @jsx jsx */
 import '@fontsource/roboto-mono/latin-100.css';
-import { GatsbyImage, getImage, ImageDataLike } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage, ImageDataLike, StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
 
 import { jsx, css } from '../../util/emotionReact';
@@ -26,6 +26,14 @@ type Props = {
   headerImg: ImageDataLike;
 } & (PropsWithoutTitle | PropsWithTitle);
 
+const imgCss = css`
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+`;
+
 const Header = ({ hideTitle = false, title, subtitle, date, technologies, headerImg }: Props) => {
   const bgImage = getImage(headerImg);
   return (
@@ -47,18 +55,10 @@ const Header = ({ hideTitle = false, title, subtitle, date, technologies, header
       `}
     >
       {bgImage ? (
-        <GatsbyImage
-          css={css`
-            pointer-events: none;
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-          `}
-          image={bgImage}
-          alt='Banner Image'
-        />
-      ) : null}
+        <GatsbyImage css={imgCss} image={bgImage} alt='Banner Image' />
+      ) : (
+        <StaticImage css={imgCss} src='../../images/pano-in-a-park.jpg' alt='Banner Image' />
+      )}
       <div
         css={css`
           background-color: ${theme.colors.primary.base.darken(1).alpha(0.75)};

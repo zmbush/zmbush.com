@@ -98,10 +98,7 @@ const Default = ({
       <MDXProvider components={shortCodes}>
         <Helmet>
           <meta charSet='utf-8' />
-          <title>
-            {pageTitle}
-            {metadata.title ? ` | ${metadata.title}` : ''}
-          </title>
+          <title>{`${pageTitle || ''}${metadata.title ? ` | ${metadata.title}` : ''}`}</title>
         </Helmet>
         <Navbar />
         {hideTitle ? null : (

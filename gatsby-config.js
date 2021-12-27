@@ -77,6 +77,9 @@ module.exports = {
       resolve: 'gatsby-plugin-mdx',
       options: {
         commonmark: true,
+        defaultLayouts: {
+          default: require.resolve('./src/components/layouts/default.tsx'),
+        },
         rehypePlugins: [require('rehype-slug')],
         gatsbyRemarkPlugins: [
           'gatsby-remark-unwrap-images',
