@@ -1,9 +1,9 @@
 /* @jsx jsx */
-import { jsx, css } from '@emotion/react';
 import '@fontsource/roboto-mono/latin-100.css';
 import { GatsbyImage, getImage, ImageDataLike } from 'gatsby-plugin-image';
 import * as React from 'react';
 
+import { jsx, css } from '../../util/emotionReact';
 import theme from '../../util/theme';
 
 interface PropsWithoutTitle {
@@ -61,7 +61,7 @@ const Header = ({ hideTitle = false, title, subtitle, date, technologies, header
       ) : null}
       <div
         css={css`
-          background-color: ${theme.colors.alpha(theme.colors.primary.base, 0.75)};
+          background-color: ${theme.colors.primary.base.alpha(0.75)};
           height: 100%;
         `}
       >

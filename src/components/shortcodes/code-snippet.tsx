@@ -1,5 +1,4 @@
 /* @jsx jsx */
-import { jsx, css } from '@emotion/react';
 import rangeParser from 'parse-numeric-range';
 import Highlight, {
   defaultProps,
@@ -8,6 +7,8 @@ import Highlight, {
   Prism as RPrism,
 } from 'prism-react-renderer';
 import Prism from 'prismjs';
+
+import { jsx, css } from '../../util/emotionReact';
 
 (typeof global !== 'undefined' ? global : window).Prism = Prism;
 

@@ -1,6 +1,7 @@
 /* @jsx jsx */
-import { jsx, css } from '@emotion/react';
 import * as React from 'react';
+
+import { jsx, css } from '../../util/emotionReact';
 
 import Default from './default';
 

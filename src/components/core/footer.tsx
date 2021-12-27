@@ -1,8 +1,8 @@
 /* @jsx jsx */
-import { css, jsx } from '@emotion/react';
 import { Link } from 'gatsby';
 
 import ZBLogo from '../../images/zb-logo.svg';
+import { css, jsx } from '../../util/emotionReact';
 import theme from '../../util/theme';
 
 const Footer = () => (

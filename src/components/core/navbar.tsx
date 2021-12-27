@@ -1,10 +1,10 @@
 /* @jsx jsx */
-import { jsx, css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 
 import ZBLogo from '../../images/zb-logo.svg';
+import { jsx, css } from '../../util/emotionReact';
 import theme from '../../util/theme';
 
 const Nav = styled.nav`
@@ -29,7 +29,7 @@ const Nav = styled.nav`
   }
 
   & a:active {
-    background-color: ${theme.colors.darken(theme.colors.divider, 20)};
+    background-color: ${theme.colors.divider.darken(20)};
   }
 
   ${theme.breakpoints.up('sm')} {

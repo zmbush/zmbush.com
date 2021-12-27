@@ -1,5 +1,4 @@
 /* @jsx jsx */
-import { jsx, css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { graphql, Link } from 'gatsby';
 import { GatsbyImage, getImage, ImageDataLike } from 'gatsby-plugin-image';
@@ -8,6 +7,7 @@ import * as React from 'react';
 import { ProjectListQuery } from '../../types/graphql-types';
 import Default from '../components/core/default';
 import TechIcon from '../components/shortcodes/tech-icon';
+import { jsx, css } from '../util/emotionReact';
 import theme from '../util/theme';
 
 const ProjectSection = styled.section`

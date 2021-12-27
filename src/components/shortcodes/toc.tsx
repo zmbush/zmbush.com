@@ -1,8 +1,8 @@
 /* @jsx jsx */
-import { jsx, css } from '@emotion/react';
 import { Link } from 'gatsby';
 import slugger from 'github-slugger';
 
+import { jsx, css } from '../../util/emotionReact';
 import theme from '../../util/theme';
 
 interface Props {

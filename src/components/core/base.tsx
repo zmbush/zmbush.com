@@ -1,7 +1,8 @@
-import { css, Global } from '@emotion/react';
 import '@fontsource/roboto/latin-300.css';
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
+
+import { css, Global } from '../../util/emotionReact';
 
 const reset = css`
   /* http://meyerweb.com/eric/tools/css/reset/ 

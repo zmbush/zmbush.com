@@ -1,5 +1,4 @@
 /* @jsx jsx */
-import { jsx, css } from '@emotion/react';
 import '@fontsource/roboto/latin-300.css';
 import '@fontsource/roboto/latin-400.css';
 import { MDXProvider } from '@mdx-js/react';
@@ -9,6 +8,7 @@ import * as React from 'react';
 import { Helmet } from 'react-helmet';
 
 import { GetSiteTitleQuery } from '../../../types/graphql-types';
+import { jsx, css } from '../../util/emotionReact';
 import theme from '../../util/theme';
 import Caption from '../shortcodes/caption';
 import CodeSnippet from '../shortcodes/code-snippet';
