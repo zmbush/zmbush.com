@@ -1,4 +1,7 @@
+/* eslint-disable no-undef */
 declare module '*.svg' {
-  const content: any;
+  import type { SVGProps } from 'react';
+
+  const content: (props: SVGProps<SVGSVGElement>) => JSX.Element;
   export default content;
 }
