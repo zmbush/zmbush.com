@@ -1,7 +1,8 @@
 /* @jsx jsx */
-import { jsx, css } from '@emotion/react';
 import '@fontsource/roboto/latin-300-italic.css';
 import React from 'react';
+
+import { jsx, css } from '../../util/emotionReact';
 
 interface Props {
   children: React.ReactNode;

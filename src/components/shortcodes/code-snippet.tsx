@@ -1,5 +1,4 @@
 /* @jsx jsx */
-import { jsx, css } from '@emotion/react';
 import rangeParser from 'parse-numeric-range';
 import Highlight, {
   defaultProps,
@@ -9,11 +8,15 @@ import Highlight, {
 } from 'prism-react-renderer';
 import Prism from 'prismjs';
 
+import { jsx, css } from '../../util/emotionReact';
+
 (typeof global !== 'undefined' ? global : window).Prism = Prism;
 
 require('prismjs/components/prism-rust');
 require('prismjs/components/prism-c');
 require('prismjs/components/prism-glsl');
+require('prismjs/components/prism-markup-templating');
+require('prismjs/components/prism-handlebars');
 
 // Create a closure that determines if we have
 // to highlight the given index

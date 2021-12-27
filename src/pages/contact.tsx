@@ -1,10 +1,11 @@
 /* @jsx jsx */
-import { jsx, css } from '@emotion/react';
 import { graphql } from 'gatsby';
 import { FaGithub, FaKeybase, FaLinkedin } from 'react-icons/fa';
 
 import { ContactImageQuery } from '../../types/graphql-types';
 import Article from '../components/core/article';
+import { css, jsx } from '../util/emotionReact';
+import theme from '../util/theme';
 
 interface Props {
   data: ContactImageQuery;
@@ -15,7 +16,7 @@ const Contact = ({ data }: Props) => (
       css={css`
         text-align: center;
         a {
-          color: #444444;
+          color: ${theme.colors.text.primary.lighten(1.5)};
           text-decoration: none;
           padding: 1rem;
           transition: color 0.25s ease;
@@ -29,7 +30,7 @@ const Contact = ({ data }: Props) => (
             bottom: 0;
             width: 0%;
             transition: width 0.25s ease;
-            border-bottom: 0.2rem solid #212121;
+            border-bottom: 0.2rem solid ${theme.colors.text.primary()};
           }
 
           svg {
@@ -37,7 +38,7 @@ const Contact = ({ data }: Props) => (
           }
 
           &:hover {
-            color: #212121;
+            color: ${theme.colors.text.primary()};
             &:before {
               width: 100%;
             }
@@ -65,7 +66,7 @@ export const query = graphql`
   query ContactImage {
     file(relativePath: { eq: "foggy-bridge.jpg" }) {
       childImageSharp {
-        gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+        gatsbyImageData
       }
     }
   }

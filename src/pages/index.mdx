@@ -1,5 +1,5 @@
 ---
-title: '$ whois zmbush'
+title: $ whois zmbush
 date: 2021-12-18
 heroImage: ../images/pano-in-a-park.jpg
 ---
@@ -24,15 +24,11 @@ export const pageQuery = graphql`
         frontmatter {
           heroImage {
             childImageSharp {
-              gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+              gatsbyImageData
             }
           }
         }
       }
-    }
-    molly: partnerYaml(ref: { eq: "molly" }) {
-      name
-      url
     }
   }
 `;

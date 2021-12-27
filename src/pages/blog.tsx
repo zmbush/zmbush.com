@@ -30,7 +30,7 @@ export const query = graphql`
         frontmatter {
           headerImg: heroImage {
             childImageSharp {
-              gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+              gatsbyImageData
             }
           }
         }

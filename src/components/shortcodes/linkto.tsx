@@ -1,9 +1,9 @@
 /* @jsx jsx */
-import { jsx, css } from '@emotion/react';
 import { graphql, useStaticQuery } from 'gatsby';
 import * as React from 'react';
 
 import { GetLinkDataQuery } from '../../../types/graphql-types';
+import { jsx, css } from '../../util/emotionReact';
 
 interface Props {
   href: string;

@@ -1,5 +1,4 @@
 /* @jsx jsx */
-import { jsx, css } from '@emotion/react';
 import '@fontsource/roboto/latin-300.css';
 import '@fontsource/roboto/latin-400.css';
 import { MDXProvider } from '@mdx-js/react';
@@ -9,7 +8,8 @@ import * as React from 'react';
 import { Helmet } from 'react-helmet';
 
 import { GetSiteTitleQuery } from '../../../types/graphql-types';
-import { down } from '../../util/mediaQueries';
+import { jsx, css } from '../../util/emotionReact';
+import theme from '../../util/theme';
 import Caption from '../shortcodes/caption';
 import CodeSnippet from '../shortcodes/code-snippet';
 import LinkTo from '../shortcodes/linkto';
@@ -129,7 +129,7 @@ const Default = ({
             a {
               text-decoration: none;
               font-weight: 400;
-              color: #1565c0;
+              color: ${theme.colors.primary.base};
 
               &:hover {
                 text-decoration: underline;
@@ -158,7 +158,7 @@ const Default = ({
               h5,
               h6,
               div.toc {
-                ${down('article')} {
+                ${theme.breakpoints.down('article')} {
                   margin-left: 1rem;
                   margin-right: 1rem;
                 }
@@ -170,7 +170,7 @@ const Default = ({
                 text-indent: 0;
 
                 &::first-letter {
-                  color: #1976d2;
+                  color: ${theme.colors.primary.base};
                   float: left;
                   font-size: 4.3rem;
                   font-weight: 300;
@@ -188,7 +188,7 @@ const Default = ({
             }
 
             img {
-              ${down('sm')} {
+              ${theme.breakpoints.down('sm')} {
                 width: 100%;
                 height: auto;
               }

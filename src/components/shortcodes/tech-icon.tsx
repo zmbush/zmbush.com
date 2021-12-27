@@ -1,5 +1,4 @@
 /* @jsx jsx */
-import { jsx, css } from '@emotion/react';
 import { graphql, useStaticQuery } from 'gatsby';
 import * as React from 'react';
 import { IconType } from 'react-icons';
@@ -8,6 +7,7 @@ import { FaRust, FaPython, FaNodeJs, FaReact, FaJava } from 'react-icons/fa';
 import { SiAseprite, SiMaterialui } from 'react-icons/si';
 
 import { GetTechIconDataQuery } from '../../../types/graphql-types';
+import { jsx, css } from '../../util/emotionReact';
 
 import BevyIcon from './icons/bevy.svg';
 import TiledIcon from './icons/tiled.svg';

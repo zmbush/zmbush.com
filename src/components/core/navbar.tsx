@@ -1,44 +1,44 @@
 /* @jsx jsx */
-import { jsx, css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 
 import ZBLogo from '../../images/zb-logo.svg';
-import { up, down } from '../../util/mediaQueries';
+import { jsx, css } from '../../util/emotionReact';
+import theme from '../../util/theme';
 
 const Nav = styled.nav`
   display: flex;
   width: 100%;
   line-height: 2.5;
-  border-bottom: 0.1rem solid #bdbdbd;
+  border-bottom: 0.1rem solid ${theme.colors.divider};
   background-color: white;
 
   & a {
     flex: 0;
     display: block;
     white-space: nowrap;
-    color: #212121;
+    color: ${theme.colors.text.primary};
     text-decoration: none;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
 
   & a:hover {
-    background-color: #bdbdbd;
+    background-color: ${theme.colors.divider};
   }
 
   & a:active {
-    background-color: #bdbdbd;
+    background-color: ${theme.colors.divider.darken(1)};
   }
 
-  ${up('sm')} {
+  ${theme.breakpoints.up('sm')} {
     #menu-button {
       display: none;
     }
   }
 
-  ${down('sm')} {
+  ${theme.breakpoints.down('sm')} {
     flex-direction: column;
 
     a,
