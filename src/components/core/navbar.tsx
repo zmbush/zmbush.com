@@ -29,7 +29,7 @@ const Nav = styled.nav`
   }
 
   & a:active {
-    background-color: ${theme.colors.divider.darken(20)};
+    background-color: ${theme.colors.divider.darken(1)};
   }
 
   ${theme.breakpoints.up('sm')} {

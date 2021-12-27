@@ -61,7 +61,7 @@ const Header = ({ hideTitle = false, title, subtitle, date, technologies, header
       ) : null}
       <div
         css={css`
-          background-color: ${theme.colors.primary.base.alpha(0.75)};
+          background-color: ${theme.colors.primary.base.darken(1).alpha(0.75)};
           height: 100%;
         `}
       >

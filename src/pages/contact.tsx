@@ -16,7 +16,7 @@ const Contact = ({ data }: Props) => (
       css={css`
         text-align: center;
         a {
-          color: ${theme.colors.text.primary.lighten(40)};
+          color: ${theme.colors.text.primary.lighten(1.5)};
           text-decoration: none;
           padding: 1rem;
           transition: color 0.25s ease;

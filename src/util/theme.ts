@@ -1,3 +1,5 @@
+import chroma, { Color as ChromaColor } from 'chroma-js';
+
 /* eslint-disable no-bitwise */
 export const breakpointValues = {
   xxs: 0,
@@ -18,67 +20,28 @@ interface ColorLike {
   lighten(magnitude: number): ColorLike;
   darken(magnitude: number): ColorLike;
   alpha(alpha: number): ColorLike;
+  do(f: (color: ChromaColor) => ChromaColor): ColorLike;
 }
 
-const rgbShort = /^#?([0-9a-f])([0-9a-f])([0-9a-f])$/i;
-const rgbLong = /^#?([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i;
-function Color(
-  colorOrR: string | number,
-  gIn: number = 0,
-  bIn: number = 0,
-  aIn: number = 1,
-): ColorLike {
-  let r: number;
-  let g: number;
-  let b: number;
-  let a: number = 1;
-
-  if (typeof colorOrR === 'string') {
-    const c = colorOrR;
-    {
-      const m = c.match(rgbShort);
-      if (m) {
-        r = parseInt(m[1], 16) * 0x11;
-        g = parseInt(m[2], 16) * 0x11;
-        b = parseInt(m[3], 16) * 0x11;
-      }
-    }
-    {
-      const m = c.match(rgbLong);
-      if (m) {
-        r = parseInt(m[1], 16);
-        g = parseInt(m[2], 16);
-        b = parseInt(m[3], 16);
-      }
-    }
-  } else {
-    r = colorOrR;
-    g = gIn;
-    b = bIn;
-    a = aIn;
-  }
-
-  return Object.assign(
-    () => {
-      if (a >= 1 || a <= 0) {
-        return `#${r.toString(16)}${g.toString(16)}${b.toString(16)}`;
-      }
-      return `rgba(${r}, ${g}, ${b}, ${a})`;
+function Color(colorIn: string | number | ChromaColor): ColorLike {
+  const color = chroma(colorIn);
+  return Object.assign(() => color.hex(), {
+    do(f: (color: ChromaColor) => ChromaColor) {
+      return Color(f(color));
     },
-    {
-      lighten(magnitude: number) {
-        return Color(r + magnitude, g + magnitude, b + magnitude, a);
-      },
 
-      darken(magnitude: number) {
-        return Color(r - magnitude, g - magnitude, b - magnitude, a);
-      },
-
-      alpha(alpha: number) {
-        return Color(r, g, b, alpha);
-      },
+    lighten(magnitude: number) {
+      return Color(color.brighten(magnitude));
     },
-  );
+
+    darken(magnitude: number) {
+      return Color(color.darken(magnitude));
+    },
+
+    alpha(alpha: number) {
+      return Color(color.alpha(alpha));
+    },
+  });
 }
 
 const theme = {

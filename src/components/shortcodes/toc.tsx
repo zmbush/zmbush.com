@@ -16,7 +16,7 @@ const Toc = ({ headings }: Props) => (
       margin-top: 1.5rem;
       margin-bottom: 1.5rem;
       background-color: ${theme.colors.divider};
-      border: 0.2rem solid ${theme.colors.darken(theme.colors.divider, 20)};
+      border: 0.2rem solid ${theme.colors.divider.darken(1)};
       padding: 1rem;
       max-width: 40rem;
       border-radius: 0.5rem;
