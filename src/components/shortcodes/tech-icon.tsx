@@ -1,7 +1,7 @@
 /* @jsx jsx */
 import { graphql, useStaticQuery } from 'gatsby';
 import * as React from 'react';
-import { IconType } from 'react-icons';
+import { IconBaseProps, IconType } from 'react-icons';
 import { DiRuby } from 'react-icons/di';
 import { FaRust, FaPython, FaNodeJs, FaReact, FaJava } from 'react-icons/fa';
 import { SiAseprite, SiMaterialui } from 'react-icons/si';
@@ -16,6 +16,24 @@ interface Props {
   refName: string;
 }
 
+const IcoWrap =
+  (C: typeof BevyIcon) =>
+  ({ size, color, title, children, style, ...svgProps }: IconBaseProps) =>
+    (
+      <C
+        stroke='currentColor'
+        fill='currentColor'
+        strokeWidth='0'
+        {...svgProps}
+        style={{ color, ...style }}
+        height={size || undefined}
+        width={size || undefined}
+      >
+        {title && <title>{title}</title>}
+        {children}
+      </C>
+    );
+
 const icons: { [key: string]: IconType } = {
   java: FaJava,
   node: FaNodeJs,
@@ -27,8 +45,8 @@ const icons: { [key: string]: IconType } = {
   react: FaReact,
 
   aseprite: SiAseprite,
-  bevy: BevyIcon,
-  tiled: TiledIcon,
+  bevy: IcoWrap(BevyIcon),
+  tiled: IcoWrap(TiledIcon),
 };
 
 const TechIcon = ({ refName }: Props) => {
@@ -50,7 +68,7 @@ const TechIcon = ({ refName }: Props) => {
   let icon: React.ReactNode;
   if (refName in icons) {
     const Ico = icons[refName];
-    icon = <Ico size='2.5rem' height='2.5rem' width='2.5rem' />;
+    icon = <Ico size='2.5rem' />;
   } else {
     icon = <b>Unknown {refName}</b>;
   }
