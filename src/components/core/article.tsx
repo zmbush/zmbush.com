@@ -2,6 +2,7 @@
 import * as React from 'react';
 
 import { jsx, css } from '../../util/emotionReact';
+import theme from '../../util/theme';
 
 import Default from './default';
 
@@ -11,7 +12,7 @@ const Article = (props: Props) => (
   <Default
     css={css`
       padding-top: 1rem;
-      max-width: 75rem;
+      max-width: ${theme.breakpoints.value(`article`)};
       margin: 0 auto;
     `}
     {...props}

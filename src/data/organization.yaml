@@ -1,0 +1,28 @@
+- ref: sierra
+  name: Sierra College
+  url: https://www.sierracollege.edu/
+  tagline: Academic Excellence and Student Success
+- ref: cal
+  name: UC Berkeley
+  url: https://www.berkeley.edu/
+  tagline: Let there be light
+- ref: bss
+  name: Berkeley Simulation Software
+  url: http://berkeleysimulation.com/
+  tagline: Berkeley Simulation Software, LLC
+- ref: indowsway
+  name: Indowsway Software
+  url: http://indowsway.com/
+  tagline: Indowsway Software
+- ref: google
+  name: Google
+  url: https://about.google/
+  tagline: Organize the world's information and make it universally accessible and useful.
+- ref: meraki
+  name: Cisco Meraki
+  url: https://meraki.cisco.com/
+  tagline: Hybrid workforce. Full-time solutions.
+- ref: fuchsia
+  name: Fuchsia
+  url: https://fuchsia.dev/
+  tagline: An open-source capability-based operating system developed by Google

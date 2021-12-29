@@ -11,7 +11,6 @@ const Nav = styled.nav`
   display: flex;
   width: 100%;
   line-height: 2.5;
-  border-bottom: 0.1rem solid ${theme.colors.divider};
   background-color: white;
 
   & a {
@@ -100,32 +99,39 @@ const Nav = styled.nav`
 const Navbar = () => (
   <Nav>
     <input type='checkbox' id='menu-toggle' />
-    <div className='mobilebar'>
-      <Link
-        to='/'
-        className='logo-icon'
-        css={css`
-          height: 38px;
-          padding-top: 0.5rem;
-          padding-bottom: 0.5rem;
-        `}
-      >
-        <ZBLogo height={35} width={35} />
-      </Link>
-      {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-      <label htmlFor='menu-toggle' id='menu-button'>
-        <AiOutlineMenu className='menu' size='25px' />
-        <AiOutlineClose className='close' size='25px' />
-      </label>
+    <div
+      css={css`
+        flex: 1;
+      `}
+    >
+      <div className='mobilebar'>
+        <Link
+          to='/'
+          className='logo-icon'
+          css={css`
+            height: 3.8rem;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            width: 3.5rem;
+          `}
+        >
+          <ZBLogo height='3.5rem' width='3.5rem' />
+        </Link>
+        {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+        <label htmlFor='menu-toggle' id='menu-button'>
+          <AiOutlineMenu className='menu' size='25px' />
+          <AiOutlineClose className='close' size='25px' />
+        </label>
+      </div>
     </div>
+    <Link to='/'>About Me</Link>
+    <Link to='/projects'>Projects</Link>
+    <Link to='/contact'>Contact Me</Link>
     <div
       css={css`
         flex: 1;
       `}
     />
-    <Link to='/'>About Me</Link>
-    <Link to='/projects'>Projects</Link>
-    <Link to='/contact'>Contact Me</Link>
   </Nav>
 );
 

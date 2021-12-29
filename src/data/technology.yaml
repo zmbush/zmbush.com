@@ -23,6 +23,11 @@
   url: https://www.java.com
   tagline: Write once, run anywhere
   type: LANGUAGE
+- ref: small-basic
+  name: SmallBASIC
+  url: https://smallbasic.github.io/
+  tagline: One more basic
+  type: LANGUAGE
 
 - ref: react
   name: React

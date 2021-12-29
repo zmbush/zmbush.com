@@ -59,7 +59,7 @@ const shortCodes = {
 };
 
 interface Props {
-  pageTitle: string;
+  pageTitle?: string;
   hideTitle?: boolean;
   subtitle?: string;
   technologies?: React.ReactNode;
@@ -145,42 +145,38 @@ const Default = ({
               }
             }
 
-            > {
-              p,
-              div.gatsby-highlight,
-              h1,
-              h2,
-              h3,
-              h4,
-              h5,
-              h6,
-              div.toc {
-                ${theme.breakpoints.down(`article`)} {
-                  margin-left: 1rem;
-                  margin-right: 1rem;
-                }
+            p,
+            div.gatsby-highlight,
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+            div.toc {
+              ${theme.breakpoints.down(`article`)} {
+                margin-left: 1rem;
+                margin-right: 1rem;
               }
             }
 
-            > p {
-              &:first-of-type {
-                text-indent: 0;
+            > p:first-of-type,
+            .with-big-letter > p:first-of-type {
+              text-indent: 0;
 
-                &::first-letter {
-                  color: ${theme.colors.primary.base};
-                  float: left;
-                  font-size: 4.3rem;
-                  font-weight: 300;
-                  line-height: 1;
-                }
+              &::first-letter {
+                color: ${theme.colors.primary.base};
+                float: left;
+                font-size: 200%;
+                font-weight: 300;
+                line-height: 1;
               }
-
-              text-indent: 2.5rem;
-              margin-bottom: 1rem;
             }
 
             p {
+              text-indent: 2.5rem;
               margin-top: 1rem;
+              margin-bottom: 1rem;
               line-height: 1.5;
             }
 
