@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-pages-privacy-glookup-mdx",
     "path": "/privacy/glookup/",
-    "result": {"pageContext":{"frontmatter":{}}},
+    "result": {"data":{"file":{"mdx":{"frontmatter":{"heroImage":null}}}},"pageContext":{"frontmatter":{"title":"Glookup Frontend Privacy Policy"}}},
     "staticQueryHashes": ["1391769105","2963465397"]}
