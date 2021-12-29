@@ -1,37 +1,6 @@
 ---
 title: $ whois zmbush
-date: 2021-12-18
-heroImage: ../images/pano-in-a-park.jpg
 ---
-
-import { graphql } from 'gatsby';
-
-import Article from '../components/core/article';
-
-export default ({ data, children, pageContext }) => (
-  <Article
-    pageTitle={pageContext.frontmatter.title}
-    headerImg={data.file.mdx.frontmatter.heroImage}
-  >
-    {children}
-  </Article>
-);
-
-export const pageQuery = graphql`
-  query GetIndexData {
-    file(relativePath: { eq: "index.mdx" }) {
-      mdx: childMdx {
-        frontmatter {
-          heroImage {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-        }
-      }
-    }
-  }
-`;
 
 I'm Zachary Bush, and I work as a Software Engineer helping to develop [Fuchsia][fuchsia]. Before
 that I was a Site Reliability Engineer at [Google][google], and before that I was a Member of

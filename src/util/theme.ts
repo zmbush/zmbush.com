@@ -10,7 +10,7 @@ export const breakpointValues = {
   lg: 1200,
   xl: 1536,
 };
-const unit = 'px';
+const unit = `px`;
 const step = 5;
 
 export type Breakpoint = keyof typeof breakpointValues;
@@ -47,27 +47,27 @@ function Color(colorIn: string | number | ChromaColor): ColorLike {
 const theme = {
   breakpoints: {
     up: (bp: Breakpoint | number) => {
-      const value = typeof bp === 'number' ? bp : breakpointValues[bp];
+      const value = typeof bp === `number` ? bp : breakpointValues[bp];
       return `@media (min-width: ${value}${unit})`;
     },
     down: (bp: Breakpoint | number) => {
-      const value = typeof bp === 'number' ? bp : breakpointValues[bp];
+      const value = typeof bp === `number` ? bp : breakpointValues[bp];
       return `@media (max-width: ${value - step / 100}${unit})`;
     },
   },
   colors: {
     primary: {
-      dark: Color('#1976d2'),
-      light: Color('#bbdefb'),
-      base: Color('#2196f3'),
+      dark: Color(`#1976d2`),
+      light: Color(`#bbdefb`),
+      base: Color(`#2196f3`),
     },
     text: {
-      base: Color('#FFFFFF'),
-      primary: Color('#212121'),
-      secondary: Color('#757575'),
+      base: Color(`#FFFFFF`),
+      primary: Color(`#212121`),
+      secondary: Color(`#757575`),
     },
-    accent: Color('#607d8b'),
-    divider: Color('#BDBDBD'),
+    accent: Color(`#607d8b`),
+    divider: Color(`#BDBDBD`),
   },
 };
 

@@ -5,7 +5,7 @@ import { jsx, css } from '../../util/emotionReact';
 
 import Default from './default';
 
-interface Props extends Omit<React.ComponentProps<typeof Default>, 'className'> {}
+interface Props extends Omit<React.ComponentProps<typeof Default>, `className`> {}
 
 const Article = (props: Props) => (
   <Default

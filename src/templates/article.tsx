@@ -12,23 +12,23 @@ const ExtraLinks = ({
   siteName,
   siteMsg,
   sourceUrl,
-}: NonNullable<NonNullable<SingleBlogPostQuery['mdx']>['frontmatter']>) => (
+}: NonNullable<NonNullable<SingleBlogPostQuery[`mdx`]>[`frontmatter`]>) => (
   <>
     {siteUrl ? (
       <p>
-        {siteMsg || 'You can see it in action'} {siteName ? 'at: ' : null}
-        <a href={siteUrl}>{siteName || 'here'}</a>.
+        {siteMsg || `You can see it in action`} {siteName ? `at: ` : null}
+        <a href={siteUrl}>{siteName || `here`}</a>.
       </p>
     ) : null}
     {partners ? (
       <p>
-        I built this project with{' '}
+        I built this project with{` `}
         {partners.map((partner, i) => (
           <React.Fragment key={partner.ref}>
-            {partners.length > 1 && i === partners.length - 1 ? ' and ' : null}
+            {partners.length > 1 && i === partners.length - 1 ? ` and ` : null}
             <a href={partner.url}>{partner.name}</a>
-            {i === partners.length - 1 ? '.' : null}
-            {partners.length > 2 && i !== partners.length - 1 ? ',' : null}
+            {i === partners.length - 1 ? `.` : null}
+            {partners.length > 2 && i !== partners.length - 1 ? `,` : null}
           </React.Fragment>
         ))}
       </p>

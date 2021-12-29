@@ -30,11 +30,11 @@ const LinkTo = ({ href, children, ...props }: Props) => {
       }
     }
   `);
-  const url = new URL(href, 'http://relative_url');
-  const request = url.pathname.replace(/^\/+|\/+$/, '');
+  const url = new URL(href, `http://relative_url`);
+  const request = url.pathname.replace(/^\/+|\/+$/, ``);
   switch (url.protocol) {
-    case 'tech:':
-    case 'technology:': {
+    case `tech:`:
+    case `technology:`: {
       const techNode = data.technologies.nodes.find((n) => n.ref === request);
       if (techNode) {
         return (
@@ -43,7 +43,7 @@ const LinkTo = ({ href, children, ...props }: Props) => {
           </a>
         );
       }
-      if (process.env.NODE_ENV === 'production') {
+      if (process.env.NODE_ENV === `production`) {
         throw new Error(`linkto: Could not find technology with ref ${request}`);
       }
       return (
@@ -56,13 +56,13 @@ const LinkTo = ({ href, children, ...props }: Props) => {
         </b>
       );
     }
-    case 'partner:':
-    case 'person:': {
+    case `partner:`:
+    case `person:`: {
       const partnerNode = data.partners.nodes.find((n) => n.ref === request);
       if (partnerNode) {
         return <a href={partnerNode.url}>{children || partnerNode.name}</a>;
       }
-      if (process.env.NODE_ENV === 'production') {
+      if (process.env.NODE_ENV === `production`) {
         throw new Error(`linkto: Could not find partner with ref ${request}`);
       }
       return (
@@ -75,16 +75,16 @@ const LinkTo = ({ href, children, ...props }: Props) => {
         </b>
       );
     }
-    case 'http:':
-    case 'https:':
-    case 'mailto:':
+    case `http:`:
+    case `https:`:
+    case `mailto:`:
       return (
         <a href={href} {...props}>
           {children}
         </a>
       );
     default:
-      if (process.env.NODE_ENV === 'production') {
+      if (process.env.NODE_ENV === `production`) {
         throw new Error(`linkto: Unexpected protocol ${url.protocol} for ${href}`);
       }
       return (

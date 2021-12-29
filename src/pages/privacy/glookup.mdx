@@ -1,8 +1,24 @@
-import Article from '../../components/core/article';
+---
+title: Glookup Frontend Privacy Policy
+---
 
-export default ({ children }) => (
-  <Article pageTitle='Glookup Frontend Privacy Policy'>{children}</Article>
-);
+import { graphql } from 'gatsby';
+
+export const pageQuery = graphql`
+  query GetGlookupData {
+    file(relativePath: { eq: "privacy/glookup.mdx" }) {
+      mdx: childMdx {
+        frontmatter {
+          heroImage {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
+      }
+    }
+  }
+`;
 
 I created my Glookup Frontend as a tool to make checking one's grades easier. As such, I do not
 expect, or even plan to ask for any monetary gain from this project. I created it merely as a

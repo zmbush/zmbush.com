@@ -184,7 +184,7 @@ const Base = ({ children }: Props) => (
     <Global styles={reset} />
     <Global styles={boilerplate} />
     <Global styles={base} />
-    <Helmet htmlAttributes={{ lang: 'en' }} />
+    <Helmet htmlAttributes={{ lang: `en` }} />
     {children}
   </>
 );

@@ -32,13 +32,13 @@ const Nav = styled.nav`
     background-color: ${theme.colors.divider.darken(1)};
   }
 
-  ${theme.breakpoints.up('sm')} {
+  ${theme.breakpoints.up(`sm`)} {
     #menu-button {
       display: none;
     }
   }
 
-  ${theme.breakpoints.down('sm')} {
+  ${theme.breakpoints.down(`sm`)} {
     flex-direction: column;
 
     a,

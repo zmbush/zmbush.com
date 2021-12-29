@@ -1,8 +1,8 @@
-const path = require('path');
+const path = require(`path`);
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
-  const projectsTemplate = path.resolve('src/templates/article.tsx');
+  const projectsTemplate = path.resolve(`src/templates/article.tsx`);
   const result = await graphql(`
     query {
       allMdx(filter: { fields: { source: { in: ["blog", "projects"] } } }) {
@@ -22,7 +22,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   result.data.allMdx.nodes.forEach((node) => {
     createPage({
-      path: `${node.fields.source}${node.frontmatter.draft ? '/drafts' : ''}/${node.fields.slug}`,
+      path: `${node.fields.source}${node.frontmatter.draft ? `/drafts` : ``}/${node.fields.slug}`,
       component: projectsTemplate,
       context: {
         id: node.id,
@@ -32,20 +32,20 @@ exports.createPages = async ({ graphql, actions }) => {
 };
 
 const stringToSlug = (strIn) => {
-  let str = strIn.replace(/^\s+|\s+$/g, ''); // trim
+  let str = strIn.replace(/^\s+|\s+$/g, ``); // trim
   str = str.toLowerCase();
 
   // remove accents, swap ñ for n, etc
-  const fr = 'àáäâèéëêìíïîòóöôùúüûñç·_,:;';
-  const to = 'aaaaeeeeiiiioooouuuunc-----';
+  const fr = `àáäâèéëêìíïîòóöôùúüûñç·_,:;`;
+  const to = `aaaaeeeeiiiioooouuuunc-----`;
   for (let i = 0, l = fr.length; i < l; i += 1) {
-    str = str.replace(new RegExp(fr.charAt(i), 'g'), to.charAt(i));
+    str = str.replace(new RegExp(fr.charAt(i), `g`), to.charAt(i));
   }
 
   str = str
-    .replace(/[^a-z0-9 -/]/g, '') // remove invalid chars
-    .replace(/\s+/g, '-') // collapse whitespace and replace by -
-    .replace(/-+/g, '-'); // collapse dashes
+    .replace(/[^a-z0-9 -/]/g, ``) // remove invalid chars
+    .replace(/\s+/g, `-`) // collapse whitespace and replace by -
+    .replace(/-+/g, `-`); // collapse dashes
 
   return str;
 };
@@ -56,7 +56,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
   const fileNode = getNode(node.parent);
 
-  if (node.internal.type === 'Mdx' && fileNode.internal.type === 'File') {
+  if (node.internal.type === `Mdx` && fileNode.internal.type === `File`) {
     const parsedFilePath = path.parse(fileNode.relativePath);
     let slug;
     let date;
@@ -73,9 +73,9 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
     if (node.frontmatter && node.frontmatter.slug) {
       slug = node.frontmatter.slug;
-    } else if (parsedFilePath.name !== 'index' && parsedFilePath.dir !== '') {
+    } else if (parsedFilePath.name !== `index` && parsedFilePath.dir !== ``) {
       slug = `${parsedFilePath.dir}/${parsedFilePath.name}`;
-    } else if (parsedFilePath.dir === '') {
+    } else if (parsedFilePath.dir === ``) {
       slug = `${parsedFilePath.name}`;
     } else {
       slug = `${parsedFilePath.dir}`;
@@ -110,25 +110,25 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     });
 
     if (!date) {
-      date = new Date('1999-01-01');
+      date = new Date(`1999-01-01`);
     }
 
     createNodeField({
-      name: 'date',
+      name: `date`,
       node,
       value: date,
     });
 
     createNodeField({
-      name: 'timestamp',
+      name: `timestamp`,
       node,
       value: Math.round(date.getTime() / 1000),
     });
 
     createNodeField({
-      name: 'title',
+      name: `title`,
       node,
-      value: title || 'NO TITLE',
+      value: title || `NO TITLE`,
     });
   }
 };

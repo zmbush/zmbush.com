@@ -29,7 +29,7 @@ const Footer = () => (
       css={css`
         margin: 0 auto;
 
-        ${theme.breakpoints.up('md')} {
+        ${theme.breakpoints.up(`md`)} {
           width: 75rem;
         }
       `}
@@ -39,7 +39,7 @@ const Footer = () => (
         css={css`
           padding-bottom: 1rem;
 
-          ${theme.breakpoints.down('md')} {
+          ${theme.breakpoints.down(`md`)} {
             display: block;
           }
         `}
@@ -49,7 +49,7 @@ const Footer = () => (
           width={34}
           css={css`
             margin-top: 0.5rem;
-            ${theme.breakpoints.down('md')} {
+            ${theme.breakpoints.down(`md`)} {
               text-align: center;
             }
           `}
@@ -61,7 +61,7 @@ const Footer = () => (
           text-align: center;
           line-height: 2.5rem;
 
-          ${theme.breakpoints.up('md')} {
+          ${theme.breakpoints.up(`md`)} {
             display: inline-block;
             a {
               padding-top: 1.5rem;
@@ -80,7 +80,7 @@ const Footer = () => (
           text-align: right;
           font-size: 0.9rem;
 
-          ${theme.breakpoints.down('md')} {
+          ${theme.breakpoints.down(`md`)} {
             text-align: center;
             padding: 1rem;
           }
