@@ -6,7 +6,7 @@ import Sh from './sh';
 const Shell = () => {
   const [sh, _] = React.useState(Sh);
   const [previousCommands, setPreviousCommands] = React.useState<string[]>([]);
-  const [input, setInput] = React.useState('');
+  const [input, setInput] = React.useState(``);
 
   const handleKeyPress = React.useCallback(
     (e: KeyboardEvent) => {
@@ -15,7 +15,7 @@ const Shell = () => {
           return false;
         case 13:
           setPreviousCommands([...previousCommands, input]);
-          setInput('');
+          setInput(``);
           break;
         default:
           setInput(input + String.fromCharCode(e.which));
@@ -41,12 +41,12 @@ const Shell = () => {
   );
 
   React.useEffect(() => {
-    document.addEventListener('keypress', handleKeyPress);
-    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener(`keypress`, handleKeyPress);
+    document.addEventListener(`keydown`, handleKeyDown);
 
     return () => {
-      document.removeEventListener('keypress', handleKeyPress);
-      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener(`keypress`, handleKeyPress);
+      document.removeEventListener(`keydown`, handleKeyDown);
     };
   }, [handleKeyPress, handleKeyDown]);
 

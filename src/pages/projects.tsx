@@ -14,13 +14,13 @@ const ProjectSection = styled.section`
   &:not(:last-child) {
     border-bottom: 0.1rem solid ${theme.colors.divider};
   }
-  ${theme.breakpoints.down('sm')} {
+  ${theme.breakpoints.down(`sm`)} {
     .gatsby-image-wrapper {
       display: none;
     }
     padding: 1rem;
   }
-  ${theme.breakpoints.up('sm')} {
+  ${theme.breakpoints.up(`sm`)} {
     display: flex;
     &:nth-of-type(2n) {
       flex-direction: row-reverse;
@@ -42,27 +42,27 @@ const ExtraLinks = ({
   siteUrl,
   siteName,
   sourceUrl,
-}: NonNullable<ProjectListQuery['allMdx']['nodes'][0]['frontmatter']>) => (
+}: NonNullable<ProjectListQuery[`allMdx`][`nodes`][0][`frontmatter`]>) => (
   <>
     {partners ? (
       <>
-        Partner{partners.length > 1 ? 's' : ''}:{' '}
+        Partner{partners.length > 1 ? `s` : ``}:{` `}
         {partners.map((partner, i) => (
           <React.Fragment key={partner.ref}>
-            {partners.length > 1 && i === partners.length - 1 ? ' and ' : null}
+            {partners.length > 1 && i === partners.length - 1 ? ` and ` : null}
             <a href={partner.url}>{partner.name}</a>
-            {partners.length > 2 && i !== partners.length - 1 ? ', ' : null}
+            {partners.length > 2 && i !== partners.length - 1 ? `, ` : null}
           </React.Fragment>
         ))}
       </>
     ) : null}
-    {partners && siteUrl ? ' | ' : null}
+    {partners && siteUrl ? ` | ` : null}
     {siteUrl ? (
       <>
-        Live Site: <a href={siteUrl}>{siteName || 'here'}</a>
+        Live Site: <a href={siteUrl}>{siteName || `here`}</a>
       </>
     ) : null}
-    {(partners || siteUrl) && sourceUrl ? ' | ' : null}
+    {(partners || siteUrl) && sourceUrl ? ` | ` : null}
     {sourceUrl ? (
       <>
         Source Code: <a href={sourceUrl}>here</a>
@@ -79,7 +79,7 @@ const ProjectsPage = ({ data }: Props) => (
     pageTitle='Projects'
     headerImg={data.allMdx.nodes.find((n) => n.frontmatter?.headerImg)?.frontmatter?.headerImg}
     css={css`
-      ${theme.breakpoints.up('xl')} {
+      ${theme.breakpoints.up(`xl`)} {
         max-width: 140rem;
         border: 0.1rem solid ${theme.colors.divider};
         border-top: none;
@@ -118,7 +118,7 @@ const ProjectsPage = ({ data }: Props) => (
                   a {
                     color: black;
                   }
-                  ${theme.breakpoints.down('xs')} {
+                  ${theme.breakpoints.down(`xs`)} {
                     display: none;
                   }
                 `}

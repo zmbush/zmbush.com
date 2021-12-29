@@ -1,4 +1,5 @@
 /* eslint-disable no-undef */
+// eslint-disable-next-line quotes
 declare module '*.svg' {
   import type { SVGProps } from 'react';
 

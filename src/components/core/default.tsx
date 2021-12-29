@@ -27,17 +27,17 @@ const preToCodeBlock = (preProps: any) => {
     // code props
     preProps.children.props &&
     // if children is actually a <code>
-    preProps.children.props.mdxType === 'code'
+    preProps.children.props.mdxType === `code`
   ) {
     // we have a <pre><code> situation
-    const { children: codeString, className = '', ...props } = preProps.children.props;
+    const { children: codeString, className = ``, ...props } = preProps.children.props;
 
     const match = className.match(/language-([\0-\uFFFF]*)/);
 
     return {
       codeString: codeString.trim(),
       className,
-      language: match != null ? match[1] : '',
+      language: match != null ? match[1] : ``,
       ...props,
     };
   }
@@ -98,7 +98,7 @@ const Default = ({
       <MDXProvider components={shortCodes}>
         <Helmet>
           <meta charSet='utf-8' />
-          <title>{`${pageTitle || ''}${metadata.title ? ` | ${metadata.title}` : ''}`}</title>
+          <title>{`${pageTitle || ``}${metadata.title ? ` | ${metadata.title}` : ``}`}</title>
         </Helmet>
         <Navbar />
         {hideTitle ? null : (
@@ -155,7 +155,7 @@ const Default = ({
               h5,
               h6,
               div.toc {
-                ${theme.breakpoints.down('article')} {
+                ${theme.breakpoints.down(`article`)} {
                   margin-left: 1rem;
                   margin-right: 1rem;
                 }
@@ -185,7 +185,7 @@ const Default = ({
             }
 
             img {
-              ${theme.breakpoints.down('sm')} {
+              ${theme.breakpoints.down(`sm`)} {
                 width: 100%;
                 height: auto;
               }

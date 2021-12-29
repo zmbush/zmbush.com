@@ -34,7 +34,7 @@ export function css(
   return innerCss(
     template,
     ...args.map((interpolation) => {
-      if (typeof interpolation === 'function') {
+      if (typeof interpolation === `function`) {
         return interpolation();
       }
       return interpolation;

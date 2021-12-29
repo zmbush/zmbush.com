@@ -10,13 +10,13 @@ import Prism from 'prismjs';
 
 import { jsx, css } from '../../util/emotionReact';
 
-(typeof global !== 'undefined' ? global : window).Prism = Prism;
+(typeof global !== `undefined` ? global : window).Prism = Prism;
 
-require('prismjs/components/prism-rust');
-require('prismjs/components/prism-c');
-require('prismjs/components/prism-glsl');
-require('prismjs/components/prism-markup-templating');
-require('prismjs/components/prism-handlebars');
+require(`prismjs/components/prism-rust`);
+require(`prismjs/components/prism-c`);
+require(`prismjs/components/prism-glsl`);
+require(`prismjs/components/prism-markup-templating`);
+require(`prismjs/components/prism-handlebars`);
 
 // Create a closure that determines if we have
 // to highlight the given index
@@ -37,22 +37,22 @@ interface Props {
 }
 
 const colors = {
-  base03: '#002b36',
-  base02: '#073642',
-  base01: '#586e75',
-  base00: '#657b83',
-  base0: '#839496',
-  base1: '#93a1a1',
-  base2: '#eee8d5',
-  base3: '#fdf6e3',
-  yellow: '#b58900',
-  orange: '#cb4b16',
-  red: '#dc322f',
-  magenta: '#d33682',
-  violet: '#6c71c4',
-  blue: '#268bd2',
-  cyan: '#2aa198',
-  green: '#859900',
+  base03: `#002b36`,
+  base02: `#073642`,
+  base01: `#586e75`,
+  base00: `#657b83`,
+  base0: `#839496`,
+  base1: `#93a1a1`,
+  base2: `#eee8d5`,
+  base3: `#fdf6e3`,
+  yellow: `#b58900`,
+  orange: `#cb4b16`,
+  red: `#dc322f`,
+  magenta: `#d33682`,
+  violet: `#6c71c4`,
+  blue: `#268bd2`,
+  cyan: `#2aa198`,
+  green: `#859900`,
 };
 
 const theme: PrismTheme = {
@@ -62,70 +62,70 @@ const theme: PrismTheme = {
   },
   styles: [
     {
-      types: ['attr-name', 'comment', 'prolog', 'doctype', 'cdata'],
+      types: [`attr-name`, `comment`, `prolog`, `doctype`, `cdata`],
       style: {
         color: colors.base00,
-        fontStyle: 'italic',
+        fontStyle: `italic`,
       },
     },
     {
-      types: ['punctuation'],
+      types: [`punctuation`],
       style: {
         color: colors.base01,
       },
     },
     {
-      types: ['namespace'],
+      types: [`namespace`],
       style: {
         opacity: 0.7,
       },
     },
     {
-      types: ['property', 'boolean', 'number', 'constant', 'symbol', 'deleted'],
+      types: [`property`, `boolean`, `number`, `constant`, `symbol`, `deleted`],
       style: {
         color: colors.magenta,
       },
     },
     {
-      types: ['attr-value', 'selector', 'string', 'char', 'builtin', 'url', 'inserted', 'entity'],
+      types: [`attr-value`, `selector`, `string`, `char`, `builtin`, `url`, `inserted`, `entity`],
       style: {
         color: colors.cyan,
       },
     },
     {
-      types: ['atrule', 'keyword'],
+      types: [`atrule`, `keyword`],
       style: {
         color: colors.yellow,
       },
     },
     {
-      types: ['tag', 'function'],
+      types: [`tag`, `function`],
       style: {
         color: colors.blue,
       },
     },
     {
-      types: ['regex', 'important', 'variable', 'class-name'],
+      types: [`regex`, `important`, `variable`, `class-name`],
       style: {
         color: colors.orange,
       },
     },
     {
-      types: ['important', 'bold'],
+      types: [`important`, `bold`],
       style: {
-        fontWeight: 'bold',
+        fontWeight: `bold`,
       },
     },
     {
-      types: ['italic'],
+      types: [`italic`],
       style: {
-        fontStyle: 'italic',
+        fontStyle: `italic`,
       },
     },
     {
-      types: ['entity'],
+      types: [`entity`],
       style: {
-        cursor: 'help',
+        cursor: `help`,
       },
     },
   ],

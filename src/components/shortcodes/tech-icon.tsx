@@ -91,7 +91,7 @@ const TechIcon = ({ refName }: Props) => {
       </a>
     );
   }
-  if (process.env.NODE_ENV === 'production') {
+  if (process.env.NODE_ENV === `production`) {
     throw new Error(`tech-icon: Could not find icon for: ${refName}`);
   }
   return (
