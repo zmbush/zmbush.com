@@ -54,6 +54,7 @@ const theme = {
       const value = typeof bp === `number` ? bp : breakpointValues[bp];
       return `@media (max-width: ${value - step / 100}${unit})`;
     },
+    value: (bp: Breakpoint) => `${breakpointValues[bp] / 10}rem`,
   },
   colors: {
     primary: {

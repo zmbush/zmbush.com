@@ -1,4 +1,5 @@
 /* @jsx jsx */
+import '@fontsource/roboto-mono/latin-300.css';
 import rangeParser from 'parse-numeric-range';
 import Highlight, {
   defaultProps,
@@ -7,6 +8,7 @@ import Highlight, {
   Prism as RPrism,
 } from 'prism-react-renderer';
 import Prism from 'prismjs';
+import * as React from 'react';
 
 import { jsx, css } from '../../util/emotionReact';
 
@@ -17,6 +19,8 @@ require(`prismjs/components/prism-c`);
 require(`prismjs/components/prism-glsl`);
 require(`prismjs/components/prism-markup-templating`);
 require(`prismjs/components/prism-handlebars`);
+require(`prismjs/components/prism-bash`);
+require(`prismjs/components/prism-shell-session`);
 
 // Create a closure that determines if we have
 // to highlight the given index
@@ -32,8 +36,18 @@ const calculateLinesToHighlight = (meta: string) => {
 
 interface Props {
   codeString: string;
-  language: Language;
-  metastring: string;
+  language:
+    | Language
+    | `rust`
+    | `c`
+    | `glsl`
+    | `markup-templating`
+    | `handlebars`
+    | `bash`
+    | `shell-session`;
+  metastring?: string;
+  className?: string;
+  children?: React.ReactNode;
 }
 
 const colors = {
@@ -131,17 +145,17 @@ const theme: PrismTheme = {
   ],
 };
 
-const CodeSnippet = ({ codeString, language, metastring }: Props) => {
+const CodeSnippet = ({ codeString, language, className, metastring = ``, children }: Props) => {
   const shouldHighlightLine = calculateLinesToHighlight(metastring);
   return (
     <Highlight
       {...defaultProps}
       theme={theme}
       code={codeString}
-      language={language}
+      language={language as Language}
       Prism={Prism as any as typeof RPrism}
     >
-      {({ className, style, tokens, getLineProps, getTokenProps }) => (
+      {({ className: preClassName, style, tokens, getLineProps, getTokenProps }) => (
         <div
           css={css`
             background-color: ${colors.base03};
@@ -150,6 +164,7 @@ const CodeSnippet = ({ codeString, language, metastring }: Props) => {
             padding: 0.8em;
             overflow: auto;
           `}
+          className={className}
         >
           <pre
             css={css`
@@ -160,7 +175,8 @@ const CodeSnippet = ({ codeString, language, metastring }: Props) => {
               min-width: 100%;
 
               color: ${colors.base1};
-              font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+              font-family: 'Roboto Mono', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+              font-weight: 300;
               text-align: left;
               white-space: pre;
               word-spacing: normal;
@@ -187,7 +203,7 @@ const CodeSnippet = ({ codeString, language, metastring }: Props) => {
                 border-left: 0.25em solid #027e9e;
               }
             `}
-            className={className}
+            className={preClassName}
             style={style}
           >
             {tokens.map((line, i) => {
@@ -203,6 +219,7 @@ const CodeSnippet = ({ codeString, language, metastring }: Props) => {
                 </div>
               );
             })}
+            {children}
           </pre>
         </div>
       )}

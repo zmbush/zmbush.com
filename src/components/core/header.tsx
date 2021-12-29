@@ -67,7 +67,7 @@ const Header = ({ hideTitle = false, title, subtitle, date, technologies, header
       >
         <div
           css={css`
-            max-width: 75rem;
+            max-width: ${theme.breakpoints.value(`article`)};
             margin: 0 auto;
             padding: 5rem 0;
           `}

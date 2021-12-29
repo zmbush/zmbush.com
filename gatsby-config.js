@@ -45,6 +45,14 @@ module.exports = {
       },
       __key: `projects`,
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `copy`,
+        path: `${__dirname}/content/copy`,
+      },
+      __key: `copy`,
+    },
     `gatsby-plugin-image`,
     `gatsby-plugin-mdx-source-name`,
     `gatsby-plugin-emotion`,
@@ -123,7 +131,7 @@ module.exports = {
       options: {
         path: `schema.gql`,
         include: {
-          types: [`Mdx`, `PartnerYaml`],
+          types: [`Mdx`, `PartnerYaml`, `TechnologyYaml`, `OrganizationYaml`],
         },
         update: process.env.GATSBY_UPDATE_SCHEMA_SNAPSHOT,
       },

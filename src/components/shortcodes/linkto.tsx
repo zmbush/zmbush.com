@@ -28,6 +28,14 @@ const LinkTo = ({ href, children, ...props }: Props) => {
           tagline
         }
       }
+      organizations: allOrganizationYaml {
+        nodes {
+          ref
+          name
+          url
+          tagline
+        }
+      }
     }
   `);
   const url = new URL(href, `http://relative_url`);
@@ -72,6 +80,30 @@ const LinkTo = ({ href, children, ...props }: Props) => {
           `}
         >
           PARTNER {url.hostname} NOT FOUND
+        </b>
+      );
+    }
+    case `Organization:`:
+    case `job:`:
+    case `org:`: {
+      const OrganizationNode = data.organizations.nodes.find((n) => n.ref === request);
+      if (OrganizationNode) {
+        return (
+          <a href={OrganizationNode.url} title={OrganizationNode.tagline}>
+            {children || OrganizationNode.name}
+          </a>
+        );
+      }
+      if (process.env.NODE_ENV === `production`) {
+        throw new Error(`linkto: Could not find Organization with ref ${request}`);
+      }
+      return (
+        <b
+          css={css`
+            background-color: red;
+          `}
+        >
+          COMPANY {url.hostname} NOT FOUND
         </b>
       );
     }
