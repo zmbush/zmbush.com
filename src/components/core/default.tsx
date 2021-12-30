@@ -69,6 +69,7 @@ interface Props {
       gatsbyImageData?: any | null;
     } | null;
   } | null;
+  headerImgAlign?: `TOP` | `CENTER` | `BOTTOM`;
   children: React.ReactNode;
   className?: string;
 }
@@ -78,6 +79,7 @@ const Default = ({
   hideTitle,
   children,
   headerImg,
+  headerImgAlign,
   subtitle,
   technologies,
   date,
@@ -108,6 +110,7 @@ const Default = ({
             technologies={technologies}
             date={date}
             headerImg={headerImg as ImageDataLike}
+            headerImgAlign={headerImgAlign}
           />
         )}
         <article

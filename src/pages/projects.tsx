@@ -78,6 +78,10 @@ const ProjectsPage = ({ data }: Props) => (
   <Default
     pageTitle='Projects'
     headerImg={data.allMdx.nodes.find((n) => n.frontmatter?.headerImg)?.frontmatter?.headerImg}
+    headerImgAlign={
+      data.allMdx.nodes.find((n) => n.frontmatter?.headerImg)?.frontmatter?.heroImageAlign ||
+      undefined
+    }
     css={css`
       ${theme.breakpoints.up(`xl`)} {
         max-width: 140rem;
@@ -160,6 +164,7 @@ export const query = graphql`
               gatsbyImageData
             }
           }
+          heroImageAlign
           siteUrl
           siteName
           sourceUrl

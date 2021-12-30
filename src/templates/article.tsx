@@ -79,6 +79,7 @@ const BlogPost = ({ data }: Props) => {
       }
       date={fields.date}
       headerImg={frontmatter.heroImage}
+      headerImgAlign={frontmatter.heroImageAlign || undefined}
     >
       <MDXRenderer headings={headings}>{body}</MDXRenderer>
       <ExtraLinks {...frontmatter} />
@@ -97,6 +98,7 @@ export const query = graphql`
             gatsbyImageData
           }
         }
+        heroImageAlign
         partners {
           ref
           name
