@@ -1,5 +1,4 @@
 import { graphql } from 'gatsby';
-import { getImage } from 'gatsby-plugin-image';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
@@ -8,6 +7,7 @@ import { SingleBlogPostQuery } from '../../types/graphql-types';
 import Article from '../components/core/article';
 import TechIcon from '../components/shortcodes/tech-icon';
 import getSiteMetadata from '../util/get-site-metadata';
+import { Article as LdArticle } from '../util/ld-json';
 
 const ExtraLinks = ({
   partners,
@@ -70,28 +70,10 @@ const BlogPost = ({ data }: Props) => {
   if (fields && fields.source && fields.source in templates) {
     Component = templates[fields.source];
   }
-  const img = getImage(frontmatter.heroImage?.childImageSharp?.gatsbyImageData);
-  const pageData = {
-    '@context': `http://schema.org/`,
-    '@type': `Article`,
-    mainEntityOfPage: {
-      '@type': `WebPage`,
-      '@id': `${siteUrl}/${fields.source}/${fields.slug}`,
-    },
-    author: {
-      '@type': `Person`,
-      name: `Zach Bush`,
-      url: siteUrl,
-    },
-    headline: fields.title,
-    image: `${siteUrl}${img?.images?.sources?.at(0)?.srcSet.split(` `)[0]}`,
-    datePublished: fields.date,
-  };
+  const pageData = LdArticle.fromData(siteUrl!, data.mdx);
   return (
     <>
-      <Helmet>
-        <script type='application/ld+json'>{JSON.stringify(pageData, null, 2)}</script>
-      </Helmet>
+      <Helmet>{pageData.render()}</Helmet>
       <Component
         pageTitle={fields.title}
         subtitle={frontmatter.subtitle || undefined}
