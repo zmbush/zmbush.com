@@ -136,13 +136,12 @@ const reset = css`
   }
 `;
 
-const boilerplate = css`
+const base = css`
   html {
     font-size: 62.5%; // 1rem ~= 10px
     scroll-behavior: smooth;
   }
 
-  // W3C recommended sizes
   h1 {
     font-size: 3.6rem;
   }
@@ -163,14 +162,8 @@ const boilerplate = css`
   }
 
   body {
-    font-family: sans-serif;
-    font-size: 1.9rem;
-  }
-`;
-
-const base = css`
-  body {
     font-family: 'Roboto', sans-serif;
+    font-size: 1.9rem;
     font-weight: 300;
   }
 `;
@@ -182,7 +175,6 @@ interface Props {
 const Base = ({ children }: Props) => (
   <>
     <Global styles={reset} />
-    <Global styles={boilerplate} />
     <Global styles={base} />
     <Helmet htmlAttributes={{ lang: `en` }} />
     {children}
