@@ -24,17 +24,25 @@ interface PropsWithTitle {
 
 type Props = {
   headerImg: ImageDataLike;
+  headerImgAlign?: `TOP` | `BOTTOM` | `CENTER`;
 } & (PropsWithoutTitle | PropsWithTitle);
 
 const imgCss = css`
   pointer-events: none;
   position: absolute;
   width: 100%;
-  height: 100%;
   z-index: -1;
 `;
 
-const Header = ({ hideTitle = false, title, subtitle, date, technologies, headerImg }: Props) => {
+const Header = ({
+  hideTitle = false,
+  title,
+  subtitle,
+  date,
+  technologies,
+  headerImg,
+  headerImgAlign = `CENTER`,
+}: Props) => {
   const bgImage = getImage(headerImg);
   return (
     <header
@@ -54,11 +62,43 @@ const Header = ({ hideTitle = false, title, subtitle, date, technologies, header
         }
       `}
     >
-      {bgImage ? (
-        <GatsbyImage css={imgCss} image={bgImage} alt='Banner Image' />
-      ) : (
-        <StaticImage css={imgCss} src='../../images/pano-in-a-park.jpg' alt='Banner Image' />
-      )}
+      <div
+        css={css`
+          overflow: hidden;
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          pointer-events: none;
+
+          .gatsby-image-wrapper {
+            &.align-TOP,
+            &.align-CENTER {
+              top: 0;
+            }
+
+            &.align-BOTTOM,
+            &.align-CENTER {
+              bottom: 0;
+            }
+          }
+        `}
+      >
+        {bgImage ? (
+          <GatsbyImage
+            className={`align-${headerImgAlign}`}
+            css={imgCss}
+            image={bgImage}
+            alt='Banner Image'
+          />
+        ) : (
+          <StaticImage
+            className='align-TOP'
+            css={imgCss}
+            src='../../images/pano-in-a-park.jpg'
+            alt='Banner Image'
+          />
+        )}
+      </div>
       <div
         css={css`
           background-color: ${theme.colors.primary.base.darken(1).alpha(0.75)};

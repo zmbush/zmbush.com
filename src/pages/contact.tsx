@@ -11,7 +11,7 @@ interface Props {
   data: ContactImageQuery;
 }
 const Contact = ({ data }: Props) => (
-  <Article pageTitle='Get in Touch' headerImg={data.file}>
+  <Article pageTitle='Get in Touch' headerImg={data.file} headerImgAlign='TOP'>
     <div
       css={css`
         text-align: center;
