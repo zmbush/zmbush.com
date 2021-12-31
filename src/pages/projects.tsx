@@ -106,6 +106,10 @@ const ProjectsPage = ({ data }: Props) => (
           },
         })),
       ).render()}
+      <meta
+        name='description'
+        content='All of the projects that Zach has worked on over the years.'
+      />
     </Helmet>
     {data.allMdx.nodes.map((node) => {
       const frontmatter = node.frontmatter!;
@@ -135,6 +139,7 @@ const ProjectsPage = ({ data }: Props) => (
                 css={css`
                   color: black;
                   margin-right: 1rem;
+                  font-size: 2.5rem;
                   a {
                     color: black;
                   }
@@ -179,6 +184,10 @@ export const query = graphql`
             childImageSharp {
               gatsbyImageData
             }
+          }
+          author {
+            name
+            url
           }
           heroImageAlign
           siteUrl

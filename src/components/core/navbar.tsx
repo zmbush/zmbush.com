@@ -113,9 +113,11 @@ const Navbar = () => (
             padding-top: 0.5rem;
             padding-bottom: 0.5rem;
             width: 3.5rem;
+            font-size: 3.5rem;
+            line-height: 0;
           `}
         >
-          <ZBLogo height='3.5rem' width='3.5rem' />
+          <ZBLogo height='1em' width='1em' />
         </Link>
         {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
         <label htmlFor='menu-toggle' id='menu-button'>

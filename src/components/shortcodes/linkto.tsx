@@ -13,7 +13,7 @@ interface Props {
 const LinkTo = ({ href, children, ...props }: Props) => {
   const data = useStaticQuery<GetLinkDataQuery>(graphql`
     query GetLinkData {
-      partners: allPartnerYaml {
+      people: allPersonYaml {
         nodes {
           name
           ref
@@ -64,14 +64,14 @@ const LinkTo = ({ href, children, ...props }: Props) => {
         </b>
       );
     }
-    case `partner:`:
-    case `person:`: {
-      const partnerNode = data.partners.nodes.find((n) => n.ref === request);
-      if (partnerNode) {
-        return <a href={partnerNode.url}>{children || partnerNode.name}</a>;
+    case `person:`:
+    case `partner:`: {
+      const personNode = data.people.nodes.find((n) => n.ref === request);
+      if (personNode) {
+        return <a href={personNode.url}>{children || personNode.name}</a>;
       }
       if (process.env.NODE_ENV === `production`) {
-        throw new Error(`linkto: Could not find partner with ref ${request}`);
+        throw new Error(`linkto: Could not find person with ref ${request}`);
       }
       return (
         <b

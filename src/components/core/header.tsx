@@ -122,6 +122,7 @@ const Header = ({
                 css={css`
                   text-align: center;
                   margin-top: 0.5rem;
+                  font-size: 2.5rem;
                 `}
               >
                 {technologies}

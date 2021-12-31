@@ -1,4 +1,4 @@
-### Type definitions saved at 2021-12-30T02:14:15.001Z ###
+### Type definitions saved at 2021-12-31T04:15:59.570Z ###
 
 type Mdx implements Node @childOf(mimeTypes: ["text/markdown", "text/x-markdown"], types: ["File"]) @dontInfer {
   rawBody: String!
@@ -23,7 +23,8 @@ type Frontmatter {
   draft: Boolean
   heroImage: File @fileByRelativePath
   heroImageAlign: ImageAlign
-  partners: [PartnerYaml!] @link(by: "ref")
+  author: PersonYaml @link(by: "ref")
+  partners: [PersonYaml!] @link(by: "ref")
   technologies: [TechnologyYaml!] @link(by: "ref")
   sourceUrl: String
   siteUrl: String
@@ -73,7 +74,7 @@ enum ImageAlign {
   BOTTOM
 }
 
-type PartnerYaml implements Node @childOf(mimeTypes: [], types: ["File"]) @dontInfer {
+type PersonYaml implements Node @childOf(mimeTypes: [], types: ["File"]) @dontInfer {
   ref: String!
   name: String!
   url: String!
