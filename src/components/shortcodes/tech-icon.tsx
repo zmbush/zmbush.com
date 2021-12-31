@@ -68,7 +68,7 @@ const TechIcon = ({ refName }: Props) => {
   let icon: React.ReactNode;
   if (refName in icons) {
     const Ico = icons[refName];
-    icon = <Ico size='2.5rem' />;
+    icon = <Ico size='1em' />;
   } else {
     icon = <b>Unknown {refName}</b>;
   }

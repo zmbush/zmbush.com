@@ -65,7 +65,7 @@ const BlogPost = ({ data }: Props) => {
       </>
     );
   }
-  const { frontmatter, body, headings, fields } = data.mdx;
+  const { frontmatter, body, excerpt, headings, fields } = data.mdx;
   let Component = templates.blog;
   if (fields && fields.source && fields.source in templates) {
     Component = templates[fields.source];
@@ -73,7 +73,10 @@ const BlogPost = ({ data }: Props) => {
   const pageData = LdArticle.fromData(siteUrl!, data.mdx);
   return (
     <>
-      <Helmet>{pageData.render()}</Helmet>
+      <Helmet>
+        {pageData.render()}
+        <meta name='description' content={excerpt} />
+      </Helmet>
       <Component
         pageTitle={fields.title}
         subtitle={frontmatter.subtitle || undefined}
@@ -99,6 +102,10 @@ export const query = graphql`
   query SingleBlogPost($id: String) {
     mdx(id: { eq: $id }) {
       frontmatter {
+        author {
+          name
+          url
+        }
         subtitle
         draft
         heroImage {
@@ -127,6 +134,7 @@ export const query = graphql`
         slug
       }
       body
+      excerpt
       headings {
         depth
         value
