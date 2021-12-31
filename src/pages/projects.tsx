@@ -4,13 +4,15 @@ import { graphql, Link } from 'gatsby';
 import { GatsbyImage, getImage, ImageDataLike } from 'gatsby-plugin-image';
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
+import { helmetJsonLdProp } from 'react-schemaorg';
+import { Blog } from 'schema-dts';
 
 import { ProjectListQuery } from '../../types/graphql-types';
 import Default from '../components/core/default';
 import TechIcon from '../components/shortcodes/tech-icon';
 import { jsx, css } from '../util/emotionReact';
 import getSiteMetadata from '../util/get-site-metadata';
-import { Blog } from '../util/ld-json';
+import { makeBlog, makeRoot } from '../util/ld-json';
 import theme from '../util/theme';
 
 const ProjectSection = styled.section`
@@ -94,18 +96,26 @@ const ProjectsPage = ({ data }: Props) => (
       }
     `}
   >
+    <Helmet
+      script={[
+        helmetJsonLdProp<Blog>(
+          makeRoot(
+            makeBlog(
+              getSiteMetadata().siteUrl!,
+              `projects`,
+              data.allMdx.nodes.map((d) => ({
+                ...d,
+                frontmatter: {
+                  ...d.frontmatter,
+                  heroImage: d.frontmatter?.headerImg,
+                },
+              })),
+            ),
+          ),
+        ),
+      ]}
+    />
     <Helmet>
-      {Blog.fromData(
-        getSiteMetadata().siteUrl!,
-        `projects`,
-        data.allMdx.nodes.map((d) => ({
-          ...d,
-          frontmatter: {
-            ...d.frontmatter,
-            heroImage: d.frontmatter?.headerImg,
-          },
-        })),
-      ).render()}
       <meta
         name='description'
         content='All of the projects that Zach has worked on over the years.'
