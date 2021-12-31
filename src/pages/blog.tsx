@@ -1,30 +1,38 @@
 import { graphql, Link } from 'gatsby';
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
+import { helmetJsonLdProp } from 'react-schemaorg';
+import { Blog } from 'schema-dts';
 
 import { BlogListQuery } from '../../types/graphql-types';
 import Article from '../components/core/article';
 import getSiteMetadata from '../util/get-site-metadata';
-import { Blog } from '../util/ld-json';
+import { makeBlog, makeRoot } from '../util/ld-json';
 
 interface Props {
   data: BlogListQuery;
 }
 const BlogPage = ({ data }: Props) => (
   <Article pageTitle='My Blog Posts' headerImg={data.allMdx.nodes[0].frontmatter?.headerImg}>
-    <Helmet>
-      {Blog.fromData(
-        getSiteMetadata().siteUrl!,
-        `blogs`,
-        data.allMdx.nodes.map((d) => ({
-          ...d,
-          frontmatter: {
-            ...d.frontmatter,
-            heroImage: d.frontmatter?.headerImg,
-          },
-        })),
-      ).render()}
-    </Helmet>
+    <Helmet
+      script={[
+        helmetJsonLdProp<Blog>(
+          makeRoot(
+            makeBlog(
+              getSiteMetadata().siteUrl!,
+              `blogs`,
+              data.allMdx.nodes.map((d) => ({
+                ...d,
+                frontmatter: {
+                  ...d.frontmatter,
+                  heroImage: d.frontmatter?.headerImg,
+                },
+              })),
+            ),
+          ),
+        ),
+      ]}
+    />
     <p>My posts will go here! </p>
     {data.allMdx.nodes.map((node) => (
       <article key={node.id}>

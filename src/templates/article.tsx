@@ -2,12 +2,14 @@ import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
+import { helmetJsonLdProp } from 'react-schemaorg';
+import { Article as LdArticle } from 'schema-dts';
 
 import { SingleBlogPostQuery } from '../../types/graphql-types';
 import Article from '../components/core/article';
 import TechIcon from '../components/shortcodes/tech-icon';
 import getSiteMetadata from '../util/get-site-metadata';
-import { Article as LdArticle } from '../util/ld-json';
+import { makeArticle, makeRoot } from '../util/ld-json';
 
 const ExtraLinks = ({
   partners,
@@ -70,11 +72,10 @@ const BlogPost = ({ data }: Props) => {
   if (fields && fields.source && fields.source in templates) {
     Component = templates[fields.source];
   }
-  const pageData = LdArticle.fromData(siteUrl!, data.mdx);
   return (
     <>
+      <Helmet script={[helmetJsonLdProp<LdArticle>(makeRoot(makeArticle(siteUrl!, data.mdx)))]} />
       <Helmet>
-        {pageData.render()}
         <meta name='description' content={excerpt} />
       </Helmet>
       <Component
