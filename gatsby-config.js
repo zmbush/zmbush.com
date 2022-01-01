@@ -23,9 +23,7 @@ module.exports = {
     fsSource(`images`),
     fsSource(`pages`),
     fsSource(`data`),
-    fsSource(`blog`, `content/blog`),
-    fsSource(`projects`, `content/projects`),
-    fsSource(`copy`, `content/copy`),
+    fsSource(`content`),
 
     `gatsby-plugin-image`,
     `gatsby-plugin-mdx-source-name`,

@@ -1,4 +1,4 @@
-### Type definitions saved at 2022-01-01T02:01:28.099Z ###
+### Type definitions saved at 2022-01-01T04:55:32.287Z ###
 
 type Mdx implements Node @childOf(mimeTypes: ["text/markdown", "text/x-markdown"], types: ["File"]) @dontInfer {
   rawBody: String!
@@ -120,6 +120,7 @@ type MdxFields {
   slug: String!
   source: String!
   title: String!
+  category: String!
 }
 
 type OrganizationYaml implements Node @dontInfer {

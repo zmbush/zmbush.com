@@ -137,7 +137,7 @@ const ProjectsPage = ({ data }: Props) => (
                 }
               `}
             >
-              <Link to={`/projects/${node.fields.slug}`}>
+              <Link to={`/${node.fields.slug}`}>
                 <h2>{node.fields.title}</h2>
               </Link>
               <div
@@ -163,7 +163,7 @@ const ProjectsPage = ({ data }: Props) => (
                 ))}
               </span>
             </div>
-            <Link to={`/projects/${node.fields.slug}`}>
+            <Link to={`/${node.fields.slug}`}>
               <div className='post-date'>{node.fields.date}</div>
             </Link>
             <div className='post-contents'>
@@ -181,7 +181,7 @@ export const query = graphql`
   query ProjectList {
     allMdx(
       sort: { fields: fields___timestamp, order: DESC }
-      filter: { frontmatter: { draft: { ne: true } }, fields: { source: { eq: "projects" } } }
+      filter: { frontmatter: { draft: { ne: true } }, fields: { category: { eq: "projects" } } }
     ) {
       nodes {
         frontmatter {
@@ -219,7 +219,6 @@ export const query = graphql`
           slug
           date(formatString: "MMMM D, YYYY")
           title
-          source
         }
       }
     }

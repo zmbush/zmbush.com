@@ -77,7 +77,6 @@ type ArticleSourceData = {
     author?: PersonSourceData | null;
   } | null;
   fields: {
-    source: string;
     slug: string;
     title: string;
     date: Date;
@@ -97,7 +96,7 @@ export const makeArticle = (
   const img = getImage(frontmatter?.heroImage?.childImageSharp?.gatsbyImageData);
   const mainEntityOfPage: WebPage = {
     '@type': `WebPage`,
-    url: `${siteUrl}/${fields.source}/${fields.slug}`,
+    url: `${siteUrl}/${fields.slug}`,
   };
   return {
     '@type': `Article`,

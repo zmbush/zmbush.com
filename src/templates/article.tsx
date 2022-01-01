@@ -69,8 +69,8 @@ const BlogPost = ({ data }: Props) => {
   }
   const { frontmatter, body, excerpt, headings, fields } = data.mdx;
   let Component = templates.blog;
-  if (fields && fields.source && fields.source in templates) {
-    Component = templates[fields.source];
+  if (fields && fields.category && fields.category in templates) {
+    Component = templates[fields.category];
   }
   return (
     <>
@@ -131,7 +131,7 @@ export const query = graphql`
       fields {
         title
         date(formatString: "MMMM D, YYYY")
-        source
+        category
         slug
       }
       body
