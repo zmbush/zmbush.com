@@ -1,58 +1,30 @@
 /* eslint-disable global-require */
+const fsSource = (name, pathIn) => {
+  let path = name;
+  if (pathIn) {
+    path = pathIn;
+  }
+  return {
+    resolve: `gatsby-source-filesystem`,
+    options: {
+      name,
+      path: `./src/${path}`,
+    },
+    __key: name,
+  };
+};
+
 module.exports = {
   siteMetadata: {
     siteUrl: `https://www.zmbush.com`,
     title: `zmbush.com`,
   },
   plugins: [
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `./src/images/`,
-      },
-      __key: `images`,
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `pages`,
-        path: `./src/pages/`,
-      },
-      __key: `pages`,
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `data`,
-        path: `./src/data/`,
-      },
-      __key: `data`,
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `blog`,
-        path: `${__dirname}/content/blog`,
-      },
-      __key: `blog`,
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `projects`,
-        path: `${__dirname}/content/projects`,
-      },
-      __key: `projects`,
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `copy`,
-        path: `${__dirname}/content/copy`,
-      },
-      __key: `copy`,
-    },
+    fsSource(`images`),
+    fsSource(`pages`),
+    fsSource(`data`),
+    fsSource(`content`),
+
     `gatsby-plugin-image`,
     `gatsby-plugin-mdx-source-name`,
     `gatsby-plugin-emotion`,
@@ -74,7 +46,7 @@ module.exports = {
       resolve: `gatsby-plugin-sharp`,
       options: {
         defaults: {
-          formats: [`auto`, `webp`, `avif`],
+          formats: process.env.NODE_ENV === `production` ? [`auto`, `webp`, `avif`] : [`auto`],
           placeholder: `blurred`,
         },
       },

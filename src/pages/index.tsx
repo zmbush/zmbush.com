@@ -12,7 +12,7 @@ import theme from '../util/theme';
 
 export const query = graphql`
   query IndexCopy {
-    file(relativePath: { eq: "index.mdx" }) {
+    file(relativePath: { eq: "copy/index.mdx" }) {
       childMdx {
         body
       }

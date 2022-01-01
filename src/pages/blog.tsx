@@ -38,7 +38,7 @@ const BlogPage = ({ data }: Props) => (
       <article key={node.id}>
         <h2>{node.fields.title}</h2>
         <p>Posted: {node.fields.date}</p>
-        <Link to={`/blog/${node.fields.slug}`}>Here</Link>
+        <Link to={`/${node.fields.slug}`}>Here</Link>
       </article>
     ))}
   </Article>
@@ -48,7 +48,7 @@ export const query = graphql`
   query BlogList {
     allMdx(
       sort: { fields: fields___timestamp, order: DESC }
-      filter: { frontmatter: { draft: { ne: true } }, fields: { source: { eq: "blog" } } }
+      filter: { frontmatter: { draft: { ne: true } }, fields: { category: { eq: "blog" } } }
     ) {
       nodes {
         frontmatter {
@@ -62,7 +62,6 @@ export const query = graphql`
           date(formatString: "MMMM D, YYYY")
           title
           slug
-          source
         }
         id
         body

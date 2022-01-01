@@ -5,11 +5,10 @@ exports.createPages = async ({ graphql, actions }) => {
   const projectsTemplate = path.resolve(`src/templates/article.tsx`);
   const result = await graphql(`
     query {
-      allMdx(filter: { fields: { source: { in: ["blog", "projects"] } } }) {
+      allMdx(filter: { fields: { category: { in: ["blog", "projects"] } } }) {
         nodes {
           id
           fields {
-            source
             slug
           }
           frontmatter {
@@ -22,7 +21,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   result.data.allMdx.nodes.forEach((node) => {
     createPage({
-      path: `${node.fields.source}${node.frontmatter.draft ? `/drafts` : ``}/${node.fields.slug}`,
+      path: `${node.frontmatter.draft ? `drafts` : ``}/${node.fields.slug}`,
       component: projectsTemplate,
       context: {
         id: node.id,
@@ -49,9 +48,10 @@ const stringToSlug = (strIn) => {
 
   return str;
 };
-const dateLikeSlugPrefix = /(\d{4})[-/](\d{2})[-/](\d{2})[-/](.*)/;
-const dateInSlug = /(\d{4})\/(\d{2})\/(\d{2})/;
-const titleInSlug = /\d{4}\/\d{2}\/\d{2}\/(.*)/;
+const contentPathRegex = /([^-/]*)\/(\d{4})[-/](\d{2})[-/](\d{2})[-/](.*)/;
+const dateInSlug = /[^-/]*\/(\d{4})\/(\d{2})\/(\d{2})/;
+const titleInSlug = /[^-/]*\/\d{4}\/\d{2}\/\d{2}\/(.*)/;
+const categoryInSlug = /^([^-/]*)\//;
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
   const fileNode = getNode(node.parent);
@@ -61,6 +61,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     let slug;
     let date;
     let title;
+    let category;
 
     if (node.frontmatter) {
       if (node.frontmatter.date) {
@@ -68,6 +69,9 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       }
       if (node.frontmatter.title) {
         title = node.frontmatter.title;
+      }
+      if (node.frontmatter.category) {
+        category = node.frontmatter.category;
       }
     }
 
@@ -82,9 +86,9 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     }
 
     {
-      const m = slug.match(dateLikeSlugPrefix);
+      const m = slug.match(contentPathRegex);
       if (m) {
-        slug = `${m[1]}/${m[2]}/${m[3]}/${m[4]}`;
+        slug = `${m[1]}/${m[2]}/${m[3]}/${m[4]}/${m[5]}`;
       }
     }
 
@@ -100,6 +104,16 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       if (m) {
         let _;
         [_, title] = m;
+      }
+    }
+
+    if (!category) {
+      const m = slug.match(categoryInSlug);
+      if (m) {
+        let _;
+        [_, category] = m;
+      } else {
+        category = fileNode.sourceInstanceName;
       }
     }
 
@@ -129,6 +143,12 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       name: `title`,
       node,
       value: title || `NO TITLE`,
+    });
+
+    createNodeField({
+      name: `category`,
+      node,
+      value: category || `uncategorized`,
     });
   }
 };
