@@ -1,4 +1,4 @@
-### Type definitions saved at 2021-12-31T04:15:59.570Z ###
+### Type definitions saved at 2022-01-01T02:01:28.099Z ###
 
 type Mdx implements Node @childOf(mimeTypes: ["text/markdown", "text/x-markdown"], types: ["File"]) @dontInfer {
   rawBody: String!
