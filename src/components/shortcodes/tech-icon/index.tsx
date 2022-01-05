@@ -4,10 +4,10 @@ import * as React from 'react';
 import { IconBaseProps, IconType } from 'react-icons';
 import { DiRuby } from 'react-icons/di';
 import { FaRust, FaPython, FaNodeJs, FaReact, FaJava } from 'react-icons/fa';
-import { SiAseprite, SiMaterialui } from 'react-icons/si';
+import { SiAseprite, SiMaterialui, SiJekyll, SiGatsby } from 'react-icons/si';
 
-import { GetTechIconDataQuery } from '../../../types/graphql-types';
-import { jsx, css } from '../../util/emotionReact';
+import { GetTechIconDataQuery } from '../../../../types/graphql-types';
+import { jsx, css } from '../../../util/emotionReact';
 
 import BevyIcon from './icons/bevy.svg';
 import TiledIcon from './icons/tiled.svg';
@@ -26,10 +26,19 @@ const IcoWrap =
         strokeWidth='0'
         {...svgProps}
         style={{ color, ...style }}
-        height={size || undefined}
-        width={size || undefined}
+        height={size || `1em`}
+        width={size || `1em`}
       >
         {title && <title>{title}</title>}
+        {children}
+      </C>
+    );
+
+const Smaller =
+  (C: typeof FaJava, em: number) =>
+  ({ children, ...props }: IconBaseProps) =>
+    (
+      <C {...props} size={`${em}em`}>
         {children}
       </C>
     );
@@ -46,6 +55,8 @@ const icons: { [key: string]: IconType } = {
 
   aseprite: SiAseprite,
   bevy: IcoWrap(BevyIcon),
+  gatsby: SiGatsby,
+  jekyll: Smaller(SiJekyll, 0.95),
   tiled: IcoWrap(TiledIcon),
 };
 
@@ -68,7 +79,7 @@ const TechIcon = ({ refName }: Props) => {
   let icon: React.ReactNode;
   if (refName in icons) {
     const Ico = icons[refName];
-    icon = <Ico size='1em' />;
+    icon = <Ico title={entry.tagline} />;
   } else {
     icon = <b>Unknown {refName}</b>;
   }

@@ -39,7 +39,10 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        icon: `src/images/zb-logo.svg`,
+        icon:
+          process.env.NODE_ENV === `production`
+            ? `src/images/zb-logo.svg`
+            : `src/images/dev-favicon.png`,
       },
     },
     {
@@ -73,7 +76,7 @@ module.exports = {
               withAvif: true,
             },
           },
-          `gatsby-remark-embed-snippet`,
+          `gatsby-remark-embed-snippet-local`,
         ],
       },
     },

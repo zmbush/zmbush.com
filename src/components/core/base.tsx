@@ -166,6 +166,11 @@ const base = css`
     font-size: 1.9rem;
     font-weight: 300;
   }
+
+  sup {
+    vertical-align: super;
+    font-size: smaller;
+  }
 `;
 
 interface Props {
