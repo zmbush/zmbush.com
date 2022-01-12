@@ -44,7 +44,7 @@
     "eslint-plugin-react": "^7.28.0",
     "gatsby": "^4.4.0",
     "gatsby-plugin-canonical-urls": "^4.4.0",
-    "gatsby-plugin-catch-links": "^4.4.0",
+    "gatsby-plugin-catch-links": "^4.5.0",
     "gatsby-plugin-emotion": "^7.4.0",
     "gatsby-plugin-google-analytics": "^4.4.0",
     "gatsby-plugin-image": "^2.4.0",
