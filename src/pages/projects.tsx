@@ -118,7 +118,7 @@ const ProjectsPage = ({ data }: Props) => (
     <Helmet>
       <meta
         name='description'
-        content='All of the projects that Zach has worked on over the years.'
+        content='All of the projects that Zoey has worked on over the years.'
       />
     </Helmet>
     {data.allMdx.nodes.map((node) => {

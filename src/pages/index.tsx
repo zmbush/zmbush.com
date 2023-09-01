@@ -87,7 +87,7 @@ const Index = ({ data }: Props) => (
             }
           `}
           width={250}
-          src='../images/albany-bulb-portrait-square.jpg'
+          src='../images/zoey.jpg'
           alt='Me'
         />
       </div>
