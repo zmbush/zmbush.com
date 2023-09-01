@@ -94,7 +94,7 @@ const Footer = () => (
           }
         `}
       >
-        <p>All content &copy; 2011-{new Date().getFullYear()} Zachary Bush</p>
+        <p>All content &copy; 2011-{new Date().getFullYear()} Zoeyary Bush</p>
         <p>
           Opinions expressed here are solely my own and do not express the views or opinions of my
           employer.
