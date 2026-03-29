@@ -6366,10 +6366,10 @@ gatsby-plugin-canonical-urls@^4.4.0:
   dependencies:
     "@babel/runtime" "^7.15.4"
 
-gatsby-plugin-catch-links@^4.4.0:
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-catch-links/-/gatsby-plugin-catch-links-4.4.0.tgz#fc787cf1a3d11ca1303f8a68aa9676cac850f283"
-  integrity sha512-Me6fnwhV0DekZdrPcouIpSynZTp/unvfMoTXt+br8z1qyxqd+nYrdJGCJyET61yUqtUirFskhaw9DlZgKop88A==
+gatsby-plugin-catch-links@^4.25.0:
+  version "4.25.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-catch-links/-/gatsby-plugin-catch-links-4.25.0.tgz#4cebe0d3a247b072832de10809827c760b34595f"
+  integrity sha512-pfXr2Ad2J2m7B0cq+2itDjmcOLmQ/S+0oOlrRj0AgHbSoqDa04s6DhVx5yIuYA+sfkk8gXXtgl/jJLyxi85gYw==
   dependencies:
     "@babel/runtime" "^7.15.4"
     escape-string-regexp "^1.0.5"
