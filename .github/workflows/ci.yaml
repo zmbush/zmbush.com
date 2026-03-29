@@ -1,6 +1,7 @@
 name: Continuous Integration
 'on':
   pull_request:
+  merge_group:
   push:
     branches:
       - main
@@ -18,7 +19,7 @@ jobs:
         with:
           node-version: '16'
       - name: Build Cache
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ~/.npm
           key: "${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}"
@@ -29,13 +30,3 @@ jobs:
         run: yarn build
       - name: Lint
         run: yarn lint
-      # - name: Test
-      #   run: yarn test
-      # - name: Upload Codecov
-      #   uses: codecov/codecov-action@v2
-      #   with:
-      #     token: '${{ secrets.CODECOV_TOKEN }}'
-      #     files: coverage/coverage-final.json
-      #     flags: ui
-      #     fail_ci_if_error: true
-      #     verbose: true

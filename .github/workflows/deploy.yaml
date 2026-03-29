@@ -26,7 +26,7 @@ jobs:
         with:
           node-version: '16'
       - name: Build Cache
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ~/.npm
           key: "${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}"
@@ -39,7 +39,7 @@ jobs:
         working-directory: main
       - name: Configure Git
         run: |
-          git config --global user.email "zach+deploy@zmbush.com"
+          git config --global user.email "zoey+deploy@zmbush.com"
           git config --global user.name "zmbush.com Deploy Script"
       - name: Prepare site directory
         working-directory: site
