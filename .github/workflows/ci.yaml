@@ -29,13 +29,3 @@ jobs:
         run: yarn build
       - name: Lint
         run: yarn lint
-      # - name: Test
-      #   run: yarn test
-      # - name: Upload Codecov
-      #   uses: codecov/codecov-action@v2
-      #   with:
-      #     token: '${{ secrets.CODECOV_TOKEN }}'
-      #     files: coverage/coverage-final.json
-      #     flags: ui
-      #     fail_ci_if_error: true
-      #     verbose: true
