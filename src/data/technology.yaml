@@ -55,3 +55,11 @@
   url: https://www.mapeditor.org/
   tagline: Flexible level editor
   type: TOOL
+- ref: gatsby
+  name: Gatsby
+  url: https://www.gatsbyjs.com/
+  tagline: Static is fast. Static now scales.
+- ref: jekyll
+  name: Jekyll
+  url: https://jekyllrb.com/
+  tagline: Simple, blog-aware, static sites.

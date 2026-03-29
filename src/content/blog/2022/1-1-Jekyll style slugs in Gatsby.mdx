@@ -1,0 +1,45 @@
+---
+technologies: [ruby, jekyll, node, gatsby]
+draft: true
+author: zmbush
+---
+
+When I first began using [Gatsby](tech:gatsby), I was migrating an existing site from
+[Jekyll](tech:jekyll). One of the biggest things I missed when I migrated over was the way that
+Jekyll would infer the post date and title from the file name, rather than needing to specify it in
+the frontmatter. I looked around briefly, and didn't see an obvious plugin that would accomplish my
+goals, so I set about making one myself.
+
+As it turns out gatsby makes creating plugins very simple, all that is needed is to add an
+appropriate function to `gatsby-node.js`. I prefer to write in typescript, so that requires a bit of
+preparation by using `ts-node` to load the typescript implementation of `onCreateNode`.
+
+`embed:gatsby-node.js`
+
+First read frontmatter
+
+`embed:util/onCreateNode.ts{snippet:frontmatter}`
+
+Then construct slug
+
+`embed:util/onCreateNode.ts{snippet:constructSlug}`
+
+Then path formatPath
+
+`embed:util/onCreateNode.ts{snippet:formatPath}`
+
+then read date
+
+`embed:util/onCreateNode.ts{snippet:readDate}`
+
+final read title
+
+`embed:util/onCreateNode.ts{snippet:readTitle}`
+
+`embed:util/onCreateNode.ts{snippet:makeFields}`
+
+Begin the initial parsing of the frontmatter.
+
+AND THEN I DIED
+
+Don't worry though, I regenerated

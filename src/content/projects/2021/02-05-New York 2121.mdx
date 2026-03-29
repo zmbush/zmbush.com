@@ -47,7 +47,7 @@ in the Entities, and since they are just plain rust functions, there continues t
 incentive to modularize. In _New York 2121_ there were some _Systems_ that were as short as 3 lines
 long, like this one:
 
-```rust {2-4}
+```rust {highlight:2-4}
 fn update_moving_state(mut player_query: Query<&mut Player>) {
     for mut player in player_query.iter_mut() {
         player.moving = player.impulse.x != 0. || player.impulse.y != 0.;
