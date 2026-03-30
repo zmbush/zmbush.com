@@ -11888,10 +11888,17 @@ scheduler@^0.20.2:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
 
-schema-dts@^1.0.0:
+schema-dts-lib@^1.0.0:
   version "1.0.0"
-  resolved "https://registry.yarnpkg.com/schema-dts/-/schema-dts-1.0.0.tgz#60e8a0f2cef5e644c44c843b03d35b37a4423c01"
-  integrity sha512-9t8gnY3RW2CbpuvA0pIpcaHFXkJTeNnWR4uaWI+PiYSfpuEeMw+2Q0Gac6YTnQb1B8TR6/+G71gQWuSE7dq6Zw==
+  resolved "https://registry.yarnpkg.com/schema-dts-lib/-/schema-dts-lib-1.0.0.tgz#e10f1e06604fb6c5dcf2d7d56993447a6139364a"
+  integrity sha512-9MEO5vpQH9JdBioUupqluzxSYxPLjhmqRUudk15adUl/ypnRsM2/M1kN3AmVJQeG7nZqcL68H8JlGqQQT6vy9A==
+
+schema-dts@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/schema-dts/-/schema-dts-2.0.0.tgz#9b2550e9e6d5230773376b27615c756226609b6e"
+  integrity sha512-t7NoCy3Rn5GHGx6p7s1qIYK/AeIb8ZxJNR9WUNFkwMv2CiiGZBmqqYWc2FlZVm5ZbiHMY4OvBWhj7QtyrFO2Jw==
+  dependencies:
+    schema-dts-lib "^1.0.0"
 
 schema-utils@2.7.0:
   version "2.7.0"
