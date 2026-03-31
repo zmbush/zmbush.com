@@ -41,7 +41,7 @@
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-mdx": "^1.16.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react": "^7.37.5",
     "gatsby": "^4.4.0",
     "gatsby-plugin-canonical-urls": "^4.25.0",
     "gatsby-plugin-catch-links": "^4.25.0",
