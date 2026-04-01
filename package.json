@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@emotion/react": "^11.7.1",
-    "@emotion/styled": "^11.6.0",
+    "@emotion/styled": "^11.14.1",
     "@fontsource/roboto": "^4.5.1",
     "@fontsource/roboto-mono": "^4.5.0",
     "@mdx-js/mdx": "^1.6.22",
